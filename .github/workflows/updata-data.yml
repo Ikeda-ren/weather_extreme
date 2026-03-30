@@ -3,7 +3,7 @@ name: Update weather data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: write
@@ -16,32 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create data folder
-        run: mkdir -p data
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Write sample JSON
-        run: |
-          cat > data/nara-dailyMaxTemp-all.json <<'EOF'
-          {
-            "updatedAt": "GitHub Actionsの初期サンプル",
-            "rows": [
-              {
-                "stationName": "奈良",
-                "startDate": "1953/5",
-                "ranks": [
-                  { "rank": 1, "value": 39.3, "date": "1994/08/08", "highlightLive": false, "highlightWithinYear": false },
-                  { "rank": 2, "value": 39.2, "date": "1994/08/07", "highlightLive": false, "highlightWithinYear": false },
-                  { "rank": 3, "value": 38.9, "date": "2024/08/01", "highlightLive": false, "highlightWithinYear": true }
-                ]
-              }
-            ]
-          }
-          EOF
+      - name: Create data
+        run: python scripts/update_weather_data.py
 
       - name: Commit data if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/nara-dailyMaxTemp-all.json
+          git add data
           git diff --cached --quiet || git commit -m "Update weather data"
           git push
