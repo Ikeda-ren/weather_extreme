@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T00:40:00+09:00",
+  "updatedAt": "2026-03-31T04:30:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMinTemp",
   "month": "3",
@@ -66,15 +66,15 @@
         },
         {
           "rank": 9,
-          "value": 14.8,
-          "date": "1966年3月4日（昭和41年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "value": 14.2,
+          "date": "2026年3月31日（令和8年）",
+          "highlightLive": true,
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
-          "value": 15.3,
-          "date": "2023年3月23日（令和5年）",
+          "value": 14.8,
+          "date": "1966年3月4日（昭和41年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -149,7 +149,7 @@
         },
         {
           "rank": 10,
-          "value": 11.3,
+          "value": 11.1,
           "date": "2026年3月31日（令和8年）",
           "highlightLive": true,
           "highlightWithinYear": true
@@ -301,7 +301,7 @@
         },
         {
           "rank": 10,
-          "value": 14.4,
+          "value": 13.6,
           "date": "2026年3月31日（令和8年）",
           "highlightLive": true,
           "highlightWithinYear": true
@@ -363,7 +363,7 @@
         },
         {
           "rank": 8,
-          "value": 12.2,
+          "value": 12.1,
           "date": "2026年3月31日（令和8年）",
           "highlightLive": true,
           "highlightWithinYear": true
@@ -391,21 +391,21 @@
         {
           "rank": 1,
           "value": 10.8,
-          "date": "2021年3月28日（令和3年）",
+          "date": "2026年3月30日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 2,
           "value": 10.8,
-          "date": "2020年3月27日（令和2年）",
+          "date": "2021年3月28日（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
           "value": 10.8,
-          "date": "2010年3月2日（平成22年）",
+          "date": "2020年3月27日（令和2年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -439,7 +439,7 @@
         },
         {
           "rank": 8,
-          "value": 12.4,
+          "value": 12.2,
           "date": "2026年3月31日（令和8年）",
           "highlightLive": true,
           "highlightWithinYear": true
