@@ -48,6 +48,7 @@ function renderTable(rows) {
         if (r.highlightLive) classes.push("live-in-rank");
         if (r.highlightWithinYear) classes.push("within-year");
         td.className = classes.join(" ");
+
         td.innerHTML = `
           <div class="value">${escapeHtml(r.value)}</div>
           <div class="date">${escapeHtml(r.date)}</div>
@@ -78,8 +79,8 @@ async function loadTable() {
   try {
     const res = await fetch(file, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
 
+    const data = await res.json();
     makeHeader();
     renderTable(data.rows || []);
     statusEl.textContent = `更新: ${data.updatedAt || "-"} / 地点数: ${data.rows?.length ?? 0}`;
@@ -94,4 +95,5 @@ makeHeader();
 loadBtn.addEventListener("click", loadTable);
 loadTable();
 
+// ページは1分ごとに再読込
 setInterval(loadTable, 60 * 1000);
