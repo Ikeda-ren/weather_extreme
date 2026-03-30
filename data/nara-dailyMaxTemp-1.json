@@ -1,80 +1,460 @@
 {
-  "updatedAt": "2026-03-30T17:30:00+09:00",
+  "updatedAt": "2026-03-30T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxTemp",
   "month": "1",
   "rows": [
     {
       "stationName": "奈良",
-      "startDate": "1954/12",
+      "startDate": "昭和29年12月",
       "ranks": [
         {
           "rank": 1,
-          "value": 21.1,
-          "date": "2026/03/30",
+          "value": 23.9,
+          "date": "令和8年3月30日",
           "highlightLive": true,
           "highlightWithinYear": true
         },
         {
           "rank": 2,
           "value": 18.9,
-          "date": "1960/01/05",
+          "date": "昭和35年1月5日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
           "value": 18.4,
-          "date": "2000/01/06",
+          "date": "平成12年1月6日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 18.2,
-          "date": "1997/01/01",
+          "date": "平成9年1月1日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
           "value": 17.7,
-          "date": "1995/01/09",
+          "date": "平成7年1月9日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
           "value": 17.6,
-          "date": "1969/01/27",
+          "date": "昭和44年1月27日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 17.4,
-          "date": "2021/01/26",
+          "date": "令和3年1月26日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
           "value": 17.4,
-          "date": "1980/01/28",
+          "date": "昭和55年1月28日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
           "value": 16.9,
-          "date": "2020/01/28",
+          "date": "令和2年1月28日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
           "value": 16.8,
-          "date": "2010/01/20",
+          "date": "平成22年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "針",
+      "startDate": "昭和54年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 20.3,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 16.1,
+          "date": "平成14年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 15.3,
+          "date": "令和5年1月13日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 15.3,
+          "date": "平成9年1月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 15.3,
+          "date": "平成元年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 15.2,
+          "date": "令和8年1月19日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 7,
+          "value": 15,
+          "date": "昭和62年1月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 14.6,
+          "date": "平成2年1月10日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 14.5,
+          "date": "平成22年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 14.5,
+          "date": "平成14年1月15日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "大宇陀",
+      "startDate": "昭和54年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 21.6,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 18.2,
+          "date": "平成2年1月10日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 17.9,
+          "date": "平成9年1月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 17.6,
+          "date": "令和8年1月19日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 17.3,
+          "date": "令和5年1月13日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 17.1,
+          "date": "平成14年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 16.8,
+          "date": "平成22年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 16.8,
+          "date": "昭和62年1月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 16.7,
+          "date": "平成7年1月9日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 16.4,
+          "date": "平成12年1月6日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "五條",
+      "startDate": "平成18年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 24.4,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 17.8,
+          "date": "平成22年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 17.7,
+          "date": "令和8年1月17日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 4,
+          "value": 17.7,
+          "date": "令和5年1月13日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 17.5,
+          "date": "令和2年1月28日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 17.1,
+          "date": "平成30年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 17,
+          "date": "令和3年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 16.8,
+          "date": "令和8年1月19日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 9,
+          "value": 16.8,
+          "date": "令和5年1月12日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 16.6,
+          "date": "令和2年1月8日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "上北山",
+      "startDate": "昭和54年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 21.6,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 17.6,
+          "date": "平成22年1月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 17,
+          "date": "昭和63年1月22日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 16.5,
+          "date": "令和8年1月19日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 16.4,
+          "date": "令和8年1月18日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 16,
+          "date": "昭和54年1月9日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 15.8,
+          "date": "昭和58年1月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 15.7,
+          "date": "平成14年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 15.6,
+          "date": "令和8年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 10,
+          "value": 15.6,
+          "date": "平成30年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "風屋",
+      "startDate": "昭和53年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 19.9,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 17.6,
+          "date": "令和8年1月17日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 17.1,
+          "date": "令和2年1月8日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 16.7,
+          "date": "令和8年1月16日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 16.3,
+          "date": "令和8年1月18日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 16.3,
+          "date": "平成28年1月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 16.2,
+          "date": "昭和63年1月22日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 15.9,
+          "date": "平成22年1月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 15.7,
+          "date": "昭和55年1月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 15.5,
+          "date": "平成17年1月29日",
           "highlightLive": false,
           "highlightWithinYear": false
         }

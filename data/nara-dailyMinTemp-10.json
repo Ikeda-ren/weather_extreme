@@ -1,80 +1,460 @@
 {
-  "updatedAt": "2026-03-30T17:30:00+09:00",
+  "updatedAt": "2026-03-30T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMinTemp",
   "month": "10",
   "rows": [
     {
       "stationName": "奈良",
-      "startDate": "1983/1",
+      "startDate": "昭和58年1月",
       "ranks": [
         {
           "rank": 1,
           "value": 2.3,
-          "date": "1983/10/31",
+          "date": "昭和58年10月31日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
           "value": 3,
-          "date": "1958/10/29",
+          "date": "昭和33年10月29日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
           "value": 3,
-          "date": "1958/10/28",
+          "date": "昭和33年10月28日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 3.2,
-          "date": "1986/10/20",
+          "date": "昭和61年10月20日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
           "value": 3.2,
-          "date": "1956/10/21",
+          "date": "昭和31年10月21日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
           "value": 3.3,
-          "date": "1978/10/31",
+          "date": "昭和53年10月31日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 3.4,
-          "date": "1981/10/27",
+          "date": "昭和56年10月27日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
           "value": 3.5,
-          "date": "1964/10/31",
+          "date": "昭和39年10月31日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
           "value": 3.6,
-          "date": "1970/10/30",
+          "date": "昭和45年10月30日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
           "value": 3.6,
-          "date": "1962/10/23",
+          "date": "昭和37年10月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "針",
+      "startDate": "昭和58年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": -2,
+          "date": "昭和58年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": -1.5,
+          "date": "昭和61年10月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": -1.4,
+          "date": "昭和57年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": -1,
+          "date": "昭和56年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": -0.7,
+          "date": "昭和61年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": -0.7,
+          "date": "昭和61年10月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": -0.7,
+          "date": "昭和59年10月30日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": -0.5,
+          "date": "平成14年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": -0.5,
+          "date": "昭和58年10月30日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": -0.3,
+          "date": "昭和61年10月19日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "大宇陀",
+      "startDate": "昭和58年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": -1.1,
+          "date": "昭和58年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": -0.8,
+          "date": "昭和61年10月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": -0.1,
+          "date": "平成14年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 0,
+          "date": "昭和61年10月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 0.2,
+          "date": "昭和57年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 0.2,
+          "date": "昭和56年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 0.3,
+          "date": "昭和61年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 0.4,
+          "date": "昭和59年10月30日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 0.5,
+          "date": "昭和61年10月19日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 0.5,
+          "date": "昭和59年10月22日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "五條",
+      "startDate": "平成29年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2.3,
+          "date": "平成29年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2.4,
+          "date": "平成26年10月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 3,
+          "date": "令和2年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 3,
+          "date": "平成27年10月26日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 3.5,
+          "date": "平成19年10月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 3.6,
+          "date": "令和3年10月24日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 3.8,
+          "date": "令和4年10月26日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 4,
+          "date": "平成23年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 4.1,
+          "date": "平成29年10月30日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 4.2,
+          "date": "令和7年10月29日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        }
+      ]
+    },
+    {
+      "stationName": "上北山",
+      "startDate": "昭和58年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 0,
+          "date": "昭和58年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 0.5,
+          "date": "昭和61年10月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 0.6,
+          "date": "昭和61年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 1.1,
+          "date": "昭和57年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 1.6,
+          "date": "昭和56年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 1.8,
+          "date": "昭和61年10月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 1.9,
+          "date": "昭和59年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 1.9,
+          "date": "昭和59年10月22日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 2,
+          "date": "昭和59年10月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 2.5,
+          "date": "平成26年10月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "風屋",
+      "startDate": "昭和58年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1.6,
+          "date": "昭和58年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2.9,
+          "date": "昭和57年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 3,
+          "date": "昭和61年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 3.2,
+          "date": "昭和61年10月20日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 3.3,
+          "date": "平成14年10月31日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 3.3,
+          "date": "昭和56年10月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 4,
+          "date": "昭和58年10月26日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 4.2,
+          "date": "平成26年10月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 4.2,
+          "date": "平成9年10月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 4.3,
+          "date": "昭和61年10月21日",
           "highlightLive": false,
           "highlightWithinYear": false
         }

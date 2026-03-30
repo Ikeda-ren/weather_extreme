@@ -1,80 +1,460 @@
 {
-  "updatedAt": "2026-03-30T17:30:00+09:00",
+  "updatedAt": "2026-03-30T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxTemp",
   "month": "11",
   "rows": [
     {
       "stationName": "奈良",
-      "startDate": "2023/1",
+      "startDate": "令和5年1月",
       "ranks": [
         {
           "rank": 1,
           "value": 27.5,
-          "date": "2023/11/05",
+          "date": "令和5年11月5日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
           "value": 26.8,
-          "date": "1977/11/01",
+          "date": "昭和52年11月1日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
           "value": 26.6,
-          "date": "2023/11/06",
+          "date": "令和5年11月6日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 26.5,
-          "date": "2020/11/19",
+          "date": "令和2年11月19日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
           "value": 25.9,
-          "date": "1964/11/01",
+          "date": "昭和39年11月1日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
           "value": 25.7,
-          "date": "1977/11/08",
+          "date": "昭和52年11月8日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 25.6,
-          "date": "2023/11/03",
+          "date": "令和5年11月3日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
           "value": 25.3,
-          "date": "1989/11/08",
+          "date": "平成元年11月8日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
           "value": 25.2,
-          "date": "2023/11/04",
+          "date": "令和5年11月4日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
           "value": 25.1,
-          "date": "2024/11/04",
+          "date": "令和6年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "針",
+      "startDate": "令和5年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 24.4,
+          "date": "令和5年11月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 24.3,
+          "date": "令和5年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 24.2,
+          "date": "令和5年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 24.1,
+          "date": "平成12年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 23.4,
+          "date": "令和6年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 23.4,
+          "date": "令和2年11月19日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 23.4,
+          "date": "平成23年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 23.3,
+          "date": "令和5年11月6日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 22.8,
+          "date": "平成21年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 22.5,
+          "date": "平成8年11月9日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "大宇陀",
+      "startDate": "令和5年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 25.8,
+          "date": "令和5年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 25.7,
+          "date": "平成21年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 25.2,
+          "date": "平成8年11月9日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 25.1,
+          "date": "令和2年11月19日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 24.9,
+          "date": "令和5年11月6日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 24.4,
+          "date": "平成12年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 24.3,
+          "date": "平成23年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 24.1,
+          "date": "令和5年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 24.1,
+          "date": "令和5年11月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 24.1,
+          "date": "平成元年11月8日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "五條",
+      "startDate": "令和5年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 26.8,
+          "date": "令和5年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 25.4,
+          "date": "平成21年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 25.3,
+          "date": "令和5年11月6日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 25.2,
+          "date": "令和2年11月19日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 25.1,
+          "date": "令和5年11月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 25,
+          "date": "令和5年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 24.4,
+          "date": "令和8年3月30日",
+          "highlightLive": true,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 8,
+          "value": 24.4,
+          "date": "平成23年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 24.2,
+          "date": "令和5年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 24.2,
+          "date": "平成23年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "上北山",
+      "startDate": "令和5年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 24.2,
+          "date": "令和5年11月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 24,
+          "date": "平成15年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 23.5,
+          "date": "令和5年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 23.5,
+          "date": "平成12年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 23.3,
+          "date": "平成15年11月7日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 23.2,
+          "date": "平成23年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 22.9,
+          "date": "平成12年11月7日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 22.8,
+          "date": "令和3年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 22.7,
+          "date": "令和6年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 22.7,
+          "date": "令和5年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "風屋",
+      "startDate": "令和5年1月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 24,
+          "date": "令和5年11月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 23.9,
+          "date": "令和5年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 23.6,
+          "date": "平成12年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 23.5,
+          "date": "平成15年11月7日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 23.4,
+          "date": "平成15年11月1日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 23.3,
+          "date": "平成26年11月6日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 23.1,
+          "date": "平成30年11月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 23,
+          "date": "令和6年11月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 22.8,
+          "date": "令和6年11月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 22.8,
+          "date": "平成16年11月1日",
           "highlightLive": false,
           "highlightWithinYear": false
         }

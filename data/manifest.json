@@ -1,7 +1,8 @@
 {
-  "updatedAt": "2026-03-30T17:30:00+09:00",
+  "updatedAt": "2026-03-30T17:50:00+09:00",
   "files": [
     "64_nara-dailyMaxTemp-all.json",
+    "manifest.json",
     "nara-dailyMaxTemp-1.json",
     "nara-dailyMaxTemp-10.json",
     "nara-dailyMaxTemp-11.json",

@@ -1,80 +1,384 @@
 {
-  "updatedAt": "2026-03-30T17:30:00+09:00",
+  "updatedAt": "2026-03-30T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxTemp",
   "month": "all",
   "rows": [
     {
-      "stationName": "奈良",
-      "startDate": "1953/52",
+      "stationName": "針",
+      "startDate": "昭和53年12月",
       "ranks": [
         {
           "rank": 1,
-          "value": 39.3,
-          "date": "1994/08/08",
+          "value": 36.1,
+          "date": "令和7年8月31日",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 2,
-          "value": 39.2,
-          "date": "1994/08/07",
+          "value": 36,
+          "date": "令和2年8月10日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 39.2,
-          "date": "1994/08/06",
+          "value": 35.7,
+          "date": "令和5年7月27日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 38.4,
-          "date": "2024/08/03",
+          "value": 35.5,
+          "date": "令和7年9月1日",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 5,
-          "value": 38.4,
-          "date": "1994/08/05",
+          "value": 35.5,
+          "date": "令和7年7月30日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 35.3,
+          "date": "令和5年7月26日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 6,
-          "value": 38.3,
-          "date": "2025/08/31",
-          "highlightLive": false,
-          "highlightWithinYear": true
-        },
-        {
           "rank": 7,
-          "value": 38.2,
-          "date": "2025/07/30",
+          "value": 35.3,
+          "date": "令和4年7月2日",
           "highlightLive": false,
-          "highlightWithinYear": true
+          "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 38.1,
-          "date": "2018/07/19",
+          "value": 35.3,
+          "date": "令和4年7月1日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 38.1,
-          "date": "2001/08/01",
+          "value": 35.3,
+          "date": "平成30年7月19日",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
-          "value": 38,
-          "date": "2020/08/16",
+          "value": 35.3,
+          "date": "平成6年8月8日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "大宇陀",
+      "startDate": "昭和53年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 36.5,
+          "date": "令和2年8月10日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 36.3,
+          "date": "令和7年7月30日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 36.3,
+          "date": "平成7年8月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 36,
+          "date": "令和7年8月31日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 35.7,
+          "date": "令和7年7月29日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 35.7,
+          "date": "令和6年8月4日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 35.6,
+          "date": "令和6年8月14日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 35.6,
+          "date": "令和2年8月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 35.5,
+          "date": "令和6年8月22日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 35.5,
+          "date": "令和6年8月13日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "五條",
+      "startDate": "平成17年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 37.9,
+          "date": "令和6年8月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 37.8,
+          "date": "令和6年8月3日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 37.8,
+          "date": "令和3年8月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 37.7,
+          "date": "令和7年8月3日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 37.7,
+          "date": "令和7年7月30日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 37.7,
+          "date": "令和7年7月29日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 7,
+          "value": 37.7,
+          "date": "令和6年8月13日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 37.6,
+          "date": "令和2年8月21日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 37.6,
+          "date": "令和2年8月17日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 37.5,
+          "date": "令和6年8月14日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "上北山",
+      "startDate": "昭和53年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 39.3,
+          "date": "令和2年8月17日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 39.1,
+          "date": "令和2年8月15日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 38.7,
+          "date": "令和6年7月29日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 38.6,
+          "date": "令和6年7月27日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 38.5,
+          "date": "令和7年8月6日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 6,
+          "value": 38.5,
+          "date": "令和6年8月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 38.4,
+          "date": "令和2年8月16日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 38.4,
+          "date": "平成25年8月11日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 38.3,
+          "date": "令和2年8月14日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 38.3,
+          "date": "平成30年7月23日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "風屋",
+      "startDate": "昭和52年12月",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 39.9,
+          "date": "令和6年8月2日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 39.4,
+          "date": "令和2年8月17日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 39.4,
+          "date": "平成25年8月12日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 39,
+          "date": "令和6年8月5日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 39,
+          "date": "平成6年8月7日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 38.9,
+          "date": "平成25年8月11日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 38.6,
+          "date": "令和7年8月6日",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 8,
+          "value": 38.6,
+          "date": "令和6年8月9日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 38.6,
+          "date": "令和6年8月8日",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 38.6,
+          "date": "令和6年7月29日",
           "highlightLive": false,
           "highlightWithinYear": false
         }
