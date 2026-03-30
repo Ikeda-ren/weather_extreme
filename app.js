@@ -1,6 +1,5 @@
 const prefSelect = document.getElementById("prefSelect");
 const monthSelect = document.getElementById("monthSelect");
-const loadBtn = document.getElementById("loadBtn");
 const statusEl = document.getElementById("status");
 const tableHead = document.getElementById("tableHead");
 const tableBody = document.getElementById("tableBody");
@@ -76,8 +75,8 @@ async function loadTable() {
   const pref = prefSelect.value;
   const element = getSelectedElement();
   const month = monthSelect.value;
-
   const file = `./data/${pref}-${element}-${month}.json?t=${Date.now()}`;
+
   statusEl.textContent = "読み込み中...";
 
   try {
@@ -96,8 +95,9 @@ async function loadTable() {
 }
 
 makeHeader();
-loadBtn.addEventListener("click", loadTable);
 
+prefSelect.addEventListener("change", loadTable);
+monthSelect.addEventListener("change", loadTable);
 document.querySelectorAll('input[name="element"]').forEach(el => {
   el.addEventListener("change", loadTable);
 });
