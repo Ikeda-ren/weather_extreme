@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sys
+import time
 import html as html_lib
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -85,31 +86,31 @@ STATIONS = [
 
 ELEMENTS = {
     "dailyMaxTemp": {
-        "label": "日最高気温の高い方から",
+        "labels": ["日最高気温の高い方から", "日最高気温"],
         "direction": "desc",
         "category": "temp",
         "live_mode": "temp_max_day",
     },
     "dailyMinTemp": {
-        "label": "日最低気温の低い方から",
+        "labels": ["日最低気温の低い方から", "日最低気温"],
         "direction": "asc",
         "category": "temp",
         "live_mode": "temp_min_day",
     },
     "dailyPrecip": {
-        "label": "日降水量の多い方から",
+        "labels": ["日降水量の多い方から", "日降水量"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_day_sum",
     },
     "max10mPrecip": {
-        "label": "日最大10分間降水量の多い方から",
+        "labels": ["日最大10分間降水量の多い方から", "日最大10分間降水量"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_10m_max",
     },
     "max1hPrecip": {
-        "label": "日最大1時間降水量の多い方から",
+        "labels": ["日最大1時間降水量の多い方から", "日最大1時間降水量"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_1h_max",
@@ -119,17 +120,25 @@ ELEMENTS = {
 MONTHS = ["all"] + [str(i) for i in range(1, 13)]
 
 
-def fetch_text(url: str) -> str:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0",
-            "Accept-Language": "ja,en;q=0.8",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=60) as res:
-        raw = res.read()
-    return raw.decode("utf-8", errors="ignore")
+def fetch_text(url: str, retries: int = 3, wait_sec: float = 1.5) -> str:
+    last_error = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": "Mozilla/5.0",
+                    "Accept-Language": "ja,en;q=0.8",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=60) as res:
+                raw = res.read()
+            return raw.decode("utf-8", errors="ignore")
+        except Exception as e:
+            last_error = e
+            if attempt < retries - 1:
+                time.sleep(wait_sec)
+    raise last_error
 
 
 def fetch_json(url: str):
@@ -152,7 +161,7 @@ def normalize_spaces(s: str) -> str:
 def trim_number(v):
     v = float(v)
     if v.is_integer():
-      return int(v)
+        return int(v)
     return round(v, 1)
 
 
@@ -228,84 +237,85 @@ def build_rank_url(station: dict, month: str) -> str:
     )
 
 
-def html_to_lines(html: str):
-    html = re.sub(r"(?is)<script.*?>.*?</script>", "", html)
-    html = re.sub(r"(?is)<style.*?>.*?</style>", "", html)
-    html = re.sub(r"(?i)<br\s*/?>", "\n", html)
-    html = re.sub(r"(?i)</(tr|td|th|p|div|li|h1|h2|h3|h4|h5|h6|table|tbody|thead)>", "\n", html)
-    html = re.sub(r"(?i)<[^>]+>", "", html)
-    text = html_lib.unescape(html)
-    lines = [normalize_spaces(x) for x in text.splitlines()]
-    return [x for x in lines if x]
+def strip_tags(text: str) -> str:
+    text = re.sub(r"(?i)<br\s*/?>", "\n", text)
+    text = re.sub(r"(?is)<.*?>", "", text)
+    text = html_lib.unescape(text)
+    return normalize_spaces(text)
 
 
-def is_new_element_line(line: str) -> bool:
-    keywords = [
-        "方から", "日降水量", "日最大", "月降水量", "年降水量",
-        "月平均気温", "年平均気温", "日最小相対湿度",
-        "日最大風速", "日最大瞬間風速", "月間日照時間"
-    ]
-    return any(k in line for k in keywords)
+def get_row_blocks(html: str):
+    return re.findall(r"(?is)<tr[^>]*>.*?</tr>", html)
 
 
-def sort_records(records, direction: str):
-    if direction == "desc":
-        return sorted(
-            records,
-            key=lambda r: (float(r["value"]), parse_date_ymd(r["_date_raw"])),
-            reverse=True
-        )
-    return sorted(
-        records,
-        key=lambda r: (float(r["value"]), -parse_date_ymd(r["_date_raw"]).timestamp())
-    )
+def get_cells_from_row(row_html: str):
+    cells = re.findall(r"(?is)<t[dh][^>]*>(.*?)</t[dh]>", row_html)
+    return [strip_tags(c) for c in cells]
 
 
-def parse_rank_section(lines, target_label: str, direction: str):
-    start_idx = None
-    for i, line in enumerate(lines):
-        if normalize_spaces(line) == target_label:
-            start_idx = i
-            break
+def find_target_row(html: str, label_candidates):
+    rows = get_row_blocks(html)
+    for row_html in rows:
+        cells = get_cells_from_row(row_html)
+        if not cells:
+            continue
+        first = cells[0]
+        for label in label_candidates:
+            if label in first:
+                return cells
+    return None
 
-    if start_idx is None:
+
+def parse_rank_cells(cells, direction: str):
+    if len(cells) < 3:
         return None
 
-    section = []
-    for line in lines[start_idx + 1:]:
-        if is_new_element_line(line):
+    # 最初のセルは要素名、最後の方に統計期間
+    rank_cells = cells[1:11]
+
+    start_date = ""
+    for cell in reversed(cells):
+        m = re.search(r"(\d{4}/\d{1,2})", cell)
+        if m:
+            start_date = m.group(1)
             break
-        section.append(line)
-
-    section_text = "".join(section)
-
-    value_matches = re.findall(r"\)(-?\d+(?:\.\d+)?)", section_text)
-    date_matches = re.findall(r"\((\d{4}/\d{1,2}/\d{1,2})\)", section_text)
-    period_matches = re.findall(r"(?<!\d)(\d{4}/\d{1,2})(?!/\d)", section_text)
-
-    start_date = period_matches[0] if period_matches else ""
-
-    n = min(10, len(value_matches), len(date_matches))
-    if n == 0:
-        return None
 
     records = []
-    for i in range(n):
-        raw_date = normalize_ymd(date_matches[i])
+    for idx, cell in enumerate(rank_cells, start=1):
+        date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", cell)
+        value_match = re.search(r"(-?\d+(?:\.\d+)?)", cell)
+        if not date_match or not value_match:
+            continue
+
+        raw_date = normalize_ymd(date_match.group(1))
+        value = trim_number(value_match.group(1))
+
         records.append({
-            "rank": i + 1,
-            "value": trim_number(value_matches[i]),
+            "rank": idx,
+            "value": value,
             "date": format_dual_ymd(raw_date),
             "_date_raw": raw_date,
         })
 
-    records = sort_records(records, direction)[:10]
-    for idx, rec in enumerate(records, start=1):
-        rec["rank"] = idx
+    if not records:
+        return None
+
+    if direction == "desc":
+        records.sort(
+            key=lambda r: (float(r["value"]), parse_date_ymd(r["_date_raw"])),
+            reverse=True,
+        )
+    else:
+        records.sort(
+            key=lambda r: (float(r["value"]), -parse_date_ymd(r["_date_raw"]).timestamp())
+        )
+
+    for i, rec in enumerate(records[:10], start=1):
+        rec["rank"] = i
 
     return {
         "startDate": format_dual_ym(start_date) if start_date else "",
-        "records": records,
+        "records": records[:10],
     }
 
 
@@ -327,14 +337,16 @@ def get_today_chunk_keys(latest_dt: datetime):
     out = []
     cur = latest_dt.replace(hour=0, minute=0, second=0, microsecond=0)
     end = latest_dt.replace(hour=(latest_dt.hour // 3) * 3, minute=0, second=0, microsecond=0)
-
     while cur <= end:
         out.append(point_chunk_key(cur))
         cur += timedelta(hours=3)
     return out
 
 
-def extract_today_series(point_json: dict, latest_dt: datetime, field_name: str):
+def extract_today_series(point_json: dict, latest_dt: datetime, field_names):
+    if isinstance(field_names, str):
+        field_names = [field_names]
+
     out = []
     today = latest_dt.strftime("%Y%m%d")
 
@@ -342,26 +354,28 @@ def extract_today_series(point_json: dict, latest_dt: datetime, field_name: str)
         if not str(ts).startswith(today):
             continue
 
-        val = item.get(field_name)
-        if isinstance(val, list) and len(val) >= 1 and val[0] is not None:
-            try:
-                obs_dt = datetime.strptime(str(ts), "%Y%m%d%H%M%S").replace(tzinfo=JST)
-                out.append((obs_dt, float(val[0])))
-            except Exception:
-                pass
+        for field_name in field_names:
+            val = item.get(field_name)
+            if isinstance(val, list) and len(val) >= 1 and val[0] is not None:
+                try:
+                    obs_dt = datetime.strptime(str(ts), "%Y%m%d%H%M%S").replace(tzinfo=JST)
+                    out.append((obs_dt, float(val[0])))
+                    break
+                except Exception:
+                    pass
 
     out.sort(key=lambda x: x[0])
     return out
 
 
-def fetch_today_all_series(amedas_code: str, latest_dt: datetime, field_name: str):
+def fetch_today_all_series(amedas_code: str, latest_dt: datetime, field_names):
     all_values = []
     seen = set()
 
     for ck in get_today_chunk_keys(latest_dt):
         try:
             point_json = fetch_point_chunk(amedas_code, ck)
-            series = extract_today_series(point_json, latest_dt, field_name)
+            series = extract_today_series(point_json, latest_dt, field_names)
             for obs_dt, val in series:
                 key = obs_dt.strftime("%Y%m%d%H%M%S")
                 if key not in seen:
@@ -374,7 +388,14 @@ def fetch_today_all_series(amedas_code: str, latest_dt: datetime, field_name: st
     return all_values
 
 
-def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str):
+def should_show_live(month: str, latest_dt: datetime) -> bool:
+    return month == "all" or month == str(latest_dt.month)
+
+
+def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str, month: str):
+    if not should_show_live(month, latest_dt):
+        return None
+
     if mode == "temp_max_day":
         series = fetch_today_all_series(amedas_code, latest_dt, "temp")
         if not series:
@@ -388,20 +409,20 @@ def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str):
         best = min(series, key=lambda x: (x[1], -x[0].timestamp()))
 
     elif mode == "precip_day_sum":
-        series = fetch_today_all_series(amedas_code, latest_dt, "precipitation10m")
+        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
         if not series:
             return None
         total = sum(v for _, v in series)
         best = (latest_dt, total)
 
     elif mode == "precip_10m_max":
-        series = fetch_today_all_series(amedas_code, latest_dt, "precipitation10m")
+        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
         if not series:
             return None
         best = max(series, key=lambda x: (x[1], x[0]))
 
     elif mode == "precip_1h_max":
-        series = fetch_today_all_series(amedas_code, latest_dt, "precipitation10m")
+        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
         if not series:
             return None
         best_val = None
@@ -493,20 +514,22 @@ def main():
                 try:
                     url = build_rank_url(station, month)
                     html = fetch_text(url)
-                    lines = html_to_lines(html)
+                    cells = find_target_row(html, element_def["labels"])
 
-                    parsed = parse_rank_section(
-                        lines,
-                        element_def["label"],
-                        element_def["direction"]
-                    )
+                    if not cells:
+                        print(f"row not found: {station['stationName']} {element_key} {month}", file=sys.stderr)
+                        continue
+
+                    parsed = parse_rank_cells(cells, element_def["direction"])
                     if not parsed:
+                        print(f"parse failed: {station['stationName']} {element_key} {month}", file=sys.stderr)
                         continue
 
                     live_info = fetch_today_live_extreme(
                         station["amedasCode"],
                         latest_dt,
-                        element_def["live_mode"]
+                        element_def["live_mode"],
+                        month
                     )
 
                     ranks = merge_live(
@@ -523,10 +546,7 @@ def main():
                     })
 
                 except Exception as e:
-                    print(
-                        f"failed: {station['stationName']} {element_key} {month}: {e}",
-                        file=sys.stderr
-                    )
+                    print(f"failed: {station['stationName']} {element_key} {month}: {e}", file=sys.stderr)
 
             output = {
                 "updatedAt": latest_iso,
