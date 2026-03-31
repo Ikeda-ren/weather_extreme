@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T17:20:00+09:00",
+  "updatedAt": "2026-03-31T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "monthPrecipHigh",
   "month": "5",
@@ -150,6 +150,82 @@
         {
           "rank": 10,
           "value": 195,
+          "date": "1997年5月（平成9年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "田原本",
+      "startDate": "1976年5月（昭和51年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 333,
+          "date": "1995年5月（平成7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 259,
+          "date": "2011年5月（平成23年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 249.5,
+          "date": "2018年5月（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 245,
+          "date": "2004年5月（平成16年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 207,
+          "date": "2008年5月（平成20年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 195,
+          "date": "1998年5月（平成10年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 194.5,
+          "date": "2024年5月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 189,
+          "date": "1986年5月（昭和61年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 186,
+          "date": "1992年5月（平成4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 184,
           "date": "1997年5月（平成9年）",
           "highlightLive": false,
           "highlightWithinYear": false

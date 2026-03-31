@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T17:20:00+09:00",
+  "updatedAt": "2026-03-31T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "monthPrecipHigh",
   "month": "9",
@@ -151,6 +151,82 @@
           "rank": 10,
           "value": 277,
           "date": "1983年9月（昭和58年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "田原本",
+      "startDate": "1976年9月（昭和51年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 393,
+          "date": "1990年9月（平成2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 365,
+          "date": "2016年9月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 321.5,
+          "date": "2018年9月（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 317,
+          "date": "1989年9月（平成元年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 288,
+          "date": "1976年9月（昭和51年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 276,
+          "date": "1993年9月（平成5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 270,
+          "date": "2000年9月（平成12年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 266,
+          "date": "1983年9月（昭和58年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 249,
+          "date": "2011年9月（平成23年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 246,
+          "date": "2022年9月（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

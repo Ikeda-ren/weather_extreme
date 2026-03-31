@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T17:20:00+09:00",
+  "updatedAt": "2026-03-31T17:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyPrecip",
   "month": "2",
@@ -153,6 +153,82 @@
           "date": "2026年2月11日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
+        }
+      ]
+    },
+    {
+      "stationName": "田原本",
+      "startDate": "1976年2月（昭和51年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 53,
+          "date": "1976年2月29日（昭和51年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 40,
+          "date": "2006年2月26日（平成18年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 39,
+          "date": "2012年2月7日（平成24年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 37,
+          "date": "1989年2月17日（平成元年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 34,
+          "date": "2012年2月23日（平成24年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 33,
+          "date": "2010年2月26日（平成22年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 33,
+          "date": "1990年2月11日（平成2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 31,
+          "date": "1998年2月20日（平成10年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 30.5,
+          "date": "2013年2月18日（平成25年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 30,
+          "date": "1985年2月9日（昭和60年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
         }
       ]
     },
