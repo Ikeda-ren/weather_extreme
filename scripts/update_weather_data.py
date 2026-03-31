@@ -363,19 +363,28 @@ def get_cells_from_row(row_html: str):
     return [strip_tags(c) for c in cells]
 
 
+def normalize_label_text(s: str) -> str:
+    s = html_lib.unescape(s)
+    s = s.replace(" ", "").replace("　", "")
+    s = s.replace(">", "").replace("]", "").replace("(", "").replace(")", "")
+    s = s.replace("（", "").replace("）", "")
+    s = s.replace("ヶ", "ケ")
+    return s.strip()
+
+
 def find_target_row(html, labels):
     rows = get_row_blocks(html)
-    normalized_labels = [re.sub(r"\s+", "", label) for label in labels]
+    normalized_labels = [normalize_label_text(label) for label in labels]
 
     for row_html in rows:
         cells = get_cells_from_row(row_html)
         if not cells:
             continue
 
-        first = re.sub(r"\s+", "", cells[0])
+        first = normalize_label_text(cells[0])
 
         for label in normalized_labels:
-            if label in first:
+            if label and label in first:
                 return cells
 
     return None
