@@ -1,1 +1,9 @@
-
+{
+  "prefectures": [
+    {
+      "key": "nara",
+      "name": "奈良県",
+      "stationsFile": "config/stations/nara.json"
+    }
+  ]
+}
