@@ -6,7 +6,7 @@ const tableBody = document.getElementById("tableBody");
 
 function getSelectedElement() {
   const checked = document.querySelector('input[name="element"]:checked');
-  return checked ? checked.value : "dailyMaxTempHigh";
+  return checked ? checked.value : "dailyPrecip";
 }
 
 function makeHeader() {
