@@ -28,8 +28,47 @@ ELEMENTS = {
         "category": "precip",
         "live_mode": "precip_1h_max",
     },
+    "monthMax1h10mPrecip": {
+        "labels": [
+            "日最大1時間降水量(10分間隔)の多い方から",
+            "日最大1時間降水量（10分間隔）の多い方から"
+        ],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthMax3hPrecip": {
+        "labels": ["月最大3時間降水量の多い方から"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthMax6hPrecip": {
+        "labels": ["月最大6時間降水量の多い方から"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthMax12hPrecip": {
+        "labels": ["月最大12時間降水量の多い方から"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
     "monthMax24hPrecip": {
         "labels": ["月最大24時間降水量", "月最大24時間降水量の多い方から"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthMax48hPrecip": {
+        "labels": ["月最大48時間降水量の多い方から"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthMax72hPrecip": {
+        "labels": ["月最大72時間降水量の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": None,
@@ -45,36 +84,6 @@ ELEMENTS = {
         "direction": "asc",
         "category": "precip",
         "live_mode": None,
-    },
-    "monthMax3hPrecip": {
-        "labels": ["月最大3時間降水量"],
-        "direction": "desc",
-        "category": "precip",
-        "live_mode": None
-    },
-    "monthMax6hPrecip": {
-        "labels": ["月最大6時間降水量"],
-        "direction": "desc",
-        "category": "precip",
-        "live_mode": None
-    },
-    "monthMax12hPrecip": {
-        "labels": ["月最大12時間降水量"],
-        "direction": "desc",
-        "category": "precip",
-        "live_mode": None
-    },
-    "monthMax48hPrecip": {
-        "labels": ["月最大48時間降水量"],
-        "direction": "desc",
-        "category": "precip",
-        "live_mode": None
-    },
-    "monthMax72hPrecip": {
-        "labels": ["月最大72時間降水量"],
-        "direction": "desc",
-        "category": "precip",
-        "live_mode": None
     },
     "dailyMaxTempHigh": {
         "labels": ["日最高気温の高い方から"],
@@ -164,11 +173,47 @@ ELEMENTS = {
         "category": "snow",
         "live_mode": None,
     },
-    "monthDeepSnowHigh": {
+    "monthMax3hSnow": {
+        "labels": ["月最大3時間降雪量の多い方から"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthMax6hSnow": {
+        "labels": ["月最大6時間降雪量の多い方から"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthMax12hSnow": {
+        "labels": ["月最大12時間降雪量の多い方から"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthMax24hSnow": {
+        "labels": ["月最大24時間降雪量の多い方から"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthMax48hSnow": {
+        "labels": ["月最大48時間降雪量の多い方から"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthMax72hSnow": {
         "labels": [
-            "月最深積雪の大きい方から",
-            "月最深積雪"
+            "月最大72時間降雪量の多い方から",
+            "月最大72時間降雪量>の多い方から"
         ],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthDeepSnowHigh": {
+        "labels": ["月最深積雪の大きい方から", "月最深積雪"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
@@ -179,42 +224,6 @@ ELEMENTS = {
         "category": "snow",
         "live_mode": None,
     },
-    "monthMax3hSnow": {
-        "labels": ["月最大3時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    },
-    "monthMax6hSnow": {
-        "labels": ["月最大6時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    },
-    "monthMax12hSnow": {
-        "labels": ["月最大12時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    },
-    "monthMax24hSnow": {
-        "labels": ["月最大24時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    },
-    "monthMax48hSnow": {
-        "labels": ["月最大48時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    },
-    "monthMax72hSnow": {
-        "labels": ["月最大72時間降雪量"],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None
-    }
 }
 
 MONTHS = ["all"] + [str(i) for i in range(1, 13)]
@@ -373,31 +382,44 @@ def find_target_row(html, labels):
 
 
 def extract_value_and_date(cell: str):
-    cell = cell.replace("]", " ").replace(">", " ")
+    cell = cell.replace("]", " ").replace(">", " ").strip()
 
-    # 日付抽出
-    date_match = re.search(r"\d{4}/\d{1,2}/\d{1,2}", cell)
-    if not date_match:
+    full_date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", cell)
+    ym_match = re.search(r"(\d{4}/\d{1,2})(?!/\d)", cell)
+    y_match = re.search(r"(?<!\d)(\d{4})(?!\d)", cell)
+
+    raw_date = None
+    date_label = None
+    cell_without_date = cell
+
+    if full_date_match:
+        raw_date = normalize_ymd(full_date_match.group(1))
+        date_label = format_dual_ymd(raw_date)
+        cell_without_date = cell.replace(full_date_match.group(1), " ")
+    elif ym_match:
+        y, m = ym_match.group(1).split("/")
+        raw_date = f"{int(y):04d}/{int(m):02d}/01"
+        date_label = format_dual_ym(f"{int(y):04d}/{int(m):02d}")
+        cell_without_date = cell.replace(ym_match.group(1), " ")
+    elif y_match:
+        y = y_match.group(1)
+        raw_date = f"{y}/01/01"
+        date_label = f"{y}年"
+        cell_without_date = re.sub(rf"(?<!\d){re.escape(y)}(?!\d)", " ", cell, count=1)
+
+    if raw_date is None or date_label is None:
         return None
 
-    raw_date = normalize_ymd(date_match.group(0))
-    date_label = format_dual_ymd(raw_date)
-
-    # 日付削除
-    text = cell.replace(date_match.group(0), " ")
-
-    # 数値抽出
-    nums = re.findall(r"-?\d+(?:\.\d+)?", text)
-
-    if not nums:
+    value_candidates = re.findall(r"-?\d+(?:\.\d+)?", cell_without_date)
+    if not value_candidates:
         return None
 
-    value = trim_number(nums[-1])  # ← 最後の数値だけ採用
+    value = trim_number(value_candidates[-1])
 
     return {
         "value": value,
         "date": date_label,
-        "_date_raw": raw_date
+        "_date_raw": raw_date,
     }
 
 
