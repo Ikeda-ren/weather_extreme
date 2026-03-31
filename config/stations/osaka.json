@@ -1,1 +1,23 @@
-
+{
+  "prefKey": "osaka",
+  "prefName": "大阪府",
+  "stations": [
+    {
+      "stationName": "大阪",
+      "precNo": "62",
+      "amedasCode": "62078",
+      "temp": true,
+      "precip": true,
+      "humidity": true,
+      "wind": true,
+      "sunshine": true,
+      "snow": false,
+      "rank_candidates": [
+        { "rank_type": "s", "blockNo": "47772", "view": "" },
+        { "rank_type": "s", "blockNo": "47772", "view": "h0" },
+        { "rank_type": "s", "blockNo": "47772", "view": "h0s" },
+        { "rank_type": "s", "blockNo": "47772", "view": "ns0" }
+      ]
+    }
+  ]
+}
