@@ -113,19 +113,32 @@ ELEMENTS = {
         "live_mode": None,
     },
     "dailySnowDepth": {
-        "labels": ["降雪の深さ日合計", "日降雪量", "降雪の深さ日合計の大きい方から"],
+        "labels": [
+            "降雪の深さ日合計",
+            "日降雪量",
+            "降雪の深さ日合計の大きい方から",
+            "降雪の深さの日合計"
+        ],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthSnowDepth": {
-        "labels": ["降雪の深さ月合計", "月降雪量", "降雪の深さ月合計の大きい方から"],
+        "labels": [
+            "降雪の深さ月合計",
+            "月降雪量",
+            "降雪の深さ月合計の大きい方から",
+            "降雪の深さの月合計"
+        ],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthDeepSnowHigh": {
-        "labels": ["月最深積雪の大きい方から", "月最深積雪"],
+        "labels": [
+            "月最深積雪の大きい方から",
+            "月最深積雪"
+        ],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
@@ -484,6 +497,7 @@ def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str, m
         "value": trim_number(best[1]),
         "date": format_dual_ymd(raw_date),
         "_date_raw": raw_date,
+        "raw_value": float(best[1]),
     }
 
 
@@ -526,15 +540,26 @@ def merge_live(records, live_info, direction, latest_dt: datetime):
     merged = merged[:10]
 
     out = []
+    live_summary_item = None
+
     for i, r in enumerate(merged, start=1):
-        out.append({
+        item = {
             "rank": i,
             "value": trim_number(r["value"]),
             "date": r["date"],
             "highlightLive": bool(r["isLive"]),
             "highlightWithinYear": within_one_year(r["_date_raw"], latest_dt),
-        })
-    return out
+        }
+        out.append(item)
+
+        if r["isLive"]:
+            live_summary_item = {
+                "rank": i,
+                "value": trim_number(r["value"]),
+                "date": r["date"],
+            }
+
+    return out, live_summary_item
 
 
 def try_fetch_station_rows(station, element_def, month):
@@ -573,16 +598,16 @@ def load_prefecture_configs():
     loaded = []
 
     for pref in prefectures:
-        stations_file = pref.get("stationsFile")
-        if not stations_file:
-            continue
+      stations_file = pref.get("stationsFile")
+      if not stations_file:
+          continue
 
-        station_data = read_json_file(stations_file)
-        loaded.append({
-            "key": pref["key"],
-            "name": pref["name"],
-            "stations": station_data.get("stations", [])
-        })
+      station_data = read_json_file(stations_file)
+      loaded.append({
+          "key": pref["key"],
+          "name": pref["name"],
+          "stations": station_data.get("stations", [])
+      })
 
     return loaded
 
@@ -599,6 +624,8 @@ def main():
         pref_key = pref["key"]
         pref_name = pref["name"]
         stations = pref["stations"]
+
+        live_summary_items = []
 
         for element_key, element_def in ELEMENTS.items():
             for month in MONTHS:
@@ -622,7 +649,7 @@ def main():
                             month
                         )
 
-                        ranks = merge_live(
+                        ranks, live_summary_item = merge_live(
                             parsed["records"],
                             live_info,
                             element_def["direction"],
@@ -634,6 +661,16 @@ def main():
                             "startDate": parsed["startDate"],
                             "ranks": ranks,
                         })
+
+                        if month == "all" and live_summary_item:
+                            live_summary_items.append({
+                                "stationName": station["stationName"],
+                                "elementKey": element_key,
+                                "elementLabel": element_def["labels"][0],
+                                "rank": live_summary_item["rank"],
+                                "value": live_summary_item["value"],
+                                "date": live_summary_item["date"]
+                            })
 
                     except Exception as e:
                         print(f"failed: {pref_key} / {station['stationName']} / {element_key} / {month}: {e}", file=sys.stderr)
@@ -649,6 +686,16 @@ def main():
                 file_name = f"{pref_key}-{element_key}-{month}.json"
                 write_json(os.path.join("data", file_name), output)
                 print(f"wrote: data/{file_name}")
+
+        live_summary_items.sort(key=lambda x: (x["rank"], x["stationName"], x["elementLabel"]))
+
+        live_summary_output = {
+            "updatedAt": latest_iso,
+            "prefecture": pref_name,
+            "items": live_summary_items
+        }
+        write_json(os.path.join("data", f"{pref_key}-live-summary.json"), live_summary_output)
+        print(f"wrote: data/{pref_key}-live-summary.json")
 
     manifest = {
         "updatedAt": latest_iso,
