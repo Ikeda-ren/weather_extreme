@@ -9,233 +9,6 @@ from datetime import datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
 
-STATIONS = [
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "奈良",
-        "precNo": "64",
-        "amedasCode": "64036",
-        "temp": True,
-        "precip": True,
-        "humidity": True,
-        "wind": True,
-        "sunshine": True,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "s", "blockNo": "47780", "view": "h0"},
-            {"rank_type": "s", "blockNo": "47780", "view": "s0"},
-            {"rank_type": "s", "blockNo": "47780", "view": "ns0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "針",
-        "precNo": "64",
-        "amedasCode": "64041",
-        "temp": True,
-        "precip": True,
-        "humidity": False,
-        "wind": True,
-        "sunshine": True,
-        "snow": True,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0630", "view": "a2"},
-            {"rank_type": "a", "blockNo": "0630", "view": "h0"},
-            {"rank_type": "a", "blockNo": "0630", "view": ""},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "田原本",
-        "precNo": "64",
-        "amedasCode": "64056",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0631", "view": "ns0"},
-            {"rank_type": "a", "blockNo": "0631", "view": "h0"},
-            {"rank_type": "a", "blockNo": "0631", "view": ""},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "曽爾",
-        "precNo": "64",
-        "amedasCode": "64076",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0632", "view": "h0"},
-            {"rank_type": "a", "blockNo": "0632", "view": ""},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "葛城",
-        "precNo": "64",
-        "amedasCode": "64091",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1376", "view": "h0"},
-            {"rank_type": "a", "blockNo": "1376", "view": ""},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "大宇陀",
-        "precNo": "64",
-        "amedasCode": "64101",
-        "temp": True,
-        "precip": True,
-        "humidity": False,
-        "wind": True,
-        "sunshine": True,
-        "snow": True,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0633", "view": "h0"},
-            {"rank_type": "a", "blockNo": "0633", "view": ""},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "五條",
-        "precNo": "64",
-        "amedasCode": "64127",
-        "temp": True,
-        "precip": True,
-        "humidity": False,
-        "wind": True,
-        "sunshine": True,
-        "snow": True,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0635", "view": ""},
-            {"rank_type": "a", "blockNo": "0635", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "吉野",
-        "precNo": "64",
-        "amedasCode": "64136",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1439", "view": ""},
-            {"rank_type": "a", "blockNo": "1439", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "天川",
-        "precNo": "64",
-        "amedasCode": "64161",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1619", "view": ""},
-            {"rank_type": "a", "blockNo": "1619", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "上北山",
-        "precNo": "64",
-        "amedasCode": "64206",
-        "temp": True,
-        "precip": True,
-        "humidity": False,
-        "wind": True,
-        "sunshine": True,
-        "snow": True,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "0957", "view": ""},
-            {"rank_type": "a", "blockNo": "0957", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "風屋",
-        "precNo": "64",
-        "amedasCode": "64227",
-        "temp": True,
-        "precip": True,
-        "humidity": False,
-        "wind": True,
-        "sunshine": True,
-        "snow": True,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1228", "view": ""},
-            {"rank_type": "a", "blockNo": "1228", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "下北山",
-        "precNo": "64",
-        "amedasCode": "64236",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1649", "view": ""},
-            {"rank_type": "a", "blockNo": "1649", "view": "h0"},
-        ],
-    },
-    {
-        "pref_key": "nara",
-        "pref_name": "奈良県",
-        "stationName": "葛川",
-        "precNo": "64",
-        "amedasCode": "64262",
-        "temp": False,
-        "precip": True,
-        "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
-        "rank_candidates": [
-            {"rank_type": "a", "blockNo": "1669", "view": ""},
-            {"rank_type": "a", "blockNo": "1669", "view": "h0"},
-        ],
-    },
-]
-
 ELEMENTS = {
     "dailyPrecip": {
         "labels": ["日降水量", "日降水量の多い方から"],
@@ -391,6 +164,11 @@ def fetch_text(url: str, retries: int = 3, wait_sec: float = 1.5) -> str:
 
 def fetch_json(url: str):
     return json.loads(fetch_text(url))
+
+
+def read_json_file(path: str):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def ensure_dir(path: str):
@@ -789,61 +567,85 @@ def try_fetch_station_rows(station, element_def, month):
     return None
 
 
+def load_prefecture_configs():
+    pref_config = read_json_file("config/prefectures.json")
+    prefectures = pref_config.get("prefectures", [])
+    loaded = []
+
+    for pref in prefectures:
+        stations_file = pref["stationsFile"]
+        station_data = read_json_file(stations_file)
+        loaded.append({
+            "key": pref["key"],
+            "name": pref["name"],
+            "stations": station_data.get("stations", [])
+        })
+
+    return loaded
+
+
 def main():
     ensure_dir("data")
+
+    prefectures = load_prefecture_configs()
 
     latest_iso = fetch_latest_time()
     latest_dt = datetime.fromisoformat(latest_iso.replace("Z", "+00:00")).astimezone(JST)
 
-    for element_key, element_def in ELEMENTS.items():
-        for month in MONTHS:
-            rows = []
+    for pref in prefectures:
+        pref_key = pref["key"]
+        pref_name = pref["name"]
+        stations = pref["stations"]
 
-            for station in STATIONS:
-                if not station.get(element_def["category"], False):
-                    continue
+        for element_key, element_def in ELEMENTS.items():
+            for month in MONTHS:
+                rows = []
 
-                try:
-                    parsed = try_fetch_station_rows(station, element_def, month)
-
-                    if not parsed:
-                        print(f"row not found: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
+                for station in stations:
+                    if not station.get(element_def["category"], False):
                         continue
 
-                    live_info = fetch_today_live_extreme(
-                        station["amedasCode"],
-                        latest_dt,
-                        element_def["live_mode"],
-                        month
-                    )
+                    try:
+                        parsed = try_fetch_station_rows(station, element_def, month)
 
-                    ranks = merge_live(
-                        parsed["records"],
-                        live_info,
-                        element_def["direction"],
-                        latest_dt
-                    )
+                        if not parsed:
+                            print(f"row not found: {pref_key} / {station['stationName']} / {element_key} / {month}", file=sys.stderr)
+                            continue
 
-                    rows.append({
-                        "stationName": station["stationName"],
-                        "startDate": parsed["startDate"],
-                        "ranks": ranks,
-                    })
+                        live_info = fetch_today_live_extreme(
+                            station["amedasCode"],
+                            latest_dt,
+                            element_def["live_mode"],
+                            month
+                        )
 
-                except Exception as e:
-                    print(f"failed: {station['stationName']} / {element_key} / {month}: {e}", file=sys.stderr)
+                        ranks = merge_live(
+                            parsed["records"],
+                            live_info,
+                            element_def["direction"],
+                            latest_dt
+                        )
 
-            output = {
-                "updatedAt": latest_iso,
-                "prefecture": "奈良県",
-                "element": element_key,
-                "month": month,
-                "rows": rows,
-            }
+                        rows.append({
+                            "stationName": station["stationName"],
+                            "startDate": parsed["startDate"],
+                            "ranks": ranks,
+                        })
 
-            file_name = f"nara-{element_key}-{month}.json"
-            write_json(os.path.join("data", file_name), output)
-            print(f"wrote: data/{file_name}")
+                    except Exception as e:
+                        print(f"failed: {pref_key} / {station['stationName']} / {element_key} / {month}: {e}", file=sys.stderr)
+
+                output = {
+                    "updatedAt": latest_iso,
+                    "prefecture": pref_name,
+                    "element": element_key,
+                    "month": month,
+                    "rows": rows,
+                }
+
+                file_name = f"{pref_key}-{element_key}-{month}.json"
+                write_json(os.path.join("data", file_name), output)
+                print(f"wrote: data/{file_name}")
 
     manifest = {
         "updatedAt": latest_iso,
