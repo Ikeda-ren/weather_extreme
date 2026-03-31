@@ -14,6 +14,18 @@ function getSelectedElement() {
   return checked ? checked.value : "dailyPrecip";
 }
 
+async function initPrefectures() {
+  const res = await fetch("./config/prefectures.json?t=" + Date.now(), { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  const data = await res.json();
+  const prefs = data.prefectures || [];
+
+  prefSelect.innerHTML = prefs
+    .map(pref => `<option value="${pref.key}">${pref.name}</option>`)
+    .join("");
+}
+
 function makeHeader() {
   const cols = ["地点名 / 観測開始"];
   for (let i = 1; i <= 10; i++) cols.push(`${i}位`);
@@ -151,19 +163,27 @@ function applyAutoRefreshState() {
   }
 }
 
-makeHeader();
+async function init() {
+  makeHeader();
+  await initPrefectures();
 
-prefSelect.addEventListener("change", loadTable);
-monthSelect.addEventListener("change", loadTable);
-document.querySelectorAll('input[name="element"]').forEach(el => {
-  el.addEventListener("change", loadTable);
-});
+  prefSelect.addEventListener("change", loadTable);
+  monthSelect.addEventListener("change", loadTable);
+  document.querySelectorAll('input[name="element"]').forEach(el => {
+    el.addEventListener("change", loadTable);
+  });
 
-autoRefreshToggle.addEventListener("click", () => {
-  autoRefreshEnabled = !autoRefreshEnabled;
-  localStorage.setItem(AUTO_REFRESH_KEY, autoRefreshEnabled ? "on" : "off");
+  autoRefreshToggle.addEventListener("click", () => {
+    autoRefreshEnabled = !autoRefreshEnabled;
+    localStorage.setItem(AUTO_REFRESH_KEY, autoRefreshEnabled ? "on" : "off");
+    applyAutoRefreshState();
+  });
+
+  await loadTable();
   applyAutoRefreshState();
-});
+}
 
-loadTable();
-applyAutoRefreshState();
+init().catch(err => {
+  console.error(err);
+  statusEl.textContent = "初期化に失敗しました";
+});
