@@ -40,25 +40,65 @@
 
     <div class="element-panel">
       <div class="element-row">
-        <div class="element-label">気温</div>
+        <div class="element-label">降水</div>
         <div class="element-options">
-          <label><input type="radio" name="element" value="dailyMaxTemp" checked> 最高気温</label>
-          <label><input type="radio" name="element" value="dailyMinTemp"> 最低気温</label>
+          <label><input type="radio" name="element" value="dailyPrecip"> 日降水</label>
+          <label><input type="radio" name="element" value="max10mPrecip"> 最大10分雨</label>
+          <label><input type="radio" name="element" value="max1hPrecip"> 最大1時間雨</label>
+          <label><input type="radio" name="element" value="monthMax24hPrecip"> 月最大24時間雨</label>
+          <label><input type="radio" name="element" value="monthPrecipHigh"> 月降水量 多</label>
+          <label><input type="radio" name="element" value="monthPrecipLow"> 月降水量 少</label>
         </div>
       </div>
 
       <div class="element-row">
-        <div class="element-label">降水</div>
+        <div class="element-label">気温</div>
         <div class="element-options">
-          <label><input type="radio" name="element" value="dailyPrecip"> 日降水量</label>
-          <label><input type="radio" name="element" value="max10mPrecip"> 最大10分間降水量</label>
-          <label><input type="radio" name="element" value="max1hPrecip"> 最大1時間降水量</label>
+          <label><input type="radio" name="element" value="dailyMaxTempHigh" checked> 最高気温 高</label>
+          <label><input type="radio" name="element" value="dailyMaxTempLow"> 最高気温 低</label>
+          <label><input type="radio" name="element" value="dailyMinTempHigh"> 最低気温 高</label>
+          <label><input type="radio" name="element" value="dailyMinTempLow"> 最低気温 低</label>
+          <label><input type="radio" name="element" value="monthAvgTempHigh"> 月平均気温 高</label>
+          <label><input type="radio" name="element" value="monthAvgTempLow"> 月平均気温 低</label>
+        </div>
+      </div>
+
+      <div class="element-row">
+        <div class="element-label">湿度</div>
+        <div class="element-options">
+          <label><input type="radio" name="element" value="dailyMinHumidity"> 日最小湿度</label>
+        </div>
+      </div>
+
+      <div class="element-row">
+        <div class="element-label">風</div>
+        <div class="element-options">
+          <label><input type="radio" name="element" value="dailyMaxWind"> 最大風速</label>
+          <label><input type="radio" name="element" value="dailyMaxGust"> 最大瞬間風速</label>
+        </div>
+      </div>
+
+      <div class="element-row">
+        <div class="element-label">日照</div>
+        <div class="element-options">
+          <label><input type="radio" name="element" value="monthSunshineHigh"> 月日照 多</label>
+          <label><input type="radio" name="element" value="monthSunshineLow"> 月日照 少</label>
+        </div>
+      </div>
+
+      <div class="element-row">
+        <div class="element-label">雪</div>
+        <div class="element-options">
+          <label><input type="radio" name="element" value="dailySnowDepth"> 日降雪量</label>
+          <label><input type="radio" name="element" value="monthSnowDepth"> 月降雪量</label>
+          <label><input type="radio" name="element" value="monthDeepSnowHigh"> 月最深積雪 大</label>
+          <label><input type="radio" name="element" value="monthDeepSnowLow"> 月最深積雪 小</label>
         </div>
       </div>
     </div>
 
     <div class="note">
-      赤系: 実況が10位以内に入る見込み / 黄系: 1年以内の記録
+      赤系: 実況で10位以内の見込み / 黄系: 1年以内の記録
     </div>
     <div id="status" class="status">読み込み待ち</div>
   </header>
