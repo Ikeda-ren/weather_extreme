@@ -13,7 +13,13 @@ const ELEMENT_LABELS = {
   dailyPrecip: "日降水量",
   max10mPrecip: "日最大10分間降水量",
   max1hPrecip: "日最大1時間降水量",
-  monthMax24hPrecip: "月最大24時間降水量",
+  monthMax1h10mPrecip: "日最大1時間降水量(10分間隔)の多い方から",
+  monthMax3hPrecip: "月最大3時間降水量の多い方から",
+  monthMax6hPrecip: "月最大6時間降水量の多い方から",
+  monthMax12hPrecip: "月最大12時間降水量の多い方から",
+  monthMax24hPrecip: "月最大24時間降水量の多い方から",
+  monthMax48hPrecip: "月最大48時間降水量の多い方から",
+  monthMax72hPrecip: "月最大72時間降水量の多い方から",
   monthPrecipHigh: "月降水量の多い方から",
   monthPrecipLow: "月降水量の少ない方から",
   dailyMaxTempHigh: "日最高気温の高い方から",
@@ -29,6 +35,12 @@ const ELEMENT_LABELS = {
   monthSunshineLow: "月間日照時間の少ない方から",
   dailySnowDepth: "降雪の深さ日合計",
   monthSnowDepth: "降雪の深さ月合計",
+  monthMax3hSnow: "月最大3時間降雪量の多い方から",
+  monthMax6hSnow: "月最大6時間降雪量の多い方から",
+  monthMax12hSnow: "月最大12時間降雪量の多い方から",
+  monthMax24hSnow: "月最大24時間降雪量の多い方から",
+  monthMax48hSnow: "月最大48時間降雪量の多い方から",
+  monthMax72hSnow: "月最大72時間降雪量の多い方から",
   monthDeepSnowHigh: "月最深積雪の大きい方から",
   monthDeepSnowLow: "月最深積雪の小さい方から"
 };
@@ -44,8 +56,7 @@ function getSelectedElement() {
 }
 
 function getSelectedElementLabel() {
-  const key = getSelectedElement();
-  return ELEMENT_LABELS[key] || key;
+  return ELEMENT_LABELS[getSelectedElement()] || getSelectedElement();
 }
 
 async function initPrefectures() {
@@ -56,10 +67,7 @@ async function initPrefectures() {
   prefecturesData = data.prefectures || [];
 
   const regions = [...new Set(prefecturesData.map(p => p.region))];
-
-  regionSelect.innerHTML = regions
-    .map(region => `<option value="${region}">${region}</option>`)
-    .join("");
+  regionSelect.innerHTML = regions.map(region => `<option value="${region}">${region}</option>`).join("");
 
   if (regions.includes(DEFAULT_REGION)) {
     regionSelect.value = DEFAULT_REGION;
@@ -74,23 +82,17 @@ async function initPrefectures() {
   monthSelect.value = DEFAULT_MONTH;
 
   const defaultRadio = document.querySelector(`input[name="element"][value="${DEFAULT_ELEMENT}"]`);
-  if (defaultRadio) {
-    defaultRadio.checked = true;
-  }
+  if (defaultRadio) defaultRadio.checked = true;
 }
 
 function populatePrefectures() {
   const region = regionSelect.value;
-  const target = prefecturesData.filter(p => p.region === region);
-
-  prefSelect.innerHTML = target
-    .map(pref => `<option value="${pref.key}">${pref.name}</option>`)
-    .join("");
+  const list = prefecturesData.filter(p => p.region === region);
+  prefSelect.innerHTML = list.map(pref => `<option value="${pref.key}">${pref.name}</option>`).join("");
 }
 
 function getSelectedPrefMeta() {
-  const key = prefSelect.value;
-  return prefecturesData.find(p => p.key === key) || null;
+  return prefecturesData.find(p => p.key === prefSelect.value) || null;
 }
 
 function makeHeader() {
@@ -117,24 +119,14 @@ function renderDualLine(text) {
   const parts = String(text).split("（");
   const first = parts[0] || "-";
   const second = parts[1] ? "（" + parts[1] : "";
-  return `
-    <span>${escapeHtml(first)}</span>
-    <span class="sub">${escapeHtml(second)}</span>
-  `;
+  return `<span>${escapeHtml(first)}</span><span class="sub">${escapeHtml(second)}</span>`;
 }
 
 function formatUpdatedAt(isoText) {
   if (!isoText) return "-";
   const d = new Date(isoText);
   if (Number.isNaN(d.getTime())) return isoText;
-
-  const y = d.getFullYear();
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mm = String(d.getMinutes()).padStart(2, "0");
-
-  return `${y}年${m}月${day}日 ${hh}:${mm} 更新`;
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")} 更新`;
 }
 
 function renderTable(rows) {
@@ -160,17 +152,13 @@ function renderTable(rows) {
         if (r.highlightLive) classes.push("live-in-rank");
         if (r.highlightWithinYear) classes.push("within-year");
         td.className = classes.join(" ");
-
         td.innerHTML = `
           <div class="value">${escapeHtml(r.value)}</div>
           <div class="date">${renderDualLine(r.date)}</div>
         `;
       } else {
         td.className = "rank-cell";
-        td.innerHTML = `
-          <div class="value">-</div>
-          <div class="date">-</div>
-        `;
+        td.innerHTML = `<div class="value">-</div><div class="date">-</div>`;
       }
 
       tr.appendChild(td);
@@ -207,10 +195,8 @@ function renderLiveSummary(items) {
 }
 
 async function loadLiveSummary(prefKey) {
-  const file = `./data/${prefKey}-live-summary.json?t=${Date.now()}`;
-
   try {
-    const res = await fetch(file, { cache: "no-store" });
+    const res = await fetch(`./data/${prefKey}-live-summary.json?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     renderLiveSummary(data.items || []);
@@ -242,14 +228,13 @@ async function loadTable() {
     return;
   }
 
-  const file = `./data/${pref}-${element}-${month}.json?t=${Date.now()}`;
   statusEl.textContent = "読み込み中...";
 
   try {
-    const res = await fetch(file, { cache: "no-store" });
+    const res = await fetch(`./data/${pref}-${element}-${month}.json?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
     const data = await res.json();
+
     makeHeader();
     renderTable(data.rows || []);
     statusEl.textContent = `${formatUpdatedAt(data.updatedAt)} / 地点数: ${data.rows?.length ?? 0} / 選択中要素: ${elementLabel}`;
@@ -261,15 +246,8 @@ async function loadTable() {
 }
 
 function startAutoRefresh() {
-  stopAutoRefresh();
+  if (refreshTimer) clearInterval(refreshTimer);
   refreshTimer = setInterval(loadTable, 10 * 60 * 1000);
-}
-
-function stopAutoRefresh() {
-  if (refreshTimer) {
-    clearInterval(refreshTimer);
-    refreshTimer = null;
-  }
 }
 
 async function init() {
