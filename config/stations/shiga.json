@@ -1,1 +1,22 @@
-
+{
+  "prefKey": "shiga",
+  "prefName": "滋賀県",
+  "stations": [
+    {
+      "stationName": "彦根",
+      "precNo": "60",
+      "amedasCode": "60131",
+      "temp": true,
+      "precip": true,
+      "humidity": true,
+      "wind": true,
+      "sunshine": true,
+      "snow": true,
+      "rank_candidates": [
+        { "rank_type": "s", "blockNo": "47761", "view": "a2" },
+        { "rank_type": "s", "blockNo": "47761", "view": "np0" },
+        { "rank_type": "s", "blockNo": "47761", "view": "" }
+      ]
+    }
+  ]
+}
