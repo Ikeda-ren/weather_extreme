@@ -15,334 +15,350 @@ STATIONS = [
         "pref_name": "奈良県",
         "stationName": "奈良",
         "precNo": "64",
-        "blockNo": "47780",
         "amedasCode": "64036",
-        "rank_type": "s",
-        "rank_view": "h0",
         "temp": True,
         "precip": True,
         "humidity": True,
         "wind": True,
         "sunshine": True,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "s", "blockNo": "47780", "view": "h0"},
+            {"rank_type": "s", "blockNo": "47780", "view": "s0"},
+            {"rank_type": "s", "blockNo": "47780", "view": "ns0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "針",
         "precNo": "64",
-        "blockNo": "0630",
         "amedasCode": "64041",
-        "rank_type": "a",
-        "rank_view": "a2",
         "temp": True,
         "precip": True,
         "humidity": False,
         "wind": True,
         "sunshine": True,
         "snow": True,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0630", "view": "a2"},
+            {"rank_type": "a", "blockNo": "0630", "view": "h0"},
+            {"rank_type": "a", "blockNo": "0630", "view": ""},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "田原本",
         "precNo": "64",
-        "blockNo": "0631",
         "amedasCode": "64056",
-        "rank_type": "a",
-        "rank_view": "ns0",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0631", "view": "ns0"},
+            {"rank_type": "a", "blockNo": "0631", "view": "h0"},
+            {"rank_type": "a", "blockNo": "0631", "view": ""},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "曽爾",
         "precNo": "64",
-        "blockNo": "0632",
         "amedasCode": "64076",
-        "rank_type": "a",
-        "rank_view": "h0",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0632", "view": "h0"},
+            {"rank_type": "a", "blockNo": "0632", "view": ""},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "葛城",
         "precNo": "64",
-        "blockNo": "1376",
         "amedasCode": "64091",
-        "rank_type": "a",
-        "rank_view": "h0",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1376", "view": "h0"},
+            {"rank_type": "a", "blockNo": "1376", "view": ""},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "大宇陀",
         "precNo": "64",
-        "blockNo": "0633",
         "amedasCode": "64101",
-        "rank_type": "a",
-        "rank_view": "h0",
         "temp": True,
         "precip": True,
         "humidity": False,
         "wind": True,
         "sunshine": True,
         "snow": True,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0633", "view": "h0"},
+            {"rank_type": "a", "blockNo": "0633", "view": ""},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "五條",
         "precNo": "64",
-        "blockNo": "0635",
         "amedasCode": "64127",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": True,
         "precip": True,
         "humidity": False,
         "wind": True,
         "sunshine": True,
         "snow": True,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0635", "view": ""},
+            {"rank_type": "a", "blockNo": "0635", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "吉野",
         "precNo": "64",
-        "blockNo": "1439",
         "amedasCode": "64136",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1439", "view": ""},
+            {"rank_type": "a", "blockNo": "1439", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "天川",
         "precNo": "64",
-        "blockNo": "1619",
         "amedasCode": "64161",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1619", "view": ""},
+            {"rank_type": "a", "blockNo": "1619", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "上北山",
         "precNo": "64",
-        "blockNo": "0957",
         "amedasCode": "64206",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": True,
         "precip": True,
         "humidity": False,
         "wind": True,
         "sunshine": True,
         "snow": True,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "0957", "view": ""},
+            {"rank_type": "a", "blockNo": "0957", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "風屋",
         "precNo": "64",
-        "blockNo": "1228",
         "amedasCode": "64227",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": True,
         "precip": True,
         "humidity": False,
         "wind": True,
         "sunshine": True,
         "snow": True,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1228", "view": ""},
+            {"rank_type": "a", "blockNo": "1228", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "下北山",
         "precNo": "64",
-        "blockNo": "1649",
         "amedasCode": "64236",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1649", "view": ""},
+            {"rank_type": "a", "blockNo": "1649", "view": "h0"},
+        ],
     },
     {
         "pref_key": "nara",
         "pref_name": "奈良県",
         "stationName": "葛川",
         "precNo": "64",
-        "blockNo": "1669",
         "amedasCode": "64262",
-        "rank_type": "a",
-        "rank_view": "",
         "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
+        "rank_candidates": [
+            {"rank_type": "a", "blockNo": "1669", "view": ""},
+            {"rank_type": "a", "blockNo": "1669", "view": "h0"},
+        ],
     },
 ]
 
 ELEMENTS = {
     "dailyPrecip": {
-        "label": "日降水量",
+        "labels": ["日降水量", "日降水量の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_day_sum",
     },
     "max10mPrecip": {
-        "label": "日最大10分間降水量",
+        "labels": ["日最大10分間降水量", "日最大10分間降水量の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_10m_max",
     },
     "max1hPrecip": {
-        "label": "日最大1時間降水量",
+        "labels": ["日最大1時間降水量", "日最大1時間降水量の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_1h_max",
     },
     "monthMax24hPrecip": {
-        "label": "月最大24時間降水量",
+        "labels": ["月最大24時間降水量", "月最大24時間降水量の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": None,
     },
     "monthPrecipHigh": {
-        "label": "月降水量の多い方から",
+        "labels": ["月降水量の多い方から", "月降水量"],
         "direction": "desc",
         "category": "precip",
         "live_mode": None,
     },
     "monthPrecipLow": {
-        "label": "月降水量の少ない方から",
+        "labels": ["月降水量の少ない方から"],
         "direction": "asc",
         "category": "precip",
         "live_mode": None,
     },
     "dailyMaxTempHigh": {
-        "label": "日最高気温の高い方から",
+        "labels": ["日最高気温の高い方から"],
         "direction": "desc",
         "category": "temp",
         "live_mode": "temp_max_day",
     },
     "dailyMaxTempLow": {
-        "label": "日最高気温の低い方から",
+        "labels": ["日最高気温の低い方から"],
         "direction": "asc",
         "category": "temp",
         "live_mode": "temp_max_day",
     },
     "dailyMinTempHigh": {
-        "label": "日最低気温の高い方から",
+        "labels": ["日最低気温の高い方から"],
         "direction": "desc",
         "category": "temp",
         "live_mode": "temp_min_day",
     },
     "dailyMinTempLow": {
-        "label": "日最低気温の低い方から",
+        "labels": ["日最低気温の低い方から"],
         "direction": "asc",
         "category": "temp",
         "live_mode": "temp_min_day",
     },
     "monthAvgTempHigh": {
-        "label": "月平均気温の高い方から",
+        "labels": ["月平均気温の高い方から"],
         "direction": "desc",
         "category": "temp",
         "live_mode": None,
     },
     "monthAvgTempLow": {
-        "label": "月平均気温の低い方から",
+        "labels": ["月平均気温の低い方から"],
         "direction": "asc",
         "category": "temp",
         "live_mode": None,
     },
     "dailyMinHumidity": {
-        "label": "日最小相対湿度",
+        "labels": ["日最小相対湿度", "日最小相対湿度の低い方から"],
         "direction": "asc",
         "category": "humidity",
         "live_mode": None,
     },
     "dailyMaxWind": {
-        "label": "日最大風速",
+        "labels": ["日最大風速", "日最大風速の大きい方から"],
         "direction": "desc",
         "category": "wind",
         "live_mode": None,
     },
     "dailyMaxGust": {
-        "label": "日最大瞬間風速",
+        "labels": ["日最大瞬間風速", "日最大瞬間風速の大きい方から"],
         "direction": "desc",
         "category": "wind",
         "live_mode": None,
     },
     "monthSunshineHigh": {
-        "label": "月間日照時間の多い方から",
+        "labels": ["月間日照時間の多い方から", "月間日照時間"],
         "direction": "desc",
         "category": "sunshine",
         "live_mode": None,
     },
     "monthSunshineLow": {
-        "label": "月間日照時間の少ない方から",
+        "labels": ["月間日照時間の少ない方から"],
         "direction": "asc",
         "category": "sunshine",
         "live_mode": None,
     },
     "dailySnowDepth": {
-        "label": "降雪の深さ日合計",
+        "labels": ["降雪の深さ日合計", "日降雪量", "降雪の深さ日合計の大きい方から"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthSnowDepth": {
-        "label": "降雪の深さ月合計",
+        "labels": ["降雪の深さ月合計", "月降雪量", "降雪の深さ月合計の大きい方から"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthDeepSnowHigh": {
-        "label": "月最深積雪の大きい方から",
+        "labels": ["月最深積雪の大きい方から", "月最深積雪"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthDeepSnowLow": {
-        "label": "月最深積雪の小さい方から",
+        "labels": ["月最深積雪の小さい方から"],
         "direction": "asc",
         "category": "snow",
         "live_mode": None,
@@ -454,14 +470,14 @@ def format_dual_ym(s: str) -> str:
     return f"{y}年{mo}月（{wareki_year_only_from_ym(s)}）"
 
 
-def build_rank_url(station: dict, month: str) -> str:
+def build_rank_url(prec_no: str, rank_type: str, block_no: str, month: str, view: str) -> str:
     month_value = "" if month == "all" else month
-    rank_page = "rank_s.php" if station["rank_type"] == "s" else "rank_a.php"
+    rank_page = "rank_s.php" if rank_type == "s" else "rank_a.php"
     return (
         f"https://www.data.jma.go.jp/stats/etrn/view/{rank_page}"
-        f"?prec_no={station['precNo']}"
-        f"&block_no={station['blockNo']}"
-        f"&year=&month={month_value}&day=&view={station['rank_view']}"
+        f"?prec_no={prec_no}"
+        f"&block_no={block_no}"
+        f"&year=&month={month_value}&day=&view={view}"
     )
 
 
@@ -481,9 +497,9 @@ def get_cells_from_row(row_html: str):
     return [strip_tags(c) for c in cells]
 
 
-def find_target_row(html, label):
+def find_target_row(html, labels):
     rows = get_row_blocks(html)
-    target = re.sub(r"\s+", "", label)
+    normalized_labels = [re.sub(r"\s+", "", label) for label in labels]
 
     for row_html in rows:
         cells = get_cells_from_row(row_html)
@@ -491,8 +507,10 @@ def find_target_row(html, label):
             continue
 
         first = re.sub(r"\s+", "", cells[0])
-        if target in first:
-            return cells
+
+        for label in normalized_labels:
+            if label in first:
+                return cells
 
     return None
 
@@ -518,6 +536,7 @@ def parse_rank_cells(cells, direction: str):
             continue
 
         raw_date = date_match.group(1)
+
         if re.fullmatch(r"\d{4}", raw_date):
             raw_date_sort = f"{raw_date}/01/01"
             date_label = f"{raw_date}年"
@@ -740,6 +759,36 @@ def merge_live(records, live_info, direction, latest_dt: datetime):
     return out
 
 
+def try_fetch_station_rows(station, element_def, month):
+    last_error = None
+
+    for candidate in station["rank_candidates"]:
+        try:
+            url = build_rank_url(
+                station["precNo"],
+                candidate["rank_type"],
+                candidate["blockNo"],
+                month,
+                candidate["view"],
+            )
+            html = fetch_text(url)
+            cells = find_target_row(html, element_def["labels"])
+            if not cells:
+                continue
+
+            parsed = parse_rank_cells(cells, element_def["direction"])
+            if parsed:
+                return parsed
+
+        except Exception as e:
+            last_error = e
+
+    if last_error:
+        raise last_error
+
+    return None
+
+
 def main():
     ensure_dir("data")
 
@@ -755,17 +804,10 @@ def main():
                     continue
 
                 try:
-                    url = build_rank_url(station, month)
-                    html = fetch_text(url)
-                    cells = find_target_row(html, element_def["label"])
+                    parsed = try_fetch_station_rows(station, element_def, month)
 
-                    if not cells:
-                        print(f"row not found: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
-                        continue
-
-                    parsed = parse_rank_cells(cells, element_def["direction"])
                     if not parsed:
-                        print(f"parse failed: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
+                        print(f"row not found: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
                         continue
 
                     live_info = fetch_today_live_extreme(
@@ -789,7 +831,7 @@ def main():
                     })
 
                 except Exception as e:
-                    print(f"failed: {station['stationName']} {element_key} {month}: {e}", file=sys.stderr)
+                    print(f"failed: {station['stationName']} / {element_key} / {month}: {e}", file=sys.stderr)
 
             output = {
                 "updatedAt": latest_iso,
