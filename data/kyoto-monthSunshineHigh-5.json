@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T21:50:00+09:00",
+  "updatedAt": "2026-04-01T00:00:00+09:00",
   "prefecture": "京都府",
   "element": "monthSunshineHigh",
   "month": "5",
@@ -75,6 +75,88 @@
           "rank": 10,
           "value": 241.2,
           "date": "1909年5月（明治42年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "宮津",
+      "startDate": "2021年5月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 231.6,
+          "date": "2022年5月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 213.8,
+          "date": "2023年5月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 212.3,
+          "date": "2024年5月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 193.1,
+          "date": "2025年5月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 169.4,
+          "date": "2021年5月（令和3年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "福知山",
+      "startDate": "2021年5月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 214,
+          "date": "2022年5月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 199.4,
+          "date": "2023年5月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 197.5,
+          "date": "2024年5月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 168.4,
+          "date": "2025年5月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 5,
+          "value": 143.5,
+          "date": "2021年5月（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

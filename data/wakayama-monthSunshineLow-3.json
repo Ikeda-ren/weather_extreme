@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T21:50:00+09:00",
+  "updatedAt": "2026-04-01T00:00:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthSunshineLow",
   "month": "3",
@@ -75,6 +75,74 @@
           "rank": 10,
           "value": 122.6,
           "date": "1897年3月（明治30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "龍神",
+      "startDate": "2021年3月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 144,
+          "date": "2025年3月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 171.6,
+          "date": "2024年3月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 180.4,
+          "date": "2022年3月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 201.3,
+          "date": "2023年3月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "栗栖川",
+      "startDate": "2021年3月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 156.1,
+          "date": "2025年3月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 180.4,
+          "date": "2022年3月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 186.7,
+          "date": "2024年3月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 212.4,
+          "date": "2023年3月（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

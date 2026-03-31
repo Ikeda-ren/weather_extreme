@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T21:50:00+09:00",
+  "updatedAt": "2026-04-01T00:00:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthSunshineLow",
   "month": "2",
@@ -75,6 +75,88 @@
           "rank": 10,
           "value": 99.3,
           "date": "1909年2月（明治42年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "龍神",
+      "startDate": "2022年2月（令和4年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 116.1,
+          "date": "2024年2月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 125.8,
+          "date": "2025年2月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 138,
+          "date": "2023年2月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 139.7,
+          "date": "2022年2月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 146.1,
+          "date": "2026年2月（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        }
+      ]
+    },
+    {
+      "stationName": "栗栖川",
+      "startDate": "2022年2月（令和4年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 126.3,
+          "date": "2024年2月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 156.1,
+          "date": "2026年2月（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 159.4,
+          "date": "2023年2月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 165,
+          "date": "2025年2月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 170.2,
+          "date": "2022年2月（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T21:50:00+09:00",
+  "updatedAt": "2026-04-01T00:00:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthSunshineHigh",
   "month": "8",
@@ -75,6 +75,129 @@
           "rank": 10,
           "value": 273,
           "date": "2018年8月（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "明石",
+      "startDate": "2021年8月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 287.4,
+          "date": "2024年8月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 270.1,
+          "date": "2025年8月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 254.2,
+          "date": "2023年8月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 218.4,
+          "date": "2022年8月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 171.1,
+          "date": "2021年8月（令和3年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "西脇",
+      "startDate": "2021年8月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 226.6,
+          "date": "2024年8月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 214.5,
+          "date": "2025年8月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 214.2,
+          "date": "2023年8月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 153.3,
+          "date": "2022年8月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 131.6,
+          "date": "2021年8月（令和3年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "福崎",
+      "startDate": "2021年8月（令和3年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 236.1,
+          "date": "2024年8月（令和6年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 215.2,
+          "date": "2025年8月（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 3,
+          "value": 210.3,
+          "date": "2023年8月（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 164.6,
+          "date": "2022年8月（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 141.2,
+          "date": "2021年8月（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

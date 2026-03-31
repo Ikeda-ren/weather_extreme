@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T21:50:00+09:00",
+  "updatedAt": "2026-04-01T00:00:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthMax24hPrecip",
   "month": "9",
@@ -75,6 +75,82 @@
           "rank": 10,
           "value": 135.5,
           "date": "2018年9月8日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "西脇",
+      "startDate": "2017年9月（平成29年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 199,
+          "date": "2011年9月21日（平成23年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 190,
+          "date": "1983年9月28日（昭和58年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 171.5,
+          "date": "2013年9月16日（平成25年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 146,
+          "date": "1999年9月15日（平成11年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 139,
+          "date": "2004年9月30日（平成16年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 135,
+          "date": "1990年9月18日（平成2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 122.5,
+          "date": "2016年9月19日（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 114,
+          "date": "2008年9月22日（平成20年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 114,
+          "date": "1976年9月9日（昭和51年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 106.5,
+          "date": "2017年9月18日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
