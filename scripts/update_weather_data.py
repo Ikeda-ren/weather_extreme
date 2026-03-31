@@ -470,6 +470,96 @@ def extract_value_and_date(cell: str):
         "_date_raw": raw_date,
     }
 
+def parse_snow_records_from_html_text(html: str, labels, direction: str):
+    text = strip_tags(html)
+    text = text.replace(">", " ").replace("]", " ")
+    text = re.sub(r"\s+", "\n", text)
+
+    lines = [line.strip() for line in text.split("\n") if line.strip()]
+    normalized_labels = [normalize_label_text(label) for label in labels]
+
+    start_idx = -1
+    for i, line in enumerate(lines):
+        nline = normalize_label_text(line)
+        if any(label and label in nline for label in normalized_labels):
+            start_idx = i
+            break
+
+    if start_idx < 0:
+        return None
+
+    records = []
+    start_date = ""
+
+    # ラベルの次から最大50行くらいを見る
+    candidate_lines = lines[start_idx + 1:start_idx + 60]
+
+    for line in candidate_lines:
+        # 統計期間っぽい行は観測開始日に使うだけ
+        ym = re.fullmatch(r"(\d{4})/\s*(\d{1,2})", line)
+        if ym:
+            y, m = ym.groups()
+            start_date = f"{int(y):04d}/{int(m):02d}"
+            continue
+
+        # (2017/1/14)17 のような形を優先して読む
+        m = re.search(r"\((\d{4}/\d{1,2}/\d{1,2})\)\s*(-?\d+(?:\.\d+)?)", line)
+        if m:
+            raw_date = normalize_ymd(m.group(1))
+            value = trim_number(m.group(2))
+            records.append({
+                "value": value,
+                "date": format_dual_ymd(raw_date),
+                "_date_raw": raw_date,
+            })
+            continue
+
+        # 月別・年だけのケースに備える
+        m2 = re.search(r"\((\d{4}/\d{1,2})\)\s*(-?\d+(?:\.\d+)?)", line)
+        if m2:
+            y, mo = m2.group(1).split("/")
+            raw_date = f"{int(y):04d}/{int(mo):02d}/01"
+            value = trim_number(m2.group(2))
+            records.append({
+                "value": value,
+                "date": format_dual_ym(f"{int(y):04d}/{int(mo):02d}"),
+                "_date_raw": raw_date,
+            })
+            continue
+
+        # 単位行 (cm)21 のようなものは無視
+        if re.match(r"^\((cm|mm)\)\s*-?\d+(?:\.\d+)?$", line, flags=re.IGNORECASE):
+            continue
+
+        # 次の要素に入ったら打ち切る
+        nline = normalize_label_text(line)
+        if "順位" in nline or "要素名" in nline:
+            continue
+        if "の多い方から" in line or "の少ない方から" in line:
+            if normalize_label_text(line) not in normalized_labels:
+                break
+
+    if not records:
+        return None
+
+    if direction == "desc":
+        records.sort(
+            key=lambda r: (float(r["value"]), parse_date_ymd(r["_date_raw"])),
+            reverse=True,
+        )
+    else:
+        records.sort(
+            key=lambda r: (float(r["value"]), -parse_date_ymd(r["_date_raw"]).timestamp())
+        )
+
+    records = records[:10]
+    for i, rec in enumerate(records, start=1):
+        rec["rank"] = i
+
+    return {
+        "startDate": format_dual_ym(start_date) if start_date else "",
+        "records": records,
+    }
 
 def parse_rank_cells(cells, direction: str):
     if len(cells) < 3:
@@ -723,18 +813,27 @@ def try_fetch_station_rows(station, element_def, month):
                 candidate["view"],
             )
             html = fetch_text(url)
-            cells = find_target_row(html, element_def["labels"])
-            if not cells:
-                continue
 
-            parsed = parse_rank_cells(cells, element_def["direction"])
-            if parsed:
-                return parsed
-            else:
-                print(
-                    f"parse failed after row match: {station['stationName']} / {element_def['labels'][0]} / {month} / {url}",
-                    file=sys.stderr
+            cells = find_target_row(html, element_def["labels"])
+            if cells:
+                parsed = parse_rank_cells(cells, element_def["direction"])
+                if parsed:
+                    return parsed
+
+            # 雪要素だけはテキスト復元のフォールバックをかける
+            if element_def["category"] == "snow":
+                parsed_fallback = parse_snow_records_from_html_text(
+                    html,
+                    element_def["labels"],
+                    element_def["direction"]
                 )
+                if parsed_fallback:
+                    return parsed_fallback
+                else:
+                    print(
+                        f"snow fallback failed: {station['stationName']} / {element_def['labels'][0]} / {month} / {url}",
+                        file=sys.stderr
+                    )
 
         except Exception as e:
             last_error = e
