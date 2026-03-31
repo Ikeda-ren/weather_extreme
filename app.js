@@ -51,7 +51,6 @@ async function initPrefectures() {
   prefecturesData = data.prefectures || [];
 
   const regions = [...new Set(prefecturesData.map(p => p.region))];
-
   regionSelect.innerHTML = regions
     .map(region => `<option value="${region}">${region}</option>`)
     .join("");
@@ -179,6 +178,7 @@ function renderLiveSummary(items) {
           <span>${escapeHtml(String(item.value))}</span>
           /
           <span>${escapeHtml(item.date)}</span>
+          ${item.monthLabel ? `/ <span>${escapeHtml(item.monthLabel)}</span>` : ""}
         </div>
       `).join("")}
     </div>
