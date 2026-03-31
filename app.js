@@ -6,7 +6,7 @@ const tableBody = document.getElementById("tableBody");
 
 function getSelectedElement() {
   const checked = document.querySelector('input[name="element"]:checked');
-  return checked ? checked.value : "dailyMaxTemp";
+  return checked ? checked.value : "dailyMaxTempHigh";
 }
 
 function makeHeader() {
@@ -28,6 +28,17 @@ function escapeHtml(str) {
     .replaceAll("'", "&#39;");
 }
 
+function renderStartDate(startDate) {
+  if (!startDate) return "-";
+  const parts = String(startDate).split("（");
+  const seireki = parts[0] || "-";
+  const wareki = parts[1] ? "（" + parts[1] : "";
+  return `
+    <span>${escapeHtml(seireki)}</span>
+    <span class="sub">${escapeHtml(wareki)}</span>
+  `;
+}
+
 function renderTable(rows) {
   tableBody.innerHTML = "";
 
@@ -38,7 +49,7 @@ function renderTable(rows) {
     stationTd.className = "station-col";
     stationTd.innerHTML = `
       <div class="station-name">${escapeHtml(row.stationName)}</div>
-      <div class="station-start">観測開始: ${escapeHtml(row.startDate || "-")}</div>
+      <div class="station-start">${renderStartDate(row.startDate || "-")}</div>
     `;
     tr.appendChild(stationTd);
 
@@ -95,12 +106,10 @@ async function loadTable() {
 }
 
 makeHeader();
-
 prefSelect.addEventListener("change", loadTable);
 monthSelect.addEventListener("change", loadTable);
 document.querySelectorAll('input[name="element"]').forEach(el => {
   el.addEventListener("change", loadTable);
 });
-
 loadTable();
 setInterval(loadTable, 60 * 1000);
