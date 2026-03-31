@@ -155,8 +155,13 @@ th {
 .rank-cell .date {
   margin-top: 3px;
   font-size: 10px;
-  line-height: 1.25;
+  line-height: 1.2;
   color: #666;
+}
+
+.rank-cell .date .sub {
+  display: block;
+  margin-top: 1px;
 }
 
 .live-in-rank {
