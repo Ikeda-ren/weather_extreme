@@ -1,1 +1,22 @@
-
+{
+  "prefKey": "wakayama",
+  "prefName": "和歌山県",
+  "stations": [
+    {
+      "stationName": "和歌山",
+      "precNo": "65",
+      "amedasCode": "65042",
+      "temp": true,
+      "precip": true,
+      "humidity": true,
+      "wind": true,
+      "sunshine": true,
+      "snow": false,
+      "rank_candidates": [
+        { "rank_type": "s", "blockNo": "47777", "view": "" },
+        { "rank_type": "s", "blockNo": "47777", "view": "ns0" },
+        { "rank_type": "s", "blockNo": "47777", "view": "h0" }
+      ]
+    }
+  ]
+}
