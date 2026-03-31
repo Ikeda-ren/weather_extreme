@@ -38,9 +38,57 @@ STATIONS = [
         "temp": True,
         "precip": True,
         "humidity": False,
+        "wind": True,
+        "sunshine": True,
+        "snow": True,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "田原本",
+        "precNo": "64",
+        "blockNo": "0056",
+        "amedasCode": "64056",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
         "wind": False,
         "sunshine": False,
-        "snow": True,
+        "snow": False,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "曽爾",
+        "precNo": "64",
+        "blockNo": "0076",
+        "amedasCode": "64076",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "葛城",
+        "precNo": "64",
+        "blockNo": "0091",
+        "amedasCode": "64091",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
     },
     {
         "pref_key": "nara",
@@ -54,8 +102,8 @@ STATIONS = [
         "temp": True,
         "precip": True,
         "humidity": False,
-        "wind": False,
-        "sunshine": False,
+        "wind": True,
+        "sunshine": True,
         "snow": True,
     },
     {
@@ -68,6 +116,38 @@ STATIONS = [
         "rank_type": "a",
         "rank_view": "",
         "temp": True,
+        "precip": True,
+        "humidity": False,
+        "wind": True,
+        "sunshine": True,
+        "snow": True,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "吉野",
+        "precNo": "64",
+        "blockNo": "0136",
+        "amedasCode": "64136",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "天川",
+        "precNo": "64",
+        "blockNo": "0161",
+        "amedasCode": "64161",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
         "precip": True,
         "humidity": False,
         "wind": False,
@@ -86,9 +166,9 @@ STATIONS = [
         "temp": True,
         "precip": True,
         "humidity": False,
-        "wind": False,
-        "sunshine": False,
-        "snow": False,
+        "wind": True,
+        "sunshine": True,
+        "snow": True,
     },
     {
         "pref_key": "nara",
@@ -102,6 +182,38 @@ STATIONS = [
         "temp": True,
         "precip": True,
         "humidity": False,
+        "wind": True,
+        "sunshine": True,
+        "snow": True,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "下北山",
+        "precNo": "64",
+        "blockNo": "0236",
+        "amedasCode": "64236",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
+    },
+    {
+        "pref_key": "nara",
+        "pref_name": "奈良県",
+        "stationName": "葛川",
+        "precNo": "64",
+        "blockNo": "0262",
+        "amedasCode": "64262",
+        "rank_type": "a",
+        "rank_view": "",
+        "temp": False,
+        "precip": True,
+        "humidity": False,
         "wind": False,
         "sunshine": False,
         "snow": False,
@@ -109,7 +221,6 @@ STATIONS = [
 ]
 
 ELEMENTS = {
-    # 降水
     "dailyPrecip": {
         "label": "日降水量",
         "direction": "desc",
@@ -146,8 +257,6 @@ ELEMENTS = {
         "category": "precip",
         "live_mode": None,
     },
-
-    # 気温
     "dailyMaxTempHigh": {
         "label": "日最高気温の高い方から",
         "direction": "desc",
@@ -184,16 +293,12 @@ ELEMENTS = {
         "category": "temp",
         "live_mode": None,
     },
-
-    # 湿度
     "dailyMinHumidity": {
         "label": "日最小相対湿度",
         "direction": "asc",
         "category": "humidity",
         "live_mode": None,
     },
-
-    # 風
     "dailyMaxWind": {
         "label": "日最大風速",
         "direction": "desc",
@@ -206,8 +311,6 @@ ELEMENTS = {
         "category": "wind",
         "live_mode": None,
     },
-
-    # 日照
     "monthSunshineHigh": {
         "label": "月間日照時間の多い方から",
         "direction": "desc",
@@ -220,8 +323,6 @@ ELEMENTS = {
         "category": "sunshine",
         "live_mode": None,
     },
-
-    # 雪
     "dailySnowDepth": {
         "label": "降雪の深さ日合計",
         "direction": "desc",
@@ -382,16 +483,14 @@ def get_cells_from_row(row_html: str):
 
 def find_target_row(html, label):
     rows = get_row_blocks(html)
+    target = re.sub(r"\s+", "", label)
+
     for row_html in rows:
         cells = get_cells_from_row(row_html)
         if not cells:
-            print(f"row not found: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
             continue
 
         first = re.sub(r"\s+", "", cells[0])
-
-        target = re.sub(r"\s+", "", label)
-
         if target in first:
             return cells
 
@@ -419,7 +518,6 @@ def parse_rank_cells(cells, direction: str):
             continue
 
         raw_date = date_match.group(1)
-        # 年だけ/月だけの要素は1日に寄せて内部比較
         if re.fullmatch(r"\d{4}", raw_date):
             raw_date_sort = f"{raw_date}/01/01"
             date_label = f"{raw_date}年"
@@ -662,10 +760,12 @@ def main():
                     cells = find_target_row(html, element_def["label"])
 
                     if not cells:
+                        print(f"row not found: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
                         continue
 
                     parsed = parse_rank_cells(cells, element_def["direction"])
                     if not parsed:
+                        print(f"parse failed: {station['stationName']} / {element_key} / {month}", file=sys.stderr)
                         continue
 
                     live_info = fetch_today_live_extreme(
