@@ -21,6 +21,10 @@ STATIONS = [
         "rank_view": "h0",
         "temp": True,
         "precip": True,
+        "humidity": True,
+        "wind": True,
+        "sunshine": True,
+        "snow": False,
     },
     {
         "pref_key": "nara",
@@ -33,6 +37,10 @@ STATIONS = [
         "rank_view": "a2",
         "temp": True,
         "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": True,
     },
     {
         "pref_key": "nara",
@@ -45,6 +53,10 @@ STATIONS = [
         "rank_view": "h0",
         "temp": True,
         "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": True,
     },
     {
         "pref_key": "nara",
@@ -57,6 +69,10 @@ STATIONS = [
         "rank_view": "",
         "temp": True,
         "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
     },
     {
         "pref_key": "nara",
@@ -69,6 +85,10 @@ STATIONS = [
         "rank_view": "",
         "temp": True,
         "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
     },
     {
         "pref_key": "nara",
@@ -81,39 +101,150 @@ STATIONS = [
         "rank_view": "",
         "temp": True,
         "precip": True,
+        "humidity": False,
+        "wind": False,
+        "sunshine": False,
+        "snow": False,
     },
 ]
 
 ELEMENTS = {
-    "dailyMaxTemp": {
-        "labels": ["日最高気温の高い方から", "日最高気温"],
-        "direction": "desc",
-        "category": "temp",
-        "live_mode": "temp_max_day",
-    },
-    "dailyMinTemp": {
-        "labels": ["日最低気温の低い方から", "日最低気温"],
-        "direction": "asc",
-        "category": "temp",
-        "live_mode": "temp_min_day",
-    },
+    # 降水
     "dailyPrecip": {
-        "labels": ["日降水量の多い方から", "日降水量"],
+        "label": "日降水量",
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_day_sum",
     },
     "max10mPrecip": {
-        "labels": ["日最大10分間降水量の多い方から", "日最大10分間降水量"],
+        "label": "日最大10分間降水量",
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_10m_max",
     },
     "max1hPrecip": {
-        "labels": ["日最大1時間降水量の多い方から", "日最大1時間降水量"],
+        "label": "日最大1時間降水量",
         "direction": "desc",
         "category": "precip",
         "live_mode": "precip_1h_max",
+    },
+    "monthMax24hPrecip": {
+        "label": "月最大24時間降水量",
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthPrecipHigh": {
+        "label": "月降水量の多い方から",
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "monthPrecipLow": {
+        "label": "月降水量の少ない方から",
+        "direction": "asc",
+        "category": "precip",
+        "live_mode": None,
+    },
+
+    # 気温
+    "dailyMaxTempHigh": {
+        "label": "日最高気温の高い方から",
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": "temp_max_day",
+    },
+    "dailyMaxTempLow": {
+        "label": "日最高気温の低い方から",
+        "direction": "asc",
+        "category": "temp",
+        "live_mode": "temp_max_day",
+    },
+    "dailyMinTempHigh": {
+        "label": "日最低気温の高い方から",
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": "temp_min_day",
+    },
+    "dailyMinTempLow": {
+        "label": "日最低気温の低い方から",
+        "direction": "asc",
+        "category": "temp",
+        "live_mode": "temp_min_day",
+    },
+    "monthAvgTempHigh": {
+        "label": "月平均気温の高い方から",
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "monthAvgTempLow": {
+        "label": "月平均気温の低い方から",
+        "direction": "asc",
+        "category": "temp",
+        "live_mode": None,
+    },
+
+    # 湿度
+    "dailyMinHumidity": {
+        "label": "日最小相対湿度",
+        "direction": "asc",
+        "category": "humidity",
+        "live_mode": None,
+    },
+
+    # 風
+    "dailyMaxWind": {
+        "label": "日最大風速",
+        "direction": "desc",
+        "category": "wind",
+        "live_mode": None,
+    },
+    "dailyMaxGust": {
+        "label": "日最大瞬間風速",
+        "direction": "desc",
+        "category": "wind",
+        "live_mode": None,
+    },
+
+    # 日照
+    "monthSunshineHigh": {
+        "label": "月間日照時間の多い方から",
+        "direction": "desc",
+        "category": "sunshine",
+        "live_mode": None,
+    },
+    "monthSunshineLow": {
+        "label": "月間日照時間の少ない方から",
+        "direction": "asc",
+        "category": "sunshine",
+        "live_mode": None,
+    },
+
+    # 雪
+    "dailySnowDepth": {
+        "label": "降雪の深さ日合計",
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthSnowDepth": {
+        "label": "降雪の深さ月合計",
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthDeepSnowHigh": {
+        "label": "月最深積雪の大きい方から",
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+    "monthDeepSnowLow": {
+        "label": "月最深積雪の小さい方から",
+        "direction": "asc",
+        "category": "snow",
+        "live_mode": None,
     },
 }
 
@@ -152,10 +283,6 @@ def ensure_dir(path: str):
 def write_json(path: str, obj):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
-
-
-def normalize_spaces(s: str) -> str:
-    return re.sub(r"\s+", " ", s).strip()
 
 
 def trim_number(v):
@@ -241,7 +368,7 @@ def strip_tags(text: str) -> str:
     text = re.sub(r"(?i)<br\s*/?>", "\n", text)
     text = re.sub(r"(?is)<.*?>", "", text)
     text = html_lib.unescape(text)
-    return normalize_spaces(text)
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def get_row_blocks(html: str):
@@ -253,16 +380,15 @@ def get_cells_from_row(row_html: str):
     return [strip_tags(c) for c in cells]
 
 
-def find_target_row(html: str, label_candidates):
+def find_target_row(html: str, label):
     rows = get_row_blocks(html)
     for row_html in rows:
         cells = get_cells_from_row(row_html)
         if not cells:
             continue
         first = cells[0]
-        for label in label_candidates:
-            if label in first:
-                return cells
+        if label == first:
+            return cells
     return None
 
 
@@ -270,7 +396,6 @@ def parse_rank_cells(cells, direction: str):
     if len(cells) < 3:
         return None
 
-    # 最初のセルは要素名、最後の方に統計期間
     rank_cells = cells[1:11]
 
     start_date = ""
@@ -282,19 +407,31 @@ def parse_rank_cells(cells, direction: str):
 
     records = []
     for idx, cell in enumerate(rank_cells, start=1):
-        date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", cell)
+        date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2}|\d{4}/\d{1,2}|\d{4})", cell)
         value_match = re.search(r"(-?\d+(?:\.\d+)?)", cell)
         if not date_match or not value_match:
             continue
 
-        raw_date = normalize_ymd(date_match.group(1))
+        raw_date = date_match.group(1)
+        # 年だけ/月だけの要素は1日に寄せて内部比較
+        if re.fullmatch(r"\d{4}", raw_date):
+            raw_date_sort = f"{raw_date}/01/01"
+            date_label = f"{raw_date}年"
+        elif re.fullmatch(r"\d{4}/\d{1,2}", raw_date):
+            y, m = raw_date.split("/")
+            raw_date_sort = f"{int(y):04d}/{int(m):02d}/01"
+            date_label = format_dual_ym(f"{int(y):04d}/{int(m):02d}")
+        else:
+            raw_date_sort = normalize_ymd(raw_date)
+            date_label = format_dual_ymd(raw_date_sort)
+
         value = trim_number(value_match.group(1))
 
         records.append({
             "rank": idx,
             "value": value,
-            "date": format_dual_ymd(raw_date),
-            "_date_raw": raw_date,
+            "date": date_label,
+            "_date_raw": raw_date_sort,
         })
 
     if not records:
@@ -393,6 +530,8 @@ def should_show_live(month: str, latest_dt: datetime) -> bool:
 
 
 def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str, month: str):
+    if not mode:
+        return None
     if not should_show_live(month, latest_dt):
         return None
 
@@ -514,15 +653,13 @@ def main():
                 try:
                     url = build_rank_url(station, month)
                     html = fetch_text(url)
-                    cells = find_target_row(html, element_def["labels"])
+                    cells = find_target_row(html, element_def["label"])
 
                     if not cells:
-                        print(f"row not found: {station['stationName']} {element_key} {month}", file=sys.stderr)
                         continue
 
                     parsed = parse_rank_cells(cells, element_def["direction"])
                     if not parsed:
-                        print(f"parse failed: {station['stationName']} {element_key} {month}", file=sys.stderr)
                         continue
 
                     live_info = fetch_today_live_extreme(
