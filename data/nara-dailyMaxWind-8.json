@@ -1,7 +1,84 @@
 {
-  "updatedAt": "2026-03-31T15:10:00+09:00",
+  "updatedAt": "2026-03-31T15:20:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxWind",
   "month": "8",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "1953年8月（昭和28年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 18.7,
+          "date": "1958年8月25日（昭和33年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 16.2,
+          "date": "1962年8月26日（昭和37年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 15.5,
+          "date": "1959年8月8日（昭和34年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 15.3,
+          "date": "2023年8月15日（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 15.2,
+          "date": "1959年8月9日（昭和34年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 14.5,
+          "date": "1963年8月31日（昭和38年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 14.4,
+          "date": "1958年8月26日（昭和33年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 13.7,
+          "date": "2018年8月23日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 13.5,
+          "date": "1975年8月23日（昭和50年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 13.5,
+          "date": "1956年8月17日（昭和31年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

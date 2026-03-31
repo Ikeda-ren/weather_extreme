@@ -1,7 +1,84 @@
 {
-  "updatedAt": "2026-03-31T15:10:00+09:00",
+  "updatedAt": "2026-03-31T15:20:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxGust",
   "month": "12",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "1953年12月（昭和28年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 22.6,
+          "date": "1960年12月30日（昭和35年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 22.3,
+          "date": "1958年12月26日（昭和33年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 21.3,
+          "date": "1970年12月13日（昭和45年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 20.7,
+          "date": "1957年12月13日（昭和32年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 20.5,
+          "date": "1996年12月22日（平成8年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 20.5,
+          "date": "1960年12月5日（昭和35年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 20.3,
+          "date": "1965年12月23日（昭和40年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 20.1,
+          "date": "1956年12月22日（昭和31年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 20,
+          "date": "1965年12月12日（昭和40年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 19.7,
+          "date": "1965年12月24日（昭和40年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

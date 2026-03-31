@@ -1,7 +1,84 @@
 {
-  "updatedAt": "2026-03-31T15:10:00+09:00",
+  "updatedAt": "2026-03-31T15:20:00+09:00",
   "prefecture": "奈良県",
   "element": "monthSunshineLow",
   "month": "8",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "1953年8月（昭和28年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 116.8,
+          "date": "1980年8月（昭和55年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 118.4,
+          "date": "2014年8月（平成26年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 129.1,
+          "date": "1993年8月（平成5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 146.5,
+          "date": "2021年8月（令和3年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 151.7,
+          "date": "1988年8月（昭和63年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 154.7,
+          "date": "1968年8月（昭和43年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 163.4,
+          "date": "2005年8月（平成17年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 164.7,
+          "date": "1953年8月（昭和28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 167.3,
+          "date": "1998年8月（平成10年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 169.7,
+          "date": "1977年8月（昭和52年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

@@ -1,7 +1,84 @@
 {
-  "updatedAt": "2026-03-31T15:10:00+09:00",
+  "updatedAt": "2026-03-31T15:20:00+09:00",
   "prefecture": "奈良県",
   "element": "monthSunshineLow",
   "month": "6",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "1953年6月（昭和28年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 74.3,
+          "date": "1953年6月（昭和28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 77,
+          "date": "1970年6月（昭和45年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 85,
+          "date": "1971年6月（昭和46年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 85.3,
+          "date": "1954年6月（昭和29年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 92.2,
+          "date": "1991年6月（平成3年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 95.2,
+          "date": "1957年6月（昭和32年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 102.2,
+          "date": "2008年6月（平成20年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 104.2,
+          "date": "1996年6月（平成8年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 104.4,
+          "date": "1962年6月（昭和37年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 106.2,
+          "date": "2012年6月（平成24年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }
