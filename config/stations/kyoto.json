@@ -1,1 +1,22 @@
-
+{
+  "prefKey": "kyoto",
+  "prefName": "京都府",
+  "stations": [
+    {
+      "stationName": "京都",
+      "precNo": "61",
+      "amedasCode": "61286",
+      "temp": true,
+      "precip": true,
+      "humidity": true,
+      "wind": true,
+      "sunshine": true,
+      "snow": false,
+      "rank_candidates": [
+        { "rank_type": "s", "blockNo": "47759", "view": "h0" },
+        { "rank_type": "s", "blockNo": "47759", "view": "" },
+        { "rank_type": "s", "blockNo": "47759", "view": "ns0" }
+      ]
+    }
+  ]
+}
