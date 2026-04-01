@@ -1,9 +1,85 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthMax3hSnow",
   "month": "2",
   "rows": [
+    {
+      "stationName": "彦根",
+      "startDate": "2018年2月（平成30年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 17,
+          "date": "2012年2月2日（平成24年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 12,
+          "date": "2017年2月11日（平成29年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 12,
+          "date": "2005年2月3日（平成17年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 11,
+          "date": "2025年2月20日（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 10,
+          "date": "2022年2月21日（令和4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 8,
+          "date": "2020年2月18日（令和2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 8,
+          "date": "2013年2月21日（平成25年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 8,
+          "date": "2008年2月14日（平成20年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 8,
+          "date": "2002年2月12日（平成14年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 7,
+          "date": "2018年2月5日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
     {
       "stationName": "今津",
       "startDate": "2006年2月（平成18年）",

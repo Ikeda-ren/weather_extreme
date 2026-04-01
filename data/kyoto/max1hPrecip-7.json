@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "京都府",
   "element": "max1hPrecip",
   "month": "7",
@@ -82,18 +82,18 @@
     },
     {
       "stationName": "宮津",
-      "startDate": "1976年7月（昭和51年）",
+      "startDate": "2020年7月（令和2年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 71,
+          "value": 70.5,
           "date": "2008年7月28日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 49,
+          "value": 48,
           "date": "2018年7月7日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -128,7 +128,7 @@
         },
         {
           "rank": 7,
-          "value": 44,
+          "value": 43.5,
           "date": "2010年7月12日（平成22年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -136,14 +136,14 @@
         {
           "rank": 8,
           "value": 38,
-          "date": "2019年7月9日（令和元年）",
+          "date": "1992年7月13日（平成4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 38,
-          "date": "1992年7月13日（平成4年）",
+          "value": 37,
+          "date": "2019年7月9日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -234,7 +234,7 @@
     },
     {
       "stationName": "園部",
-      "startDate": "2002年7月（平成14年）",
+      "startDate": "2008年7月（平成20年）",
       "ranks": [
         {
           "rank": 1,
@@ -259,7 +259,7 @@
         },
         {
           "rank": 4,
-          "value": 47,
+          "value": 46.5,
           "date": "2012年7月22日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -273,7 +273,7 @@
         },
         {
           "rank": 6,
-          "value": 34,
+          "value": 33.5,
           "date": "2012年7月6日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -287,7 +287,7 @@
         },
         {
           "rank": 8,
-          "value": 30.5,
+          "value": 30,
           "date": "2022年7月3日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -301,7 +301,7 @@
         },
         {
           "rank": 10,
-          "value": 29.5,
+          "value": 29,
           "date": "2008年7月28日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false

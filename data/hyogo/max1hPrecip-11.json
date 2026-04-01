@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "兵庫県",
   "element": "max1hPrecip",
   "month": "11",
@@ -211,14 +211,14 @@
         },
         {
           "rank": 8,
-          "value": 18.5,
+          "value": 18,
           "date": "2009年11月14日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 17.5,
+          "value": 17,
           "date": "2022年11月29日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -226,7 +226,7 @@
         {
           "rank": 10,
           "value": 16,
-          "date": "2011年11月19日（平成23年）",
+          "date": "1988年11月23日（昭和63年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

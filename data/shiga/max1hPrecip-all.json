@@ -1,80 +1,80 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "max1hPrecip",
   "month": "all",
   "rows": [
     {
       "stationName": "彦根",
-      "startDate": "1894年1月（明治27年）",
+      "startDate": "1995年7月（平成7年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 63.5,
+          "value": 63,
           "date": "2001年7月17日（平成13年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 63,
-          "date": "1971年7月8日（昭和46年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 3,
-          "value": 60.1,
-          "date": "1896年9月7日（明治29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 4,
-          "value": 58,
-          "date": "1962年8月25日（昭和37年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 5,
-          "value": 54.5,
-          "date": "1968年8月25日（昭和43年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 6,
           "value": 52.5,
           "date": "2017年7月17日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 3,
+          "value": 48.5,
+          "date": "2014年8月15日（平成26年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 47,
+          "date": "2007年7月12日（平成19年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 46.5,
+          "date": "2017年7月22日（平成29年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 46,
+          "date": "2018年7月5日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 7,
-          "value": 52.1,
-          "date": "1959年8月13日（昭和34年）",
+          "value": 45,
+          "date": "2010年7月13日（平成22年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 50.9,
-          "date": "1934年7月21日（昭和9年）",
+          "value": 45,
+          "date": "1976年6月11日（昭和51年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 50.8,
-          "date": "1926年7月30日（大正15年）",
+          "value": 43.5,
+          "date": "2008年9月21日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
-          "value": 50,
-          "date": "1936年8月27日（昭和11年）",
+          "value": 43,
+          "date": "1995年7月21日（平成7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -142,7 +142,7 @@
         },
         {
           "rank": 9,
-          "value": 47.5,
+          "value": 47,
           "date": "2011年8月26日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -158,7 +158,7 @@
     },
     {
       "stationName": "今津",
-      "startDate": "1976年1月（昭和51年）",
+      "startDate": "2008年7月（平成20年）",
       "ranks": [
         {
           "rank": 1,
@@ -169,43 +169,43 @@
         },
         {
           "rank": 2,
-          "value": 59,
+          "value": 57.5,
           "date": "2020年7月8日（令和2年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 57,
+          "value": 56,
           "date": "2024年8月24日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 46.5,
+          "value": 46,
           "date": "2021年9月22日（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 43.5,
-          "date": "2018年7月5日（平成30年）",
+          "value": 42.5,
+          "date": "2018年9月4日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 43,
-          "date": "2012年6月17日（平成24年）",
+          "value": 42.5,
+          "date": "2018年7月5日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 42.5,
-          "date": "2018年9月4日（平成30年）",
+          "date": "2012年6月17日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -234,19 +234,19 @@
     },
     {
       "stationName": "土山",
-      "startDate": "1976年4月（昭和51年）",
+      "startDate": "2023年8月（令和5年）",
       "ranks": [
         {
           "rank": 1,
           "value": 60,
-          "date": "2023年9月11日（令和5年）",
+          "date": "1984年7月21日（昭和59年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 60,
-          "date": "1984年7月21日（昭和59年）",
+          "value": 59,
+          "date": "2023年9月11日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -287,7 +287,7 @@
         },
         {
           "rank": 8,
-          "value": 45.5,
+          "value": 45,
           "date": "2014年8月9日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -301,7 +301,7 @@
         },
         {
           "rank": 10,
-          "value": 44.5,
+          "value": 44,
           "date": "2023年8月13日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -310,7 +310,7 @@
     },
     {
       "stationName": "東近江",
-      "startDate": "1976年1月（昭和51年）",
+      "startDate": "2022年7月（令和4年）",
       "ranks": [
         {
           "rank": 1,
@@ -356,15 +356,15 @@
         },
         {
           "rank": 7,
-          "value": 46.5,
-          "date": "2023年9月21日（令和5年）",
+          "value": 46,
+          "date": "1987年7月31日（昭和62年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 46,
-          "date": "1987年7月31日（昭和62年）",
+          "value": 45.5,
+          "date": "2023年9月21日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -377,7 +377,7 @@
         },
         {
           "rank": 10,
-          "value": 44.5,
+          "value": 44,
           "date": "2022年7月19日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -386,7 +386,7 @@
     },
     {
       "stationName": "長浜",
-      "startDate": "1976年1月（昭和51年）",
+      "startDate": "2014年8月（平成26年）",
       "ranks": [
         {
           "rank": 1,
@@ -397,7 +397,7 @@
         },
         {
           "rank": 2,
-          "value": 50,
+          "value": 49.5,
           "date": "2015年6月21日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -418,28 +418,28 @@
         },
         {
           "rank": 5,
-          "value": 48.5,
+          "value": 47.5,
           "date": "2012年8月14日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 42.5,
-          "date": "2013年9月2日（平成25年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 7,
           "value": 42,
           "date": "2020年8月13日（令和2年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 8,
+          "rank": 7,
           "value": 42,
+          "date": "2013年9月2日（平成25年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 40.5,
           "date": "2020年7月8日（令和2年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -447,14 +447,14 @@
         {
           "rank": 9,
           "value": 40,
-          "date": "2014年8月15日（平成26年）",
+          "date": "2002年7月9日（平成14年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
-          "value": 40,
-          "date": "2002年7月9日（平成14年）",
+          "value": 39,
+          "date": "2014年8月15日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

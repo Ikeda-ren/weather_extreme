@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "京都府",
   "element": "max1hPrecip",
   "month": "8",
@@ -82,7 +82,7 @@
     },
     {
       "stationName": "宮津",
-      "startDate": "1976年8月（昭和51年）",
+      "startDate": "2004年8月（平成16年）",
       "ranks": [
         {
           "rank": 1,
@@ -101,14 +101,14 @@
         {
           "rank": 3,
           "value": 49,
-          "date": "2009年8月7日（平成21年）",
+          "date": "2009年8月6日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 49,
-          "date": "2009年8月6日（平成21年）",
+          "value": 48.5,
+          "date": "2009年8月7日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -121,14 +121,14 @@
         },
         {
           "rank": 6,
-          "value": 43,
+          "value": 41.5,
           "date": "2008年8月29日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
-          "value": 42,
+          "value": 41,
           "date": "2013年8月4日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -142,7 +142,7 @@
         },
         {
           "rank": 9,
-          "value": 40.5,
+          "value": 40,
           "date": "2013年8月31日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -234,7 +234,7 @@
     },
     {
       "stationName": "園部",
-      "startDate": "2002年8月（平成14年）",
+      "startDate": "2025年8月（令和7年）",
       "ranks": [
         {
           "rank": 1,
@@ -253,34 +253,34 @@
         {
           "rank": 3,
           "value": 49,
-          "date": "2014年8月10日（平成26年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 4,
-          "value": 49,
           "date": "2004年8月31日（平成16年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 4,
+          "value": 47.5,
+          "date": "2014年8月10日（平成26年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 5,
-          "value": 46.5,
+          "value": 46,
           "date": "2018年8月24日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 46,
+          "value": 45,
           "date": "2014年8月16日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
-          "value": 45.5,
+          "value": 45,
           "date": "2009年8月2日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -294,17 +294,17 @@
         },
         {
           "rank": 9,
-          "value": 37,
-          "date": "2025年8月25日（令和7年）",
-          "highlightLive": false,
-          "highlightWithinYear": true
-        },
-        {
-          "rank": 10,
-          "value": 37,
+          "value": 36.5,
           "date": "2019年8月30日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 36,
+          "date": "2025年8月25日（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
         }
       ]
     }

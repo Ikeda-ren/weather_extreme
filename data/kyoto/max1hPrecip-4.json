@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-01T08:20:00+09:00",
+  "updatedAt": "2026-04-01T09:20:00+09:00",
   "prefecture": "京都府",
   "element": "max1hPrecip",
   "month": "4",
@@ -82,7 +82,7 @@
     },
     {
       "stationName": "宮津",
-      "startDate": "1976年4月（昭和51年）",
+      "startDate": "1992年4月（平成4年）",
       "ranks": [
         {
           "rank": 1,
@@ -100,7 +100,7 @@
         },
         {
           "rank": 3,
-          "value": 18.5,
+          "value": 17.5,
           "date": "2023年4月30日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -114,7 +114,7 @@
         },
         {
           "rank": 5,
-          "value": 15.5,
+          "value": 15,
           "date": "2023年4月26日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -234,33 +234,33 @@
     },
     {
       "stationName": "園部",
-      "startDate": "2002年4月（平成14年）",
+      "startDate": "2004年4月（平成16年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 19.5,
-          "date": "2018年4月25日（平成30年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 2,
           "value": 19,
           "date": "2022年4月29日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 3,
+          "rank": 2,
           "value": 18.5,
-          "date": "2012年4月3日（平成24年）",
+          "date": "2018年4月25日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 18,
+          "date": "2023年4月26日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 18,
-          "date": "2023年4月26日（令和5年）",
+          "date": "2012年4月3日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -280,14 +280,14 @@
         },
         {
           "rank": 7,
-          "value": 14.5,
+          "value": 14,
           "date": "2017年4月17日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 14,
+          "value": 13.5,
           "date": "2016年4月13日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
