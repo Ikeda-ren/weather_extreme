@@ -1,7 +1,42 @@
 {
-  "updatedAt": "2026-04-01T06:00:00+09:00",
+  "updatedAt": "2026-04-01T08:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "dailySnowDepth",
   "month": "5",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "彦根",
+      "startDate": "2025年5月（令和7年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1953,
+          "date": "2025年5月22日（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 2,
+          "value": 1953,
+          "date": "2016年5月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 1916,
+          "date": "2016年5月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 1894,
+          "date": "2016年5月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

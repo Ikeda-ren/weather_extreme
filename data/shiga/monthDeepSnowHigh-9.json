@@ -1,9 +1,29 @@
 {
-  "updatedAt": "2026-04-01T06:00:00+09:00",
+  "updatedAt": "2026-04-01T08:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthDeepSnowHigh",
   "month": "9",
   "rows": [
+    {
+      "stationName": "彦根",
+      "startDate": "2025年9月（令和7年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1916,
+          "date": "2016年9月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 1894,
+          "date": "2016年9月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
     {
       "stationName": "今津",
       "startDate": "2009年9月（平成21年）",
