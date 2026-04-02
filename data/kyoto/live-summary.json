@@ -1,5 +1,24 @@
 {
-  "updatedAt": "2026-04-02T20:50:00+09:00",
+  "updatedAt": "2026-04-03T00:30:00+09:00",
   "prefecture": "京都府",
-  "items": []
+  "items": [
+    {
+      "stationName": "宮津",
+      "elementKey": "dailyMaxTempLow",
+      "elementLabel": "日最高気温の低い方から",
+      "rank": 1,
+      "value": 6.4,
+      "date": "2026年4月3日（令和8年）",
+      "monthLabel": "4月"
+    },
+    {
+      "stationName": "福知山",
+      "elementKey": "dailyMaxTempLow",
+      "elementLabel": "日最高気温の低い方から",
+      "rank": 1,
+      "value": 5.2,
+      "date": "2026年4月3日（令和8年）",
+      "monthLabel": "4月"
+    }
+  ]
 }
