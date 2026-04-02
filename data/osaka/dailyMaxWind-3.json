@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-03T00:30:00+09:00",
+  "updatedAt": "2026-04-03T02:50:00+09:00",
   "prefecture": "大阪府",
   "element": "dailyMaxWind",
   "month": "3",
@@ -675,16 +675,16 @@
         {
           "rank": 9,
           "value": 17.5,
-          "date": "2023年3月13日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 10,
-          "value": 17.2,
           "date": "2026年3月31日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
+        },
+        {
+          "rank": 10,
+          "value": 17.5,
+          "date": "2023年3月13日（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
         }
       ]
     }
