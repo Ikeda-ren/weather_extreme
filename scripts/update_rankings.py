@@ -1,8 +1,10 @@
 import os
+from datetime import datetime
 
 from weather_common import (
     ELEMENTS,
     MONTHS,
+    JST,
     ensure_dir,
     fetch_latest_time,
     load_prefecture_configs,
@@ -18,7 +20,12 @@ def main():
     ensure_dir(BASE_DIR)
 
     prefectures = load_prefecture_configs()
-    latest_iso = fetch_latest_time()
+
+    # 観測時刻（内部計算や確認用）
+    latest_obs_iso = fetch_latest_time()
+
+    # 表示用の更新時刻は「実際の生成時刻」にする
+    generated_iso = datetime.now(JST).isoformat()
 
     for pref in prefectures:
         pref_key = pref["key"]
@@ -52,7 +59,8 @@ def main():
                         continue
 
                 output = {
-                    "updatedAt": latest_iso,
+                    "updatedAt": generated_iso,
+                    "observedLatestAt": latest_obs_iso,
                     "prefecture": pref_name,
                     "element": element_key,
                     "month": month,
@@ -63,7 +71,9 @@ def main():
                 write_json(os.path.join(pref_dir, file_name), output)
                 print(f"wrote: {BASE_DIR}/{pref_key}/{file_name}")
 
-    manifest = build_dir_manifest(BASE_DIR, latest_iso, prefectures)
+    manifest = build_dir_manifest(BASE_DIR, generated_iso, prefectures)
+    manifest["observedLatestAt"] = latest_obs_iso
+
     write_json(os.path.join(BASE_DIR, "manifest.json"), manifest)
     print(f"wrote: {BASE_DIR}/manifest.json")
     print("done rankings")
