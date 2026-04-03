@@ -327,7 +327,6 @@ async function loadTable() {
 
   if (!prefMeta.stationsFile) {
     statusEl.textContent = buildStatusText({
-      tableUpdatedAt: manifestCache?.updatedAt || "",
       rowCount: 0,
       elementLabel,
       prefName: prefMeta.name
