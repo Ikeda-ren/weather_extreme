@@ -1041,7 +1041,6 @@ def main():
 
         manifest = {
             "updatedAt": latest_iso,
-            "generatedAtJst": datetime.now(JST).isoformat(),
             "prefectures": collect_generation_stats(prefectures),
         }
         write_json(os.path.join("data", "manifest.json"), manifest)
