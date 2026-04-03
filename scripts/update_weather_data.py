@@ -809,11 +809,15 @@ def try_fetch_station_rows(station, element_def, month):
     candidates = list(station["rank_candidates"])
 
     if element_def["category"] == "precip":
-        order = {"np0": 0, "": 1, "h0": 2, "a2": 3, "ns0": 4}
+        # 日降水系は np0 を先頭にすると「row not found」が増えやすいので、
+        # まず通常ビューを優先して試す
+        order = {"": 0, "h0": 1, "np0": 2, "a2": 3, "ns0": 4}
         candidates.sort(key=lambda c: order.get(c.get("view", ""), 9))
     elif element_def["category"] == "snow":
         order = {"ns0": 0, "a2": 1, "np0": 2, "h0": 3, "": 4}
         candidates.sort(key=lambda c: order.get(c.get("view", ""), 9))
+
+    tried_messages = []
 
     for candidate in candidates:
         view = candidate.get("view", "")
@@ -845,20 +849,20 @@ def try_fetch_station_rows(station, element_def, month):
                         )
                     return parsed
                 else:
-                    print(
-                        f"[rank cells found but parse empty] station={station['stationName']} "
+                    tried_messages.append(
+                        f"[rank cells found but parse empty] "
+                        f"station={station['stationName']} "
                         f"category={element_def['category']} "
                         f"label={element_def['labels'][0]} month={month} "
-                        f"view={view or '(blank)'} url={url}",
-                        file=sys.stderr
+                        f"view={view or '(blank)'} url={url}"
                     )
             else:
-                print(
-                    f"[rank row not found] station={station['stationName']} "
+                tried_messages.append(
+                    f"[rank row not found] "
+                    f"station={station['stationName']} "
                     f"category={element_def['category']} "
                     f"label={element_def['labels'][0]} month={month} "
-                    f"view={view or '(blank)'} url={url}",
-                    file=sys.stderr
+                    f"view={view or '(blank)'} url={url}"
                 )
 
             if element_def["category"] == "snow":
@@ -877,23 +881,26 @@ def try_fetch_station_rows(station, element_def, month):
                         )
                     return parsed_fallback
                 else:
-                    print(
-                        f"[snow fallback failed] station={station['stationName']} "
+                    tried_messages.append(
+                        f"[snow fallback failed] "
+                        f"station={station['stationName']} "
                         f"label={element_def['labels'][0]} month={month} "
-                        f"view={view or '(blank)'} url={url}",
-                        file=sys.stderr
+                        f"view={view or '(blank)'} url={url}"
                     )
 
         except Exception as e:
             last_error = e
-            print(
-                f"[rank fetch error] station={station['stationName']} "
+            tried_messages.append(
+                f"[rank fetch error] "
+                f"station={station['stationName']} "
                 f"category={element_def['category']} "
                 f"label={element_def['labels'][0]} month={month} "
                 f"view={view or '(blank)'} blockNo={block_no} "
-                f"rankType={rank_type} error={repr(e)}",
-                file=sys.stderr
+                f"rankType={rank_type} error={repr(e)}"
             )
+
+    for msg in tried_messages:
+        print(msg, file=sys.stderr)
 
     if last_error:
         raise last_error
