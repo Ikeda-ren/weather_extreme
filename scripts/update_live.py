@@ -33,7 +33,10 @@ def main():
     ensure_dir(PUBLIC_DIR)
 
     prefectures = load_prefecture_configs()
-    latest_iso = fetch_latest_time()
+    latest_obs_iso = fetch_latest_time()
+    latest_dt = datetime.fromisoformat(latest_obs_iso.replace("Z", "+00:00")).astimezone(JST)
+    
+    generated_iso = datetime.now(JST).isoformat()
     latest_dt = datetime.fromisoformat(latest_iso.replace("Z", "+00:00")).astimezone(JST)
 
     for pref in prefectures:
@@ -96,13 +99,12 @@ def main():
                             continue
 
                 output = {
-                    "updatedAt": latest_iso,
+                    "updatedAt": generated_iso,
                     "prefecture": pref_name,
                     "element": element_key,
                     "month": month,
                     "rows": rows,
                 }
-
                 file_name = f"{element_key}-{month}.json"
                 write_json(os.path.join(pref_dir, file_name), output)
                 print(f"wrote: {PUBLIC_DIR}/{pref_key}/{file_name}")
