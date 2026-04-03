@@ -1052,7 +1052,6 @@ def main():
             "prefectures": collect_generation_stats(prefectures),
         }
         write_json(os.path.join("data", "manifest.json"), manifest)
-    }
 
     for pref in prefectures:
         pref_key = pref["key"]
