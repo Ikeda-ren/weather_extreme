@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-03T23:32:39.769464+09:00",
-  "observedLatestAt": "2026-04-03T23:20:00+09:00",
+  "updatedAt": "2026-04-04T01:06:30.399991+09:00",
+  "observedLatestAt": "2026-04-04T00:50:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxTempLow",
   "month": "4",
@@ -295,15 +295,15 @@
         },
         {
           "rank": 9,
-          "value": 10.5,
-          "date": "2017年4月1日（平成29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "value": 10.4,
+          "date": "2026年4月4日（令和8年）",
+          "highlightLive": true,
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
-          "value": 10.7,
-          "date": "2019年4月3日（平成31年）",
+          "value": 10.5,
+          "date": "2017年4月1日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -371,15 +371,15 @@
         },
         {
           "rank": 9,
-          "value": 8.6,
-          "date": "2012年4月7日（平成24年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "value": 8.5,
+          "date": "2026年4月4日（令和8年）",
+          "highlightLive": true,
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
           "value": 8.6,
-          "date": "1996年4月11日（平成8年）",
+          "date": "2012年4月7日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
