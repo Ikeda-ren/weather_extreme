@@ -841,13 +841,6 @@ def try_fetch_station_rows(station, element_def, month):
             if cells:
                 parsed = parse_rank_cells(cells, element_def["direction"])
                 if parsed:
-                    print(
-                        f"[rank ok] station={station['stationName']} "
-                        f"category={element_def['category']} "
-                        f"label={element_def['labels'][0]} month={month} "
-                        f"view={view or '(blank)'} count={len(parsed)} url={url}",
-                        file=sys.stderr
-                    )
                     return parsed
                 else:
                     print(
