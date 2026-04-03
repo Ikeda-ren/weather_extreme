@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "京都府",
   "element": "max1hPrecip",
   "month": "12",
@@ -94,14 +95,14 @@
         {
           "rank": 2,
           "value": 17,
-          "date": "2002年12月9日（平成14年）",
+          "date": "2008年12月5日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 16.5,
-          "date": "2008年12月5日（平成20年）",
+          "value": 17,
+          "date": "2002年12月9日（平成14年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -136,14 +137,14 @@
         {
           "rank": 8,
           "value": 11,
-          "date": "2004年12月31日（平成16年）",
+          "date": "2013年12月10日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 10.5,
-          "date": "2013年12月10日（平成25年）",
+          "value": 11,
+          "date": "2004年12月31日（平成16年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -252,14 +253,14 @@
         },
         {
           "rank": 3,
-          "value": 11.5,
+          "value": 12,
           "date": "2008年12月5日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 11,
+          "value": 11.5,
           "date": "2021年12月1日（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -267,28 +268,28 @@
         {
           "rank": 5,
           "value": 10,
-          "date": "2004年12月4日（平成16年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 6,
-          "value": 9.5,
           "date": "2016年12月27日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 6,
+          "value": 10,
+          "date": "2004年12月4日（平成16年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 7,
-          "value": 8,
-          "date": "2016年12月22日（平成28年）",
+          "value": 8.5,
+          "date": "2013年12月10日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
           "value": 8,
-          "date": "2013年12月10日（平成25年）",
+          "date": "2016年12月22日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },

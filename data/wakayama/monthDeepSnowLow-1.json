@@ -1,7 +1,22 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthDeepSnowLow",
   "month": "1",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "和歌山",
+      "startDate": "2026年1月（令和8年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1916,
+          "date": "2012年1月（平成24年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

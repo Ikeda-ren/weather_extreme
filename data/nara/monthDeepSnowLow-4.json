@@ -1,7 +1,22 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "奈良県",
   "element": "monthDeepSnowLow",
   "month": "4",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "2026年4月（令和8年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1954,
+          "date": "2016年4月（平成28年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

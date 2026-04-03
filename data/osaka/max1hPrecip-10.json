@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "大阪府",
   "element": "max1hPrecip",
   "month": "10",
@@ -94,23 +95,23 @@
         {
           "rank": 2,
           "value": 31,
-          "date": "2025年10月14日（令和7年）",
+          "date": "2025年10月15日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 3,
           "value": 31,
-          "date": "2004年10月20日（平成16年）",
+          "date": "2025年10月14日（令和7年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 4,
-          "value": 24,
-          "date": "2025年10月15日（令和7年）",
+          "value": 31,
+          "date": "2004年10月20日（平成16年）",
           "highlightLive": false,
-          "highlightWithinYear": true
+          "highlightWithinYear": false
         },
         {
           "rank": 5,
@@ -129,20 +130,20 @@
         {
           "rank": 7,
           "value": 22,
-          "date": "1998年10月18日（平成10年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 8,
-          "value": 21,
           "date": "2019年10月4日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 8,
+          "value": 22,
+          "date": "1998年10月18日（平成10年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 9,
-          "value": 20.5,
+          "value": 21,
           "date": "2011年10月22日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -150,7 +151,7 @@
         {
           "rank": 10,
           "value": 19,
-          "date": "1999年10月7日（平成11年）",
+          "date": "2014年10月13日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -211,7 +212,7 @@
         },
         {
           "rank": 8,
-          "value": 23.5,
+          "value": 24,
           "date": "2012年10月17日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -238,7 +239,7 @@
       "ranks": [
         {
           "rank": 1,
-          "value": 49.5,
+          "value": 51,
           "date": "2013年10月9日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -259,14 +260,14 @@
         },
         {
           "rank": 4,
-          "value": 27.5,
+          "value": 28,
           "date": "2015年10月2日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 24,
+          "value": 24.5,
           "date": "2014年10月13日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -321,14 +322,14 @@
         },
         {
           "rank": 2,
-          "value": 38.5,
+          "value": 39,
           "date": "2009年10月8日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 36,
+          "value": 36.5,
           "date": "2011年10月15日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -363,7 +364,7 @@
         },
         {
           "rank": 8,
-          "value": 23.5,
+          "value": 24,
           "date": "2010年10月4日（平成22年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -377,7 +378,7 @@
         },
         {
           "rank": 10,
-          "value": 22,
+          "value": 22.5,
           "date": "2013年10月9日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -390,7 +391,7 @@
       "ranks": [
         {
           "rank": 1,
-          "value": 56.5,
+          "value": 58.5,
           "date": "2014年10月13日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -446,7 +447,7 @@
         },
         {
           "rank": 9,
-          "value": 24,
+          "value": 24.5,
           "date": "2017年10月22日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -466,43 +467,43 @@
       "ranks": [
         {
           "rank": 1,
-          "value": 42.5,
+          "value": 43,
           "date": "2016年10月9日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 21,
-          "date": "2019年10月4日（令和元年）",
+          "value": 22,
+          "date": "2013年10月9日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
           "value": 21,
-          "date": "2015年10月2日（平成27年）",
+          "date": "2019年10月4日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 21,
-          "date": "2013年10月9日（平成25年）",
+          "date": "2015年10月2日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 18.5,
-          "date": "2012年10月23日（平成24年）",
+          "value": 19.5,
+          "date": "2012年10月17日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
           "value": 18.5,
-          "date": "2012年10月17日（平成24年）",
+          "date": "2012年10月23日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -522,7 +523,7 @@
         },
         {
           "rank": 9,
-          "value": 15.5,
+          "value": 16,
           "date": "2014年10月13日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -682,7 +683,7 @@
         {
           "rank": 10,
           "value": 19,
-          "date": "2005年10月15日（平成17年）",
+          "date": "2017年10月22日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -729,7 +730,7 @@
         },
         {
           "rank": 6,
-          "value": 20,
+          "value": 20.5,
           "date": "2015年10月2日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -743,7 +744,7 @@
         },
         {
           "rank": 8,
-          "value": 17,
+          "value": 17.5,
           "date": "2017年10月22日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -770,7 +771,7 @@
       "ranks": [
         {
           "rank": 1,
-          "value": 78.5,
+          "value": 79,
           "date": "2014年10月13日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -791,14 +792,14 @@
         },
         {
           "rank": 4,
-          "value": 26.5,
+          "value": 27,
           "date": "2012年10月17日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 22.5,
+          "value": 23,
           "date": "2017年10月22日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -819,14 +820,14 @@
         },
         {
           "rank": 8,
-          "value": 17,
+          "value": 17.5,
           "date": "2017年10月29日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 15,
+          "value": 15.5,
           "date": "2014年10月9日（平成26年）",
           "highlightLive": false,
           "highlightWithinYear": false

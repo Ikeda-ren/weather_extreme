@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "和歌山県",
   "element": "max1hPrecip",
   "month": "1",
@@ -82,7 +83,7 @@
     },
     {
       "stationName": "友ケ島",
-      "startDate": "2000年1月（平成12年）",
+      "startDate": "1999年1月（平成11年）",
       "ranks": [
         {
           "rank": 1,
@@ -101,20 +102,20 @@
         {
           "rank": 3,
           "value": 12,
-          "date": "2006年1月14日（平成18年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 4,
-          "value": 11.5,
           "date": "2016年1月29日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 4,
+          "value": 12,
+          "date": "2006年1月14日（平成18年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 5,
-          "value": 11,
+          "value": 11.5,
           "date": "2015年1月15日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false

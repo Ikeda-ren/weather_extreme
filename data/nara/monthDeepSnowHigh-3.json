@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "奈良県",
   "element": "monthDeepSnowHigh",
   "month": "3",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "奈良",
+      "startDate": "1954年3月（昭和29年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 19,
+          "date": "1963年3月13日（昭和38年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 10,
+          "date": "1987年3月8日（昭和62年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 10,
+          "date": "1981年3月2日（昭和56年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 6,
+          "date": "1970年3月4日（昭和45年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 6,
+          "date": "1969年3月4日（昭和44年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 4,
+          "date": "1983年3月7日（昭和58年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 4,
+          "date": "1975年3月25日（昭和50年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 3,
+          "date": "2006年3月13日（平成18年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 3,
+          "date": "2001年3月9日（平成13年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 3,
+          "date": "1965年3月17日（昭和40年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

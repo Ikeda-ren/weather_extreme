@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
   "prefectures": {
     "shiga": [
       "dailyMaxGust-1.json",
@@ -2593,5 +2593,6 @@
       "monthSunshineLow-9.json",
       "monthSunshineLow-all.json"
     ]
-  }
+  },
+  "observedLatestAt": "2026-04-03T16:20:00+09:00"
 }

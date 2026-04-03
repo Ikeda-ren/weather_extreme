@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthDeepSnowHigh",
   "month": "1",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "和歌山",
+      "startDate": "1880年1月（明治13年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 13,
+          "date": "1906年1月24日（明治39年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 10,
+          "date": "1984年1月31日（昭和59年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 10,
+          "date": "1922年1月15日（大正11年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 5,
+          "date": "1921年1月14日（大正10年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 4,
+          "date": "2023年1月25日（令和5年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 4,
+          "date": "1963年1月19日（昭和38年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 4,
+          "date": "1904年1月26日（明治37年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 3,
+          "date": "2017年1月24日（平成29年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 3,
+          "date": "1990年1月24日（平成2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 3,
+          "date": "1982年1月17日（昭和57年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }

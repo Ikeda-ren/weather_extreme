@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "和歌山県",
   "element": "max1hPrecip",
   "month": "11",
@@ -86,7 +87,7 @@
       "ranks": [
         {
           "rank": 1,
-          "value": 83,
+          "value": 83.5,
           "date": "2009年11月11日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -135,7 +136,7 @@
         },
         {
           "rank": 8,
-          "value": 26,
+          "value": 26.5,
           "date": "2009年11月1日（平成21年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -149,7 +150,7 @@
         },
         {
           "rank": 10,
-          "value": 20.5,
+          "value": 21,
           "date": "2024年11月26日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false

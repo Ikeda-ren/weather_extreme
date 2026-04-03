@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "大阪府",
   "element": "max1hPrecip",
   "month": "9",
@@ -82,7 +83,7 @@
     },
     {
       "stationName": "能勢",
-      "startDate": "2013年9月（平成25年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -114,21 +115,21 @@
         },
         {
           "rank": 5,
-          "value": 48,
+          "value": 48.5,
           "date": "2015年9月1日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 47,
+          "value": 48,
           "date": "2017年9月17日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
-          "value": 44.5,
+          "value": 45,
           "date": "2019年9月4日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -158,7 +159,7 @@
     },
     {
       "stationName": "豊中",
-      "startDate": "2003年9月（平成15年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -198,14 +199,14 @@
         {
           "rank": 6,
           "value": 35,
-          "date": "1999年9月7日（平成11年）",
+          "date": "2017年9月12日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
-          "value": 34,
-          "date": "2017年9月12日（平成29年）",
+          "value": 35,
+          "date": "1999年9月7日（平成11年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -234,11 +235,11 @@
     },
     {
       "stationName": "生駒山",
-      "startDate": "2022年9月（令和4年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 69,
+          "value": 72.5,
           "date": "2019年9月4日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -266,7 +267,7 @@
         },
         {
           "rank": 5,
-          "value": 34.5,
+          "value": 35,
           "date": "2017年9月28日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -287,30 +288,30 @@
         },
         {
           "rank": 8,
-          "value": 31,
-          "date": "2025年9月3日（令和7年）",
+          "value": 31.5,
+          "date": "2023年9月8日（令和5年）",
           "highlightLive": false,
-          "highlightWithinYear": true
+          "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 31,
-          "date": "2023年9月8日（令和5年）",
+          "value": 31.5,
+          "date": "2013年9月15日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
           "value": 31,
-          "date": "2022年9月4日（令和4年）",
+          "date": "2025年9月3日（令和7年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         }
       ]
     },
     {
       "stationName": "河内長野",
-      "startDate": "2022年9月（令和4年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -328,7 +329,7 @@
         },
         {
           "rank": 3,
-          "value": 37,
+          "value": 38,
           "date": "2016年9月20日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -356,14 +357,14 @@
         },
         {
           "rank": 7,
-          "value": 32,
+          "value": 34,
           "date": "2018年9月1日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 30,
+          "value": 30.5,
           "date": "2013年9月16日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -386,7 +387,7 @@
     },
     {
       "stationName": "熊取",
-      "startDate": "2000年9月（平成12年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -397,21 +398,21 @@
         },
         {
           "rank": 2,
-          "value": 43,
+          "value": 43.5,
           "date": "2018年9月10日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 35.5,
+          "value": 37.5,
           "date": "2008年9月21日（平成20年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 35,
+          "value": 35.5,
           "date": "2011年9月3日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -462,35 +463,35 @@
     },
     {
       "stationName": "茨木",
-      "startDate": "2022年9月（令和4年）",
+      "startDate": "2010年9月（平成22年）",
       "ranks": [
         {
           "rank": 1,
+          "value": 44.5,
+          "date": "2017年9月12日（平成29年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
           "value": 44.5,
           "date": "2010年9月15日（平成22年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 2,
-          "value": 44,
-          "date": "2017年9月12日（平成29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
           "rank": 3,
-          "value": 36.5,
-          "date": "2025年9月12日（令和7年）",
-          "highlightLive": false,
-          "highlightWithinYear": true
-        },
-        {
-          "rank": 4,
-          "value": 36.5,
+          "value": 38.5,
           "date": "2016年9月28日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 37,
+          "date": "2025年9月12日（令和7年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
         },
         {
           "rank": 5,
@@ -501,7 +502,7 @@
         },
         {
           "rank": 6,
-          "value": 34,
+          "value": 34.5,
           "date": "2024年9月12日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -515,7 +516,7 @@
         },
         {
           "rank": 8,
-          "value": 32,
+          "value": 32.5,
           "date": "2025年9月11日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": true
@@ -538,7 +539,7 @@
     },
     {
       "stationName": "枚方",
-      "startDate": "2007年9月（平成19年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -549,7 +550,7 @@
         },
         {
           "rank": 2,
-          "value": 58,
+          "value": 58.5,
           "date": "2013年9月16日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -577,7 +578,7 @@
         },
         {
           "rank": 6,
-          "value": 45.5,
+          "value": 46,
           "date": "2012年9月3日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -614,7 +615,7 @@
     },
     {
       "stationName": "堺",
-      "startDate": "2016年9月（平成28年）",
+      "startDate": "1976年9月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -632,7 +633,7 @@
         },
         {
           "rank": 3,
-          "value": 43.5,
+          "value": 45,
           "date": "2018年9月1日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -646,14 +647,14 @@
         },
         {
           "rank": 5,
-          "value": 37.5,
+          "value": 40,
           "date": "2015年9月9日（平成27年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 35.5,
+          "value": 36,
           "date": "2016年9月8日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -667,14 +668,14 @@
         },
         {
           "rank": 8,
-          "value": 31.5,
+          "value": 32.5,
           "date": "2011年9月4日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 30,
+          "value": 31,
           "date": "2022年9月2日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -690,33 +691,33 @@
     },
     {
       "stationName": "八尾",
-      "startDate": "2022年9月（令和4年）",
+      "startDate": "2003年9月（平成15年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 36.5,
+          "value": 37.5,
           "date": "2018年9月1日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 31,
+          "value": 31.5,
           "date": "2022年9月2日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 28,
-          "date": "2019年9月5日（令和元年）",
+          "value": 28.5,
+          "date": "2017年9月12日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
           "value": 28,
-          "date": "2017年9月12日（平成29年）",
+          "date": "2019年9月5日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -730,20 +731,20 @@
         {
           "rank": 6,
           "value": 24.5,
-          "date": "2008年9月6日（平成20年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 7,
-          "value": 24,
           "date": "2016年9月8日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
+          "rank": 7,
+          "value": 24.5,
+          "date": "2008年9月6日（平成20年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
           "rank": 8,
-          "value": 23.5,
+          "value": 24,
           "date": "2019年9月4日（令和元年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -757,7 +758,7 @@
         },
         {
           "rank": 10,
-          "value": 22,
+          "value": 23,
           "date": "2022年9月8日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -766,7 +767,7 @@
     },
     {
       "stationName": "関空島",
-      "startDate": "2016年9月（平成28年）",
+      "startDate": "2003年9月（平成15年）",
       "ranks": [
         {
           "rank": 1,
@@ -777,7 +778,7 @@
         },
         {
           "rank": 2,
-          "value": 31,
+          "value": 32.5,
           "date": "2018年9月9日（平成30年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -791,7 +792,7 @@
         },
         {
           "rank": 4,
-          "value": 27,
+          "value": 28.5,
           "date": "2011年9月3日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -805,15 +806,15 @@
         },
         {
           "rank": 6,
-          "value": 25.5,
-          "date": "2013年9月4日（平成25年）",
+          "value": 26,
+          "date": "2011年9月19日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 25.5,
-          "date": "2011年9月19日（平成23年）",
+          "date": "2013年9月4日（平成25年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
@@ -833,7 +834,7 @@
         },
         {
           "rank": 10,
-          "value": 22,
+          "value": 22.5,
           "date": "2016年9月25日（平成28年）",
           "highlightLive": false,
           "highlightWithinYear": false

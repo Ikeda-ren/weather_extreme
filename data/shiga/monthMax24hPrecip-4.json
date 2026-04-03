@@ -1,80 +1,81 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthMax24hPrecip",
   "month": "4",
   "rows": [
     {
       "stationName": "彦根",
-      "startDate": "1976年4月（昭和51年）",
+      "startDate": "1929年4月（昭和4年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 69,
-          "date": "1998年4月15日（平成10年）",
+          "value": 152.7,
+          "date": "1946年4月24日（昭和21年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 67,
-          "date": "2002年4月18日（平成14年）",
+          "value": 80.5,
+          "date": "1974年4月8日（昭和49年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 66.5,
-          "date": "2021年4月29日（令和3年）",
+          "value": 75.2,
+          "date": "1957年4月23日（昭和32年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 61,
-          "date": "2016年4月8日（平成28年）",
+          "value": 71.2,
+          "date": "1933年4月26日（昭和8年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 60.5,
-          "date": "2020年4月13日（令和2年）",
+          "value": 69.5,
+          "date": "1998年4月14日（平成10年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
-          "value": 58,
-          "date": "2024年4月9日（令和6年）",
+          "value": 68.5,
+          "date": "1973年4月17日（昭和48年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
-          "value": 56.5,
-          "date": "2018年4月25日（平成30年）",
+          "value": 68,
+          "date": "1952年4月20日（昭和27年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
-          "value": 52.5,
-          "date": "2023年4月30日（令和5年）",
+          "value": 67.5,
+          "date": "2002年4月17日（平成14年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 52,
-          "date": "2010年4月23日（平成22年）",
+          "value": 67.5,
+          "date": "1968年4月28日（昭和43年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
-          "value": 52,
-          "date": "1976年4月24日（昭和51年）",
+          "value": 66,
+          "date": "2021年4月29日（令和3年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

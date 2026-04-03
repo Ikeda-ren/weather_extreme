@@ -1,80 +1,81 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthMax24hPrecip",
   "month": "all",
   "rows": [
     {
       "stationName": "彦根",
-      "startDate": "1983年6月（昭和58年）",
+      "startDate": "1929年1月（昭和4年）",
       "ranks": [
         {
           "rank": 1,
-          "value": 214,
-          "date": "2017年10月23日（平成29年）",
+          "value": 271.4,
+          "date": "1959年9月26日（昭和34年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 2,
-          "value": 190,
-          "date": "1990年9月20日（平成2年）",
+          "value": 214,
+          "date": "2017年10月22日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 3,
-          "value": 180.5,
-          "date": "2018年7月6日（平成30年）",
+          "value": 194.7,
+          "date": "1965年9月17日（昭和40年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
+          "value": 191.5,
+          "date": "1972年9月16日（昭和47年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 190,
+          "date": "1990年9月19日（平成2年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 180.5,
+          "date": "2018年7月5日（平成30年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 169.7,
+          "date": "1959年8月13日（昭和34年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 168,
+          "date": "1971年9月6日（昭和46年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
           "value": 165,
           "date": "2002年7月10日（平成14年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 5,
-          "value": 149.5,
-          "date": "2021年8月15日（令和3年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 6,
-          "value": 146,
-          "date": "1982年8月2日（昭和57年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 7,
-          "value": 142.5,
-          "date": "2013年9月16日（平成25年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 8,
-          "value": 141,
-          "date": "1988年6月9日（昭和63年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 9,
-          "value": 139,
-          "date": "2000年9月12日（平成12年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
           "rank": 10,
-          "value": 139,
-          "date": "1983年6月21日（昭和58年）",
+          "value": 159.2,
+          "date": "1930年7月31日（昭和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

@@ -1,5 +1,6 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "兵庫県",
   "element": "max1hPrecip",
   "month": "4",
@@ -158,7 +159,7 @@
     },
     {
       "stationName": "西脇",
-      "startDate": "2013年4月（平成25年）",
+      "startDate": "1976年4月（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -176,21 +177,21 @@
         },
         {
           "rank": 3,
-          "value": 17.5,
+          "value": 18,
           "date": "2012年4月11日（平成24年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 4,
-          "value": 17.5,
+          "value": 18,
           "date": "2010年4月12日（平成22年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 5,
-          "value": 17,
+          "value": 17.5,
           "date": "2022年4月29日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
@@ -218,15 +219,15 @@
         },
         {
           "rank": 9,
-          "value": 14,
-          "date": "2014年4月29日（平成26年）",
+          "value": 14.5,
+          "date": "2011年4月23日（平成23年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
           "value": 14,
-          "date": "2013年4月6日（平成25年）",
+          "date": "2017年4月17日（平成29年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

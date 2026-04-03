@@ -1,7 +1,85 @@
 {
-  "updatedAt": "2026-04-03T07:50:00+09:00",
+  "updatedAt": "2026-04-03T16:31:06.950245+09:00",
+  "observedLatestAt": "2026-04-03T16:20:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthDeepSnowHigh",
   "month": "3",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "和歌山",
+      "startDate": "1880年3月（明治13年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 8,
+          "date": "1965年3月17日（昭和40年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 7,
+          "date": "1946年3月10日（昭和21年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 7,
+          "date": "1915年3月15日（大正4年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 6,
+          "date": "1963年3月13日（昭和38年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 5,
+          "date": "1940年3月1日（昭和15年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 5,
+          "date": "1936年3月8日（昭和11年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 3,
+          "date": "1977年3月4日（昭和52年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 2,
+          "date": "1978年3月13日（昭和53年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 2,
+          "date": "1926年3月20日（大正15年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 1,
+          "date": "1984年3月1日（昭和59年）",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
 }
