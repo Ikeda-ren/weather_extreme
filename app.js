@@ -7,6 +7,7 @@ const tableBody = document.getElementById("tableBody");
 const liveSummaryEl = document.getElementById("liveSummary");
 
 let refreshTimer = null;
+let manifestCache = null;
 let prefecturesData = [];
 
 const ELEMENT_LABELS = {
@@ -133,6 +134,43 @@ function formatUpdatedAt(isoText) {
   const d = new Date(isoText);
   if (Number.isNaN(d.getTime())) return isoText;
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")} 更新`;
+}
+
+async function loadManifest() {
+  try {
+    const res = await fetch(`./data/manifest.json?t=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    manifestCache = await res.json();
+  } catch (e) {
+    console.error(e);
+    manifestCache = null;
+  }
+}
+
+function buildStatusText({ tableUpdatedAt, rowCount, elementLabel, prefName }) {
+  const parts = [];
+
+  if (manifestCache?.updatedAt) {
+    parts.push(`生成:${formatUpdatedAt(manifestCache.updatedAt)}`);
+  }
+
+  if (tableUpdatedAt) {
+    parts.push(`表示:${formatUpdatedAt(tableUpdatedAt)}`);
+  }
+
+  if (typeof rowCount === "number") {
+    parts.push(`地点数:${rowCount}`);
+  }
+
+  if (elementLabel) {
+    parts.push(`選択中要素:${elementLabel}`);
+  }
+
+  if (prefName) {
+    parts.push(`都道府県:${prefName}`);
+  }
+
+  return parts.join(" / ");
 }
 
 function renderTable(rows) {
@@ -280,6 +318,8 @@ async function loadTable() {
   const month = monthSelect.value;
   const elementLabel = getSelectedElementLabel();
 
+  await loadManifest();
+
   if (!prefMeta) {
     statusEl.textContent = "都道府県情報が見つかりません";
     tableBody.innerHTML = "";
@@ -290,7 +330,12 @@ async function loadTable() {
   await loadLiveSummary(pref);
 
   if (!prefMeta.stationsFile) {
-    statusEl.textContent = `選択中要素: ${elementLabel} / ${prefMeta.name} はまだデータ未対応です`;
+    statusEl.textContent = buildStatusText({
+      tableUpdatedAt: manifestCache?.updatedAt || "",
+      rowCount: 0,
+      elementLabel,
+      prefName: prefMeta.name
+    }) + " / 未対応";
     tableBody.innerHTML = "";
     return;
   }
@@ -300,14 +345,26 @@ async function loadTable() {
   try {
     const res = await fetch(`./data/${pref}/${element}-${month}.json?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
     const data = await res.json();
 
     makeHeader();
     renderTable(data.rows || []);
-    statusEl.textContent = `${formatUpdatedAt(data.updatedAt)} / 地点数: ${data.rows?.length ?? 0} / 選択中要素: ${elementLabel}`;
+
+    statusEl.textContent = buildStatusText({
+      tableUpdatedAt: data.updatedAt || manifestCache?.updatedAt || "",
+      rowCount: data.rows?.length ?? 0,
+      elementLabel,
+      prefName: prefMeta.name
+    });
   } catch (e) {
     console.error(e);
-    statusEl.textContent = `選択中要素: ${elementLabel} / JSONの読み込みに失敗しました`;
+    statusEl.textContent = buildStatusText({
+      tableUpdatedAt: manifestCache?.updatedAt || "",
+      rowCount: 0,
+      elementLabel,
+      prefName: prefMeta.name
+    }) + " / JSONの読み込みに失敗しました";
     tableBody.innerHTML = "";
   }
 }
