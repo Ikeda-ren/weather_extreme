@@ -3,10 +3,15 @@ name: Update weather data
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/10 * * * *"
+    # 毎時ちょうどを避けて遅延しにくくする
+    - cron: "7,17,27,37,47,57 * * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-weather-data
+  cancel-in-progress: false
 
 jobs:
   build-json:
@@ -23,6 +28,11 @@ jobs:
 
       - name: Create data
         run: python scripts/update_weather_data.py
+
+      - name: Show manifest
+        run: |
+          echo "===== data/manifest.json ====="
+          cat data/manifest.json
 
       - name: Commit data if changed
         run: |
