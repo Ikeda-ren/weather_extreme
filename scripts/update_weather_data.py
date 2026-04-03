@@ -850,7 +850,6 @@ def try_fetch_station_rows(station, element_def, month):
 
     return None
 
-
 def load_prefecture_configs():
     pref_config = read_json_file("config/prefectures.json")
     prefectures = pref_config.get("prefectures", [])
