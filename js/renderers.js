@@ -42,8 +42,7 @@ export function isTopRankItem(item) {
 }
 
 export function hasAnyRankIn(items) {
-  if (!Array.isArray(items)) return false;
-  return items.length > 0;
+  return Array.isArray(items) && items.length > 0;
 }
 
 export function renderDebugPanel(debugBodyEl, debugDetailsEl) {
@@ -219,15 +218,13 @@ export function renderLiveSummary(liveSummaryEl, items) {
 
                 return `
                   <div class="${itemClass}">
-                    <div class="live-summary-main">
-                      <span>${escapeHtml(String(item.rank ?? "-"))}</span>
-                      <span>${escapeHtml(item.stationName || "-")}</span>
-                      <span>${escapeHtml(item.elementLabel || "-")}</span>
-                    </div>
-                    <div class="live-summary-sub">
-                      <span>${escapeHtml(String(item.value ?? "-"))}</span>
-                      <span>${escapeHtml(item.date || "-")}</span>
-                      <span>${escapeHtml(item.monthLabel || "")}</span>
+                    <div class="live-summary-line">
+                      <span class="live-summary-token live-summary-rank">${escapeHtml(String(item.rank ?? "-"))}位</span>
+                      <span class="live-summary-token live-summary-station">${escapeHtml(item.stationName || "-")}</span>
+                      <span class="live-summary-token live-summary-element">${escapeHtml(item.elementLabel || "-")}</span>
+                      <span class="live-summary-token live-summary-value">${escapeHtml(String(item.value ?? "-"))}</span>
+                      <span class="live-summary-token live-summary-date">${escapeHtml(item.date || "-")}</span>
+                      <span class="live-summary-token live-summary-month">${escapeHtml(item.monthLabel || "")}</span>
                     </div>
                   </div>
                 `;
