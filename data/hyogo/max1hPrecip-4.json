@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-04T14:16:38.433676+09:00",
-  "observedLatestAt": "2026-04-04T14:00:00+09:00",
+  "updatedAt": "2026-04-04T16:54:53.449995+09:00",
+  "observedLatestAt": "2026-04-04T16:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "max1hPrecip",
   "month": "4",
@@ -151,9 +151,9 @@
         {
           "rank": 10,
           "value": 11,
-          "date": "2023年4月26日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "date": "2026年4月4日（令和8年）",
+          "highlightLive": true,
+          "highlightWithinYear": true
         }
       ]
     },
