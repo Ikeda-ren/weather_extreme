@@ -279,3 +279,32 @@ th {
   background: #ffd59a;
   box-shadow: inset 0 0 0 2px #d86d00;
 }
+
+.element-description-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.element-description-body {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 6px 10px;
+  font-size: 12px;
+}
+
+.debug-key {
+  font-weight: 700;
+  color: #333;
+}
+
+.debug-value {
+  color: #555;
+  word-break: break-word;
+}
