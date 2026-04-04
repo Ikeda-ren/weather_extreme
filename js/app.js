@@ -9,11 +9,13 @@ import { loadLiveSummaryData, loadManifest, loadPrefectures, loadTableData } fro
 import {
   buildStatusText,
   getElementDescription,
+  hasAnyRankIn,
   isTopRankItem,
   makeHeader,
   renderDebugPanel,
   renderLiveSummary,
   renderLiveSummaryMessage,
+  renderRankInBadge,
   renderTable,
   renderTableMessage,
   renderTopRankAlert
@@ -29,6 +31,7 @@ const tableHead = document.getElementById("tableHead");
 const tableBody = document.getElementById("tableBody");
 const liveSummaryEl = document.getElementById("liveSummary");
 const liveSummarySectionEl = document.getElementById("liveSummarySection");
+const rankInBadgeEl = document.getElementById("rankInBadge");
 const debugDetailsEl = document.getElementById("debugDetails");
 const debugBodyEl = document.getElementById("debugBody");
 const topRankAlertEl = document.getElementById("topRankAlert");
@@ -94,6 +97,7 @@ async function initPrefectures() {
   updateDebugSelections();
   renderDebugPanel(debugBodyEl, debugDetailsEl);
   renderTopRankAlert(topRankAlertEl, false);
+  renderRankInBadge(rankInBadgeEl, false);
 }
 
 async function refreshLiveSummary(prefKey) {
@@ -106,15 +110,19 @@ async function refreshLiveSummary(prefKey) {
     if (status === "error") {
       renderLiveSummaryMessage(liveSummaryEl, message || "実況一覧の取得に失敗しました。");
       renderTopRankAlert(topRankAlertEl, false);
+      renderRankInBadge(rankInBadgeEl, false);
     } else {
       renderLiveSummary(liveSummaryEl, items);
       const hasTopRank = items.some((item) => isTopRankItem(item));
+      const hasRankIn = hasAnyRankIn(items);
       renderTopRankAlert(topRankAlertEl, hasTopRank);
+      renderRankInBadge(rankInBadgeEl, hasRankIn);
     }
   } catch (error) {
     console.error(error);
     renderLiveSummaryMessage(liveSummaryEl, "実況一覧の読み込みに失敗しました。");
     renderTopRankAlert(topRankAlertEl, false);
+    renderRankInBadge(rankInBadgeEl, false);
   }
 
   renderDebugPanel(debugBodyEl, debugDetailsEl);
@@ -143,6 +151,7 @@ async function refreshTable() {
     renderTableMessage(tableBody, "都道府県情報が見つかりません。");
     renderLiveSummaryMessage(liveSummaryEl, "実況一覧を表示できません。");
     renderTopRankAlert(topRankAlertEl, false);
+    renderRankInBadge(rankInBadgeEl, false);
     renderDebugPanel(debugBodyEl, debugDetailsEl);
     return;
   }
@@ -274,4 +283,5 @@ init().catch((error) => {
   console.error(error);
   statusEl.textContent = `初期化に失敗しました: ${error?.message || error}`;
   renderTopRankAlert(topRankAlertEl, false);
+  renderRankInBadge(rankInBadgeEl, false);
 });
