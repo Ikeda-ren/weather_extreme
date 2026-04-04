@@ -315,11 +315,6 @@ th {
   min-width: 82px;
 }
 
-.rank-cell.top-rank {
-  border: 2px solid #d62828;
-  background: #ffe5e5;
-}
-
 .rank-cell .value {
   font-size: 13px;
   font-weight: 700;
