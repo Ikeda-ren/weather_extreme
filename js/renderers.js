@@ -220,5 +220,6 @@ export function renderLiveSummaryMessage(liveSummaryEl, message) {
 }
 
 export function renderTopRankAlert(topRankAlertEl, hasTopRank) {
+  if (!topRankAlertEl) return;
   topRankAlertEl.hidden = !hasTopRank;
 }
