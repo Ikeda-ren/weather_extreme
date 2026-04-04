@@ -50,7 +50,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* 上部コントロール */
 .controls {
   display: grid;
   grid-template-columns: repeat(4, minmax(120px, auto));
@@ -137,7 +136,6 @@ select:focus {
   transform: translateY(1px);
 }
 
-/* ランクイン欄 */
 .live-summary-details,
 .element-details,
 .debug-details {
@@ -295,7 +293,6 @@ select:focus {
   font-size: 13px;
 }
 
-/* 要素選択 */
 .element-panel {
   padding: 0 10px 10px;
   display: flex;
@@ -338,7 +335,6 @@ select:focus {
   color: #244252;
 }
 
-/* 本体 */
 .main {
   padding: 14px;
 }
@@ -352,11 +348,33 @@ select:focus {
   background: linear-gradient(135deg, #e0f7ff, #e6fff5);
   border: 2px solid var(--line-strong);
   border-radius: 14px;
-  padding: 10px 12px;
+  padding: 9px 12px;
   box-shadow: 0 6px 14px rgba(0, 119, 182, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* 表 */
+.status-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e8f8ff;
+  border: 1px solid #bfeaf7;
+  color: #006aa3;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.status-time {
+  font-size: 13px;
+  font-weight: 900;
+  color: #1d3557;
+}
+
 .table-wrap {
   margin-top: 12px;
   overflow-x: auto;
@@ -372,14 +390,14 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
-  min-width: 980px;
+  min-width: 1120px;
 }
 
 th,
 td {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 6px 7px;
+  padding: 6px 8px;
   text-align: center;
   vertical-align: middle;
   background: #fff;
@@ -396,8 +414,8 @@ thead th {
 
 .station-col {
   width: 1%;
-  min-width: 112px;
-  max-width: 145px;
+  min-width: 132px;
+  max-width: 150px;
   text-align: center;
   white-space: normal;
   background: #fff;
@@ -431,7 +449,7 @@ tbody .station-col {
 }
 
 .rank-cell {
-  min-width: 82px;
+  min-width: 96px;
   background: #fff;
 }
 
@@ -447,6 +465,7 @@ tbody .station-col {
   font-size: 10px;
   line-height: 1.2;
   color: #66747d;
+  white-space: nowrap;
 }
 
 .rank-cell .date .sub {
@@ -468,7 +487,6 @@ tbody .station-col {
   box-shadow: inset 0 0 0 2px #ff8500;
 }
 
-/* 注記 */
 .note-bottom {
   margin-top: 12px;
   padding: 12px 14px;
@@ -481,7 +499,6 @@ tbody .station-col {
   border: 2px solid var(--line-strong);
 }
 
-/* 診断 */
 .debug-details {
   margin-top: 14px;
 }
@@ -504,7 +521,6 @@ tbody .station-col {
   word-break: break-word;
 }
 
-/* タブレット */
 @media (max-width: 900px) {
   .live-summary-grid {
     grid-template-columns: 1fr;
@@ -533,7 +549,6 @@ tbody .station-col {
   }
 }
 
-/* スマホ */
 @media (max-width: 640px) {
   .topbar {
     padding-top: calc(10px + env(safe-area-inset-top));
@@ -633,20 +648,29 @@ tbody .station-col {
     font-size: 12px;
   }
 
+  .status {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .status-time {
+    font-size: 12px;
+  }
+
   .table-wrap {
     border-radius: 14px;
   }
 
   table {
-    min-width: 900px;
+    min-width: 1080px;
   }
 
   .station-col {
-    min-width: 96px;
-    max-width: 120px;
+    min-width: 118px;
+    max-width: 130px;
   }
 
   .rank-cell {
-    min-width: 76px;
+    min-width: 92px;
   }
 }
