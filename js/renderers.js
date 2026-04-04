@@ -15,14 +15,8 @@ export function makeHeader(tableHead) {
   `;
 }
 
-export function renderElementDescription(elementDescriptionEl, elementKey) {
-  const label = ELEMENT_LABELS[elementKey] || elementKey;
-  const description = ELEMENT_DESCRIPTIONS[elementKey] || "この要素の説明は未設定です。";
-
-  elementDescriptionEl.innerHTML = `
-    <div class="element-description-title">${escapeHtml(label)}</div>
-    <div class="element-description-body">${escapeHtml(description)}</div>
-  `;
+export function getElementDescription(elementKey) {
+  return ELEMENT_DESCRIPTIONS[elementKey] || "この要素の説明は未設定です。";
 }
 
 export function renderDebugPanel(debugBodyEl, debugDetailsEl) {
@@ -75,7 +69,7 @@ export function buildStatusText({
   observationTime,
   rowCount,
   elementLabel,
-  prefName,
+  elementDescription,
   extraMessage
 }) {
   const parts = [];
@@ -96,8 +90,8 @@ export function buildStatusText({
   if (elementLabel) {
     parts.push(`選択中要素:${elementLabel}`);
   }
-  if (prefName) {
-    parts.push(`都道府県:${prefName}`);
+  if (elementDescription) {
+    parts.push(`説明:${elementDescription}`);
   }
   if (extraMessage) {
     parts.push(extraMessage);
@@ -223,4 +217,8 @@ export function renderLiveSummaryMessage(liveSummaryEl, message) {
   liveSummaryEl.innerHTML = `
     <div class="live-summary-empty">${escapeHtml(message)}</div>
   `;
+}
+
+export function renderTopRankAlert(topRankAlertEl, hasTopRank) {
+  topRankAlertEl.hidden = !hasTopRank;
 }
