@@ -9,7 +9,7 @@ import { loadLiveSummaryData, loadManifest, loadPrefectures, loadTableData } fro
 import {
   buildStatusText,
   getElementDescription,
-  hasAnyRankIn,
+  getValidRankItems,
   isTopRankItem,
   makeHeader,
   renderDebugPanel,
@@ -106,15 +106,18 @@ async function refreshLiveSummary(prefKey) {
     const status = data.status || "ok";
     const message = data.message || "";
     const items = Array.isArray(data.items) ? data.items : [];
+    const validItems = getValidRankItems(items);
 
     if (status === "error") {
       renderLiveSummaryMessage(liveSummaryEl, message || "実況一覧の取得に失敗しました。");
       renderTopRankAlert(topRankAlertEl, false);
       renderRankInBadge(rankInBadgeEl, false);
     } else {
-      renderLiveSummary(liveSummaryEl, items);
-      const hasTopRank = items.some((item) => isTopRankItem(item));
-      const hasRankIn = hasAnyRankIn(items);
+      renderLiveSummary(liveSummaryEl, validItems);
+
+      const hasTopRank = validItems.some((item) => isTopRankItem(item));
+      const hasRankIn = validItems.length > 0;
+
       renderTopRankAlert(topRankAlertEl, hasTopRank);
       renderRankInBadge(rankInBadgeEl, hasRankIn);
     }
