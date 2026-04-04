@@ -62,6 +62,7 @@ select {
   display: flex;
   align-items: center;
   padding: 6px 12px;
+  border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, #d62828, #f77f00);
   color: #fff;
@@ -70,6 +71,15 @@ select {
   letter-spacing: 0.02em;
   box-shadow: 0 4px 10px rgba(214, 40, 40, 0.25);
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.top-rank-alert:hover {
+  opacity: 0.92;
+}
+
+.top-rank-alert:active {
+  transform: translateY(1px);
 }
 
 .live-summary-details,
@@ -234,7 +244,11 @@ select {
 
 .status {
   font-weight: 700;
-  line-height: 1.6;
+  line-height: 1.7;
+  background: #f0f4ff;
+  border: 1px solid #d7e3ff;
+  border-radius: 8px;
+  padding: 8px 10px;
 }
 
 .main {
@@ -299,6 +313,11 @@ th {
 
 .rank-cell {
   min-width: 82px;
+}
+
+.rank-cell.top-rank {
+  border: 2px solid #d62828;
+  background: #ffe5e5;
 }
 
 .rank-cell .value {
