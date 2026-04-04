@@ -627,22 +627,49 @@ def fetch_point_chunk(amedas_code: str, chunk_key: str):
     return fetch_json(url)
 
 
-def get_today_chunk_keys(latest_dt: datetime):
+def get_display_now_jst() -> datetime:
+    return datetime.now(JST)
+
+
+def get_live_target_date(latest_dt: datetime) -> datetime:
+    now_jst = get_display_now_jst()
+
+    # 表示上の「今日」は最新取得時刻ではなく、現在のJST日付を優先する。
+    # これにより、日付跨ぎ直後に latest_time.txt が前日を指していても
+    # 前日の実況を「今日の赤表示」として混ぜない。
+    return now_jst.replace(hour=0, minute=0, second=0, microsecond=0)
+
+
+def get_today_chunk_keys(latest_dt: datetime, target_date: datetime):
     out = []
-    cur = latest_dt.replace(hour=0, minute=0, second=0, microsecond=0)
-    end = latest_dt.replace(hour=(latest_dt.hour // 3) * 3, minute=0, second=0, microsecond=0)
+    cur = target_date.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    latest_base = latest_dt.replace(
+        hour=(latest_dt.hour // 3) * 3,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
+    target_base = target_date.replace(
+        hour=(latest_dt.hour // 3) * 3,
+        minute=0,
+        second=0,
+        microsecond=0,
+    )
+    end = min(latest_base, target_base)
+
     while cur <= end:
         out.append(point_chunk_key(cur))
         cur += timedelta(hours=3)
     return out
 
 
-def extract_today_series(point_json: dict, latest_dt: datetime, field_names):
+def extract_today_series(point_json: dict, target_date: datetime, field_names):
     if isinstance(field_names, str):
         field_names = [field_names]
 
     out = []
-    today = latest_dt.strftime("%Y%m%d")
+    today = target_date.strftime("%Y%m%d")
 
     for ts, item in point_json.items():
         if not str(ts).startswith(today):
@@ -662,14 +689,14 @@ def extract_today_series(point_json: dict, latest_dt: datetime, field_names):
     return out
 
 
-def fetch_today_all_series(amedas_code: str, latest_dt: datetime, field_names):
+def fetch_today_all_series(amedas_code: str, latest_dt: datetime, target_date: datetime, field_names):
     all_values = []
     seen = set()
 
-    for ck in get_today_chunk_keys(latest_dt):
+    for ck in get_today_chunk_keys(latest_dt, target_date):
         try:
             point_json = fetch_point_chunk(amedas_code, ck)
-            series = extract_today_series(point_json, latest_dt, field_names)
+            series = extract_today_series(point_json, target_date, field_names)
             for obs_dt, val in series:
                 key = obs_dt.strftime("%Y%m%d%H%M%S")
                 if key not in seen:
@@ -682,43 +709,43 @@ def fetch_today_all_series(amedas_code: str, latest_dt: datetime, field_names):
     return all_values
 
 
-def should_show_live(month: str, latest_dt: datetime) -> bool:
-    return month == "all" or month == str(latest_dt.month)
+def should_show_live(month: str, target_date: datetime) -> bool:
+    return month == "all" or month == str(target_date.month)
 
 
-def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str, month: str):
+def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, target_date: datetime, mode: str, month: str):
     if not mode:
         return None
-    if not should_show_live(month, latest_dt):
+    if not should_show_live(month, target_date):
         return None
 
     if mode == "temp_max_day":
-        series = fetch_today_all_series(amedas_code, latest_dt, "temp")
+        series = fetch_today_all_series(amedas_code, latest_dt, target_date, "temp")
         if not series:
             return None
         best = max(series, key=lambda x: (x[1], x[0]))
 
     elif mode == "temp_min_day":
-        series = fetch_today_all_series(amedas_code, latest_dt, "temp")
+        series = fetch_today_all_series(amedas_code, latest_dt, target_date, "temp")
         if not series:
             return None
         best = min(series, key=lambda x: (x[1], -x[0].timestamp()))
 
     elif mode == "precip_day_sum":
-        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
+        series = fetch_today_all_series(amedas_code, latest_dt, target_date, ["precipitation10m", "precipitation"])
         if not series:
             return None
         total = sum(v for _, v in series)
-        best = (latest_dt, total)
+        best = (series[-1][0], total)
 
     elif mode == "precip_10m_max":
-        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
+        series = fetch_today_all_series(amedas_code, latest_dt, target_date, ["precipitation10m", "precipitation"])
         if not series:
             return None
         best = max(series, key=lambda x: (x[1], x[0]))
 
     elif mode == "precip_1h_max":
-        series = fetch_today_all_series(amedas_code, latest_dt, ["precipitation10m", "precipitation"])
+        series = fetch_today_all_series(amedas_code, latest_dt, target_date, ["precipitation10m", "precipitation"])
         if not series:
             return None
         best_val = None
@@ -809,8 +836,6 @@ def try_fetch_station_rows(station, element_def, month):
     candidates = list(station["rank_candidates"])
 
     if element_def["category"] == "precip":
-        # 日降水系は np0 を先頭にすると「row not found」が増えやすいので、
-        # まず通常ビューを優先して試す
         order = {"": 0, "h0": 1, "np0": 2, "a2": 3, "ns0": 4}
         candidates.sort(key=lambda c: order.get(c.get("view", ""), 9))
     elif element_def["category"] == "snow":
@@ -969,6 +994,8 @@ def main():
 
     latest_iso = fetch_latest_time()
     latest_dt = datetime.fromisoformat(latest_iso.replace("Z", "+00:00")).astimezone(JST)
+    live_target_date = get_live_target_date(latest_dt)
+    display_date = live_target_date.strftime("%Y-%m-%d")
 
     for pref in prefectures:
         pref_key = pref["key"]
@@ -998,6 +1025,7 @@ def main():
                         live_info = fetch_today_live_extreme(
                             station["amedasCode"],
                             latest_dt,
+                            live_target_date,
                             element_def["live_mode"],
                             month
                         )
@@ -1032,6 +1060,8 @@ def main():
 
                 output = {
                     "updatedAt": latest_iso,
+                    "observedLatestAt": latest_iso,
+                    "displayDate": display_date,
                     "prefecture": pref_name,
                     "element": element_key,
                     "month": month,
@@ -1044,6 +1074,8 @@ def main():
 
         live_summary_output = {
             "updatedAt": latest_iso,
+            "observedLatestAt": latest_iso,
+            "displayDate": display_date,
             "prefecture": pref_name,
             "items": dedupe_live_summary(live_summary_items)
         }
@@ -1052,6 +1084,8 @@ def main():
 
     manifest = {
         "updatedAt": latest_iso,
+        "observedLatestAt": latest_iso,
+        "displayDate": display_date,
         "prefectures": {},
     }
 
