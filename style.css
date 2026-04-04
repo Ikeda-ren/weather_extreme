@@ -16,11 +16,9 @@ body {
   color: #1f2f3a;
 }
 
-/* ===== ヘッダー ===== */
-
 .topbar {
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid #bde0ff;
   position: sticky;
@@ -33,15 +31,21 @@ body {
   margin: 0 0 10px;
   font-size: 24px;
   color: #0077b6;
+  letter-spacing: 0.02em;
 }
-
-/* ===== セレクト ===== */
 
 .controls {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 14px;
   align-items: end;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
 }
 
 .controls label span {
@@ -54,96 +58,426 @@ select {
   font-size: 13px;
   min-width: 118px;
   border: 2px solid #90e0ef;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fff;
+  color: #1f2f3a;
+  box-shadow: 0 3px 8px rgba(0, 119, 182, 0.08);
 }
-
-/* ===== アラート ===== */
 
 .top-rank-alert {
   margin-left: auto;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 7px 14px;
+  border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, #ff4d6d, #ff8500);
   color: #fff;
+  font-size: 13px;
   font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px rgba(255, 77, 109, 0.22);
   cursor: pointer;
+  white-space: nowrap;
 }
 
-/* ===== ランクインバッジ ===== */
-
-.rank-in-badge {
-  margin-left: auto;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #00b4d8, #2dc653);
-  color: #fff;
-  font-weight: 800;
+.top-rank-alert:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
 }
 
-/* ===== パネル ===== */
+.top-rank-alert:active {
+  transform: translateY(1px);
+}
 
 .live-summary-details,
 .element-details,
 .debug-details {
   margin-top: 12px;
   border: 2px solid #caf0f8;
-  border-radius: 14px;
   background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.08);
 }
 
-summary {
-  padding: 10px;
+.live-summary-details summary,
+.element-details summary,
+.debug-details summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  font-size: 14px;
   font-weight: 800;
-  background: linear-gradient(90deg, #e0f7ff, #e9fff5);
+  user-select: none;
+  background: linear-gradient(90deg, #e0f7ff 0%, #e9fff5 100%);
+  border-bottom: 1px solid #d7f3fa;
   color: #0077b6;
 }
 
-/* ===== ステータス ===== */
+.summary-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rank-in-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00b4d8, #2dc653);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(45, 198, 83, 0.18);
+  white-space: nowrap;
+}
+
+.live-summary-body {
+  padding: 10px 12px 12px;
+  font-size: 12px;
+}
+
+.live-summary-empty {
+  color: #60707b;
+}
+
+.live-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.live-summary-column {
+  min-width: 0;
+}
+
+.live-summary-column-title {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #0077b6;
+}
+
+.live-summary-scroll {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.live-summary-item {
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 2px solid #d7eef7;
+  background: linear-gradient(135deg, #f8fdff, #f8fffb);
+}
+
+.live-summary-item-top1 {
+  background: linear-gradient(135deg, #ffe0ea, #fff0d9);
+  border-color: #ff6b9a;
+  box-shadow: 0 4px 12px rgba(255, 107, 154, 0.16);
+}
+
+.live-summary-item-rankin {
+  background: linear-gradient(135deg, #eefaff, #f1fff8);
+  border-color: #bde7f3;
+}
+
+.live-summary-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.live-summary-token {
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+.live-summary-rank {
+  font-weight: 800;
+  color: #005f8f;
+}
+
+.live-summary-station,
+.live-summary-element {
+  font-weight: 700;
+  color: #244252;
+}
+
+.live-summary-value {
+  font-weight: 800;
+  color: #1d3557;
+}
+
+.live-summary-date,
+.live-summary-month {
+  color: #5f6f79;
+}
+
+.element-panel {
+  padding: 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.element-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  border: 2px solid #d7f1f8;
+  background: linear-gradient(135deg, #fff, #f7fffc);
+  border-radius: 14px;
+}
+
+.element-label {
+  min-width: 42px;
+  font-size: 13px;
+  font-weight: 800;
+  padding-top: 2px;
+  color: #0077b6;
+}
+
+.element-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.element-options label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #244252;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 6px 10px;
+  font-size: 12px;
+}
+
+.debug-key {
+  font-weight: 800;
+  color: #0077b6;
+}
+
+.debug-value {
+  color: #5b6a74;
+  word-break: break-word;
+}
 
 .status {
   margin-top: 10px;
-  padding: 10px;
-  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+  color: #244252;
   background: linear-gradient(135deg, #e0f7ff, #e6fff5);
   border: 2px solid #90e0ef;
-  font-weight: 800;
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 14px rgba(0, 119, 182, 0.08);
 }
 
-/* ===== テーブル ===== */
+.main {
+  padding: 14px;
+}
 
 .table-wrap {
-  margin-top: 12px;
+  overflow-x: auto;
+  background: #fff;
   border: 2px solid #caf0f8;
-  border-radius: 14px;
-  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 119, 182, 0.08);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 980px;
+}
+
+th,
+td {
+  border: 1px solid #d7eef7;
+  padding: 6px 7px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 th {
-  background: linear-gradient(180deg, #e0f7ff, #e6fff5);
+  background: linear-gradient(180deg, #e0f7ff 0%, #e6fff5 100%);
+  font-size: 12px;
   color: #0077b6;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.station-col {
+  width: 1%;
+  min-width: 110px;
+  max-width: 145px;
+  text-align: center;
+  white-space: normal;
+  background: #fff;
+}
+
+.station-name {
+  font-weight: 800;
+  font-size: 13px;
+  color: #244252;
+}
+
+.station-start {
+  margin-top: 3px;
+  font-size: 10px;
+  color: #6d7880;
+  line-height: 1.2;
+  word-break: keep-all;
+}
+
+.station-start .sub {
+  display: block;
+  margin-top: 1px;
 }
 
 .rank-cell {
+  min-width: 82px;
   background: #fff;
+}
+
+.rank-cell .value {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1f2f3a;
+}
+
+.rank-cell .date {
+  margin-top: 3px;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #66747d;
+}
+
+.rank-cell .date .sub {
+  display: block;
+  margin-top: 1px;
 }
 
 .live-in-rank {
   background: linear-gradient(135deg, #ffccd5, #ffd6a5);
+  box-shadow: inset 0 0 0 2px #ff6b6b;
 }
 
 .within-year {
   background: linear-gradient(135deg, #fff3b0, #e9ffb0);
 }
 
-/* ===== モバイル ===== */
+.live-in-rank.within-year {
+  background: linear-gradient(135deg, #ffcf99, #ffc2d1);
+  box-shadow: inset 0 0 0 2px #ff8500;
+}
+
+.note-bottom {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  color: #35505c;
+  background: linear-gradient(135deg, #e0f7ff, #e6fff5);
+  border: 2px solid #90e0ef;
+}
+
+.debug-details {
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .live-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .debug-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    padding: 10px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .top-rank-alert {
+    margin-left: 0;
+  }
+}
 
 @media (max-width: 640px) {
+  .topbar h1 {
+    font-size: 20px;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
   .controls label {
+    width: calc(50% - 4px);
+    min-width: 140px;
+  }
+
+  select {
     width: 100%;
   }
 
   .top-rank-alert {
     width: 100%;
+  }
+
+  .summary-row {
+    flex-wrap: wrap;
+  }
+
+  .rank-in-badge {
+    margin-left: 0;
+  }
+
+  .element-row {
+    gap: 8px;
+  }
+
+  .element-options {
+    gap: 8px 10px;
+  }
+
+  .element-options label {
+    font-size: 12px;
+  }
+
+  .status,
+  .note-bottom {
+    font-size: 11px;
   }
 }
