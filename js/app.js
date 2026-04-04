@@ -38,9 +38,9 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function setStatus(message) {
+function setStatusHtml(html) {
   if (!statusBox) return;
-  statusBox.textContent = message;
+  statusBox.innerHTML = html;
 }
 
 function hideStatusBox() {
@@ -139,7 +139,45 @@ function getElementLabelFromAnyKey(raw) {
     }
   }
 
-  return normalized;
+  const aliasMap = {
+    max10mprecip: "日最大10分間降水量",
+    max1hprecip: "日最大1時間降水量",
+    max3hprecip: "月最大3時間降水量",
+    max6hprecip: "月最大6時間降水量",
+    max12hprecip: "月最大12時間降水量",
+    max24hprecip: "月最大24時間降水量",
+    max48hprecip: "月最大48時間降水量",
+    max72hprecip: "月最大72時間降水量",
+    dailyprecip: "日降水量",
+    monthlypreciphigh: "月降水量の多い方",
+    monthlypreciplow: "月降水量の少ない方",
+
+    dailymaxtemphigh: "日最高気温の高い方",
+    dailymaxtemplow: "日最高気温の低い方",
+    dailymintemphigh: "日最低気温の高い方",
+    dailymintemplow: "日最低気温の低い方",
+    monthlymeantemphigh: "月平均気温の高い方",
+    monthlymeantemplow: "月平均気温の低い方",
+
+    dailyminhumidity: "日最小相対湿度",
+    dailymaxwind: "日最大風速",
+    dailymaxgust: "日最大瞬間風速",
+    monthlysunshinehigh: "月間日照時間の多い方",
+    monthlysunshinelow: "月間日照時間の少ない方",
+
+    dailysnowfall: "降雪の深さ日合計",
+    monthlysnowfall: "降雪の深さ月合計",
+    max3hsnow: "月最大3時間降雪量",
+    max6hsnow: "月最大6時間降雪量",
+    max12hsnow: "月最大12時間降雪量",
+    max24hsnow: "月最大24時間降雪量",
+    max48hsnow: "月最大48時間降雪量",
+    max72hsnow: "月最大72時間降雪量",
+    monthlymaxsnowdepthhigh: "月最深積雪の大きい方",
+    monthlymaxsnowdepthlow: "月最深積雪の小さい方"
+  };
+
+  return aliasMap[lower] || normalized;
 }
 
 function fillRegionSelect(prefectureConfig) {
@@ -259,6 +297,49 @@ function buildTableHead() {
   `;
 }
 
+function splitJapaneseDateParts(text) {
+  const value = String(text ?? "").trim();
+  if (!value) {
+    return { main: "", sub: "" };
+  }
+
+  const match = value.match(/^(.+?)(（.+?）)$/);
+  if (match) {
+    return {
+      main: match[1].trim(),
+      sub: match[2].trim()
+    };
+  }
+
+  return {
+    main: value,
+    sub: ""
+  };
+}
+
+function formatObservedLatestAt(value) {
+  if (!value) return "不明";
+
+  try {
+    const normalized = String(value).replace("Z", "+00:00");
+    const dt = new Date(normalized);
+
+    if (Number.isNaN(dt.getTime())) {
+      return String(value);
+    }
+
+    const year = dt.getFullYear();
+    const month = dt.getMonth() + 1;
+    const day = dt.getDate();
+    const hour = dt.getHours();
+    const minute = String(dt.getMinutes()).padStart(2, "0");
+
+    return `${year}年${month}月${day}日 ${hour}:${minute}`;
+  } catch {
+    return String(value);
+  }
+}
+
 function normalizeSummaryItems(items) {
   if (!Array.isArray(items)) return [];
 
@@ -314,12 +395,8 @@ function renderLiveSummary(summaryData) {
   const annualItems = normalizeSummaryItems(summaryData?.annualItems || []);
   const monthlyItems = normalizeSummaryItems(summaryData?.monthlyItems || []);
 
-  const hasTop1 =
-    annualItems.some((item) => item.rank === 1) ||
-    monthlyItems.some((item) => item.rank === 1);
-
-  const hasRankIn =
-    annualItems.length > 0 || monthlyItems.length > 0;
+  const hasTop1 = annualItems.some((item) => item.rank === 1) || monthlyItems.some((item) => item.rank === 1);
+  const hasRankIn = annualItems.length > 0 || monthlyItems.length > 0;
 
   rankInBadge.hidden = !hasRankIn;
   topRankAlert.hidden = !hasTop1;
@@ -366,10 +443,13 @@ function normalizeStations(tableData) {
 }
 
 function formatStationCell(station) {
+  const startParts = splitJapaneseDateParts(station.startDate || "");
+
   return `
     <div class="station-name">${escapeHtml(station.stationName || "")}</div>
     <div class="station-start">
-      観測開始 ${escapeHtml(station.startDate || "")}
+      観測開始 ${escapeHtml(startParts.main || "")}
+      ${startParts.sub ? `<span class="sub">${escapeHtml(startParts.sub)}</span>` : ""}
       ${station.startSub ? `<span class="sub">${escapeHtml(station.startSub)}</span>` : ""}
     </div>
   `;
@@ -384,11 +464,14 @@ function formatRankCell(rank) {
   if (rank.highlightLive) classes.push("live-in-rank");
   if (rank.highlightWithinYear) classes.push("within-year");
 
+  const dateParts = splitJapaneseDateParts(rank.date || "");
+
   return `
     <td class="${classes.join(" ")}">
       <div class="value">${escapeHtml(rank.value ?? "")}</div>
       <div class="date">
-        ${escapeHtml(rank.date || "")}
+        ${escapeHtml(dateParts.main || "")}
+        ${dateParts.sub ? `<span class="sub">${escapeHtml(dateParts.sub)}</span>` : ""}
         ${rank.dateSub ? `<span class="sub">${escapeHtml(rank.dateSub)}</span>` : ""}
       </div>
     </td>
@@ -445,18 +528,41 @@ function getCurrentDataPaths() {
   };
 }
 
+function renderObservedTime(summaryData) {
+  const observed =
+    summaryData?.observedLatestAt ||
+    appState.manifest?.observedLatestAt ||
+    appState.manifest?.observation_time ||
+    appState.manifest?.latest_time ||
+    appState.manifest?.base_time ||
+    "";
+
+  if (!observed) {
+    hideStatusBox();
+    return;
+  }
+
+  showStatusBox();
+  setStatusHtml(`
+    <span class="status-label">実況観測時刻</span>
+    <span class="status-time">${escapeHtml(formatObservedLatestAt(observed))}</span>
+  `);
+}
+
 async function loadLiveSummary() {
   const { liveSummaryPath } = getCurrentDataPaths();
 
   try {
     const data = await fetchJson(liveSummaryPath);
     renderLiveSummary(data);
-    return { ok: true, path: liveSummaryPath };
+    renderObservedTime(data);
+    return { ok: true, path: liveSummaryPath, data };
   } catch (err) {
     liveSummaryBody.innerHTML = `<div class="live-summary-empty">実況一覧の読み込みに失敗しました</div>`;
     rankInBadge.hidden = true;
     topRankAlert.hidden = true;
-    return { ok: false, path: liveSummaryPath, error: err.message };
+    hideStatusBox();
+    return { ok: false, path: liveSummaryPath, error: err.message, data: null };
   }
 }
 
@@ -478,13 +584,11 @@ async function refreshAll() {
     return;
   }
 
-  showStatusBox();
-  setStatus("読み込み中...");
-
   const liveResult = await loadLiveSummary();
   const tableResult = await loadRankingTable();
 
   const manifestTime =
+    appState.manifest?.observedLatestAt ||
     appState.manifest?.observation_time ||
     appState.manifest?.latest_time ||
     appState.manifest?.base_time ||
@@ -497,12 +601,10 @@ async function refreshAll() {
     ["要素", appState.selectedElement],
     ["実況一覧パス", liveResult.path || ""],
     ["表データパス", tableResult.path || ""],
-    ["manifest 基準時刻", manifestTime],
+    ["manifest 基準時刻", String(manifestTime)],
     ["実況一覧", liveResult.ok ? "成功" : `失敗: ${liveResult.error}`],
     ["表データ", tableResult.ok ? "成功" : `失敗: ${tableResult.error}`]
   ]);
-
-  hideStatusBox();
 }
 
 function applySavedMonth() {
@@ -544,7 +646,8 @@ function bindEvents() {
 
 async function init() {
   try {
-    setStatus("初期化中...");
+    showStatusBox();
+    setStatusHtml("初期化中...");
 
     const [prefectures, elements] = await Promise.all([
       fetchJson("./config/prefectures.json"),
@@ -569,7 +672,7 @@ async function init() {
     await refreshAll();
   } catch (err) {
     showStatusBox();
-    setStatus(`初期化に失敗しました: ${err.message}`);
+    setStatusHtml(`初期化に失敗しました: ${escapeHtml(err.message)}`);
     setDebug([["エラー", err.message]]);
   }
 }
