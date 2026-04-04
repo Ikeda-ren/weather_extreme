@@ -51,6 +51,11 @@ function hideStatusBox() {
   statusBox.style.display = "none";
 }
 
+function showStatusBox() {
+  if (!statusBox) return;
+  statusBox.style.display = "";
+}
+
 function setDebug(entries) {
   if (!debugGrid) return;
   debugGrid.innerHTML = "";
@@ -86,7 +91,7 @@ function saveValue(key, value) {
   try {
     localStorage.setItem(key, value);
   } catch {
-    // 保存失敗時は何もしない
+    // 何もしない
   }
 }
 
@@ -156,6 +161,7 @@ function fillPrefSelect(prefectureConfig) {
 
   const saved = getSavedValue(STORAGE_KEYS.pref);
   const found = list.find((x) => x.key === saved);
+
   if (found) {
     prefSelect.value = saved;
   }
@@ -239,6 +245,30 @@ function buildTableHead() {
   `;
 }
 
+function inferElementLabelFromItem(item) {
+  const raw =
+    item?.element ||
+    item?.elementName ||
+    item?.type ||
+    item?.item ||
+    item?.kind ||
+    item?.target ||
+    item?.category ||
+    item?.metric ||
+    item?.elementKey ||
+    "";
+
+  if (raw && appState.elementLabelMap.has(raw)) {
+    return appState.elementLabelMap.get(raw);
+  }
+
+  if (raw) {
+    return raw;
+  }
+
+  return getSelectedElementLabel();
+}
+
 function normalizeSummaryItems(summaryData) {
   if (!summaryData || typeof summaryData !== "object") {
     return [];
@@ -252,17 +282,24 @@ function normalizeSummaryItems(summaryData) {
         Number(item.rankNo) ||
         null;
 
+      const hasRank =
+        rank !== null &&
+        Number.isFinite(rank) &&
+        rank >= 1 &&
+        rank <= 10;
+
       return {
         rank,
-        rankText: item.rankText || (rank ? `${rank}位` : ""),
+        rankText: item.rankText || (hasRank ? `${rank}位` : ""),
         station: item.station || item.stationName || item.point || "",
-        element:
-          item.element ||
-          item.elementName ||
-          item.type ||
-          getSelectedElementLabel(),
+        element: inferElementLabelFromItem(item),
         value: item.valueText || item.value || "",
-        rankIn: item.rankIn ?? (rank !== null && rank >= 1 && rank <= 10)
+        rankIn: Boolean(
+          item.rankIn === true ||
+          item.isRankIn === true ||
+          item.inRank === true ||
+          hasRank
+        )
       };
     });
   }
@@ -272,27 +309,29 @@ function normalizeSummaryItems(summaryData) {
 
   return [
     ...top1.map((item) => ({
-      rank: Number(item.rank) || 1,
+      rank: 1,
       rankText: item.rankText || "1位",
       station: item.station || item.stationName || "",
-      element:
-        item.element ||
-        item.elementName ||
-        getSelectedElementLabel(),
+      element: inferElementLabelFromItem(item),
       value: item.valueText || item.value || "",
       rankIn: true
     })),
-    ...rankIn.map((item) => ({
-      rank: Number(item.rank) || null,
-      rankText: item.rankText || (item.rank ? `${item.rank}位` : ""),
-      station: item.station || item.stationName || "",
-      element:
-        item.element ||
-        item.elementName ||
-        getSelectedElementLabel(),
-      value: item.valueText || item.value || "",
-      rankIn: true
-    }))
+    ...rankIn.map((item) => {
+      const rank =
+        Number(item.rank) ||
+        Number(item.currentRank) ||
+        Number(item.rankNo) ||
+        null;
+
+      return {
+        rank,
+        rankText: item.rankText || (rank ? `${rank}位` : ""),
+        station: item.station || item.stationName || "",
+        element: inferElementLabelFromItem(item),
+        value: item.valueText || item.value || "",
+        rankIn: true
+      };
+    })
   ];
 }
 
@@ -312,8 +351,8 @@ function formatLiveSummaryItems(items) {
       <div class="${cls}">
         <div class="live-summary-line">
           <span class="live-summary-token live-summary-rank">${escapeHtml(item.rankText || "")}</span>
-          <span class="live-summary-token live-summary-station">${escapeHtml(item.station || "")}</span>
           <span class="live-summary-token live-summary-element">${escapeHtml(item.element || "")}</span>
+          <span class="live-summary-token live-summary-station">${escapeHtml(item.station || "")}</span>
           <span class="live-summary-token live-summary-value">${escapeHtml(item.value || "")}</span>
         </div>
       </div>
@@ -323,13 +362,15 @@ function formatLiveSummaryItems(items) {
 
 function renderLiveSummary(summaryData) {
   const allItems = normalizeSummaryItems(summaryData);
-  const top1Items = allItems.filter((item) => item.rank === 1);
-  const rankInItems = allItems.filter((item) => item.rank !== null && item.rank >= 1 && item.rank <= 10);
 
+  const top1Items = allItems.filter((item) => item.rank === 1);
+  const rankInItems = allItems.filter((item) => item.rankIn === true);
+
+  const hasTop1 = top1Items.length > 0;
   const hasRankIn = rankInItems.length > 0;
 
   rankInBadge.hidden = !hasRankIn;
-  topRankAlert.hidden = top1Items.length === 0;
+  topRankAlert.hidden = !hasTop1;
 
   liveSummaryBody.innerHTML = `
     <div class="live-summary-grid">
@@ -485,6 +526,7 @@ async function refreshAll() {
     return;
   }
 
+  showStatusBox();
   setStatus("読み込み中...");
 
   const liveResult = await loadLiveSummary();
@@ -605,6 +647,7 @@ async function init() {
     await registerServiceWorker();
     await refreshAll();
   } catch (err) {
+    showStatusBox();
     setStatus(`初期化に失敗しました: ${err.message}`);
     setDebug([["エラー", err.message]]);
   }
