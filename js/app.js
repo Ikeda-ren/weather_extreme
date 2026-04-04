@@ -127,6 +127,70 @@ function getSelectedElementLabel() {
   return appState.elementLabelMap.get(appState.selectedElement) || appState.selectedElement || "";
 }
 
+function getElementLabelFromAnyKey(raw) {
+  if (!raw) return "";
+
+  if (appState.elementLabelMap.has(raw)) {
+    return appState.elementLabelMap.get(raw);
+  }
+
+  const normalized = String(raw).trim();
+
+  if (appState.elementLabelMap.has(normalized)) {
+    return appState.elementLabelMap.get(normalized);
+  }
+
+  const lower = normalized.toLowerCase();
+
+  for (const [key, label] of appState.elementLabelMap.entries()) {
+    if (String(key).toLowerCase() === lower) {
+      return label;
+    }
+  }
+
+  const aliasMap = {
+    max10mprecip: "日最大10分間降水量",
+    max1hprecip: "日最大1時間降水量",
+    max3hprecip: "月最大3時間降水量",
+    max6hprecip: "月最大6時間降水量",
+    max12hprecip: "月最大12時間降水量",
+    max24hprecip: "月最大24時間降水量",
+    max48hprecip: "月最大48時間降水量",
+    max72hprecip: "月最大72時間降水量",
+    dailyprecip: "日降水量",
+    monthlypreciphigh: "月降水量の多い方",
+    monthlypreciplow: "月降水量の少ない方",
+
+    dailymaxtemphigh: "日最高気温の高い方",
+    dailymaxtemplow: "日最高気温の低い方",
+    dailymintemphigh: "日最低気温の高い方",
+    dailymintemplow: "日最低気温の低い方",
+    monthlymeantemphigh: "月平均気温の高い方",
+    monthlymeantemplow: "月平均気温の低い方",
+
+    dailyminhumidity: "日最小相対湿度",
+
+    dailymaxwind: "日最大風速",
+    dailymaxgust: "日最大瞬間風速",
+
+    monthlysunshinehigh: "月間日照時間の多い方",
+    monthlysunshinelow: "月間日照時間の少ない方",
+
+    dailysnowfall: "降雪の深さ日合計",
+    monthlysnowfall: "降雪の深さ月合計",
+    max3hsnow: "月最大3時間降雪量",
+    max6hsnow: "月最大6時間降雪量",
+    max12hsnow: "月最大12時間降雪量",
+    max24hsnow: "月最大24時間降雪量",
+    max48hsnow: "月最大48時間降雪量",
+    max72hsnow: "月最大72時間降雪量",
+    monthlymaxsnowdepthhigh: "月最深積雪の大きい方",
+    monthlymaxsnowdepthlow: "月最深積雪の小さい方"
+  };
+
+  return aliasMap[lower] || normalized;
+}
+
 function fillRegionSelect(prefectureConfig) {
   const regionMap = buildRegionMap(prefectureConfig);
   regionSelect.innerHTML = "";
@@ -246,24 +310,26 @@ function buildTableHead() {
 }
 
 function inferElementLabelFromItem(item) {
-  const raw =
-    item?.element ||
-    item?.elementName ||
-    item?.type ||
-    item?.item ||
-    item?.kind ||
-    item?.target ||
-    item?.category ||
-    item?.metric ||
-    item?.elementKey ||
-    "";
+  const candidates = [
+    item?.elementLabel,
+    item?.element_name,
+    item?.displayElement,
+    item?.displayName,
+    item?.element,
+    item?.elementName,
+    item?.type,
+    item?.item,
+    item?.kind,
+    item?.target,
+    item?.category,
+    item?.metric,
+    item?.elementKey
+  ];
 
-  if (raw && appState.elementLabelMap.has(raw)) {
-    return appState.elementLabelMap.get(raw);
-  }
-
-  if (raw) {
-    return raw;
+  for (const candidate of candidates) {
+    if (!candidate) continue;
+    const label = getElementLabelFromAnyKey(candidate);
+    if (label) return label;
   }
 
   return getSelectedElementLabel();
@@ -363,27 +429,27 @@ function formatLiveSummaryItems(items) {
 function renderLiveSummary(summaryData) {
   const allItems = normalizeSummaryItems(summaryData);
 
-  const top1Items = allItems.filter((item) => item.rank === 1);
-  const rankInItems = allItems.filter((item) => item.rankIn === true);
+  const annualItems = allItems.filter((item) => item.rankIn === true);
+  const monthlyItems = allItems.filter((item) => item.rankIn === true);
 
-  const hasTop1 = top1Items.length > 0;
-  const hasRankIn = rankInItems.length > 0;
+  const hasAnnual = annualItems.length > 0;
+  const hasMonthly = monthlyItems.length > 0;
 
-  rankInBadge.hidden = !hasRankIn;
-  topRankAlert.hidden = !hasTop1;
+  rankInBadge.hidden = !hasMonthly;
+  topRankAlert.hidden = !hasAnnual;
 
   liveSummaryBody.innerHTML = `
     <div class="live-summary-grid">
       <div class="live-summary-column">
-        <div class="live-summary-column-title">極値1位更新有り</div>
+        <div class="live-summary-column-title">通年</div>
         <div class="live-summary-scroll">
-          ${formatLiveSummaryItems(top1Items)}
+          ${formatLiveSummaryItems(annualItems)}
         </div>
       </div>
       <div class="live-summary-column">
-        <div class="live-summary-column-title">実況で10位以内</div>
+        <div class="live-summary-column-title">当月</div>
         <div class="live-summary-scroll">
-          ${formatLiveSummaryItems(rankInItems)}
+          ${formatLiveSummaryItems(monthlyItems)}
         </div>
       </div>
     </div>
