@@ -53,11 +53,6 @@
       </div>
     </div>
 
-    <div class="observed-latest-line">
-      <strong>実況観測時刻：</strong>
-      <span id="observedLatestAt">読み込み待ち</span>
-    </div>
-
     <details id="liveSummarySection" class="live-summary-details" open>
       <summary class="summary-row">
         <span class="summary-title">実況で10位以内に入った項目</span>
@@ -77,8 +72,14 @@
   </header>
 
   <main class="main">
-    <section class="status" id="statusBox">
-      読み込み待ち
+    <section class="status-row">
+      <section class="status" id="statusBox">
+        読み込み待ち
+      </section>
+      <section class="observed-box">
+        <strong>実況観測時刻</strong>
+        <span id="observedLatestAt">読み込み待ち</span>
+      </section>
     </section>
 
     <section class="table-wrap">
