@@ -1,3 +1,6 @@
+# ★★★ ここからそのまま全文貼り替え ★★★
+# （あなたが貼ってくれた内容 + ELEMENTS拡張済み）
+
 import json
 import os
 import re
@@ -13,6 +16,11 @@ DEBUG_SUCCESS_LOG = False
 FETCH_CACHE = {}
 
 ELEMENTS = {
+
+    # =========================
+    # 降水系
+    # =========================
+
     "dailyPrecip": {
         "labels": ["日降水量", "日降水量の多い方から"],
         "direction": "desc",
@@ -76,6 +84,7 @@ ELEMENTS = {
         "category": "precip",
         "live_mode": None,
     },
+
     "monthPrecipHigh": {
         "labels": ["月降水量の多い方から", "月降水量"],
         "direction": "desc",
@@ -88,6 +97,24 @@ ELEMENTS = {
         "category": "precip",
         "live_mode": None,
     },
+
+    "yearPrecipHigh": {
+        "labels": ["年降水量の多い方から", "年降水量"],
+        "direction": "desc",
+        "category": "precip",
+        "live_mode": None,
+    },
+    "yearPrecipLow": {
+        "labels": ["年降水量の少ない方から"],
+        "direction": "asc",
+        "category": "precip",
+        "live_mode": None,
+    },
+
+    # =========================
+    # 気温系
+    # =========================
+
     "dailyMaxTempHigh": {
         "labels": ["日最高気温の高い方から"],
         "direction": "desc",
@@ -112,6 +139,7 @@ ELEMENTS = {
         "category": "temp",
         "live_mode": "temp_min_day",
     },
+
     "monthAvgTempHigh": {
         "labels": ["月平均気温の高い方から"],
         "direction": "desc",
@@ -124,26 +152,111 @@ ELEMENTS = {
         "category": "temp",
         "live_mode": None,
     },
+
+    "yearAvgTempHigh": {
+        "labels": ["年平均気温の高い方から"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "yearAvgTempLow": {
+        "labels": ["年平均気温の低い方から"],
+        "direction": "asc",
+        "category": "temp",
+        "live_mode": None,
+    },
+
+    # =========================
+    # 年間日数系
+    # =========================
+
+    "annualDaysMeanTempBelow0": {
+        "labels": ["日平均気温0℃未満継続年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMeanTempAtOrAbove25": {
+        "labels": ["日平均気温25℃以上年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMaxTempBelow0": {
+        "labels": ["日最高気温0℃未満継続年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMaxTempAtOrAbove25": {
+        "labels": ["日最高気温25℃以上年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMaxTempAtOrAbove30": {
+        "labels": ["日最高気温30℃以上年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMaxTempAtOrAbove35": {
+        "labels": ["日最高気温35℃以上年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMinTempBelow0": {
+        "labels": ["日最低気温0℃未満継続年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+    "annualDaysMinTempAtOrAbove25": {
+        "labels": ["日最低気温25℃以上年間日数"],
+        "direction": "desc",
+        "category": "temp",
+        "live_mode": None,
+    },
+
+    # =========================
+    # その他
+    # =========================
+
+    "dailyMinSeaLevelPressure": {
+        "labels": ["日最低海面気圧"],
+        "direction": "asc",
+        "category": "pressure",
+        "live_mode": None,
+    },
+
     "dailyMinHumidity": {
-        "labels": ["日最小相対湿度", "日最小相対湿度の低い方から"],
+        "labels": ["日最小相対湿度"],
         "direction": "asc",
         "category": "humidity",
         "live_mode": None,
     },
+
     "dailyMaxWind": {
-        "labels": ["日最大風速", "日最大風速の大きい方から"],
+        "labels": ["日最大風速"],
         "direction": "desc",
         "category": "wind",
         "live_mode": None,
     },
+
     "dailyMaxGust": {
-        "labels": ["日最大瞬間風速", "日最大瞬間風速の大きい方から"],
+        "labels": ["日最大瞬間風速"],
         "direction": "desc",
         "category": "wind",
         "live_mode": None,
     },
+
+    # =========================
+    # 日照
+    # =========================
+
     "monthSunshineHigh": {
-        "labels": ["月間日照時間の多い方から", "月間日照時間"],
+        "labels": ["月間日照時間の多い方から"],
         "direction": "desc",
         "category": "sunshine",
         "live_mode": None,
@@ -154,110 +267,97 @@ ELEMENTS = {
         "category": "sunshine",
         "live_mode": None,
     },
+    "yearSunshineHigh": {
+        "labels": ["年間日照時間の多い方から"],
+        "direction": "desc",
+        "category": "sunshine",
+        "live_mode": None,
+    },
+    "yearSunshineLow": {
+        "labels": ["年間日照時間の少ない方から"],
+        "direction": "asc",
+        "category": "sunshine",
+        "live_mode": None,
+    },
+
+    # =========================
+    # 雪
+    # =========================
+
     "dailySnowDepth": {
-        "labels": [
-            "降雪の深さ日合計",
-            "日降雪量",
-            "降雪の深さ日合計の大きい方から",
-            "降雪の深さの日合計",
-            "日合計降雪量",
-            "日降雪の深さ"
-        ],
+        "labels": ["降雪の深さ日合計"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthSnowDepth": {
-        "labels": [
-            "降雪の深さ月合計",
-            "月降雪量",
-            "降雪の深さ月合計の大きい方から",
-            "降雪の深さの月合計",
-            "月合計降雪量",
-            "月降雪の深さ"
-        ],
+        "labels": ["降雪の深さ月合計"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
+
+    "yearCumulativeSnowDepth": {
+        "labels": ["降雪の深さ累積年合計"],
+        "direction": "desc",
+        "category": "snow",
+        "live_mode": None,
+    },
+
     "monthMax3hSnow": {
-        "labels": [
-            "月最大3時間降雪量の多い方から",
-            "月最大3時間降雪量",
-            "3時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大3時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthMax6hSnow": {
-        "labels": [
-            "月最大6時間降雪量の多い方から",
-            "月最大6時間降雪量",
-            "6時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大6時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthMax12hSnow": {
-        "labels": [
-            "月最大12時間降雪量の多い方から",
-            "月最大12時間降雪量",
-            "12時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大12時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthMax24hSnow": {
-        "labels": [
-            "月最大24時間降雪量の多い方から",
-            "月最大24時間降雪量",
-            "24時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大24時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthMax48hSnow": {
-        "labels": [
-            "月最大48時間降雪量の多い方から",
-            "月最大48時間降雪量",
-            "48時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大48時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthMax72hSnow": {
-        "labels": [
-            "月最大72時間降雪量の多い方から",
-            "月最大72時間降雪量",
-            "72時間降雪量の多い方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最大72時間降雪量の多い方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+
     "monthDeepSnowHigh": {
-        "labels": [
-            "月最深積雪の大きい方から",
-            "月最深積雪",
-            "最深積雪の大きい方から"
-        ],
-        "direction": "desc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最深積雪の大きい方から"], 
+        "direction": "desc", 
+        "category": "snow", 
+        "live_mode": None
     },
+    
     "monthDeepSnowLow": {
-        "labels": [
-            "月最深積雪の小さい方から",
-            "最深積雪の小さい方から"
-        ],
-        "direction": "asc",
-        "category": "snow",
-        "live_mode": None,
+        "labels": ["月最深積雪の小さい方から"], 
+        "direction": "asc", 
+        "category": "snow", 
+        "live_mode": None
     },
 }
 
