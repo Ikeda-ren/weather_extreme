@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Create ranking data
+        run: python scripts/update_rankings.py
+
       - name: Create live data
         run: python scripts/update_live.py
 
