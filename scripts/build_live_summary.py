@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone, timedelta
+import re
+from datetime import datetime, timezone, timedelta, date
 from pathlib import Path
 from typing import Any
-
 
 JST = timezone(timedelta(hours=9))
 
@@ -51,7 +50,7 @@ def parse_manifest_month(manifest_path: Path) -> tuple[str | None, int]:
         if not value:
             continue
         try:
-            # 末尾Z対応
+            # 末尾 Z 対応
             dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
             dt_jst = dt.astimezone(JST) if dt.tzinfo else dt.replace(tzinfo=JST)
             return dt_jst.isoformat(), dt_jst.month
@@ -61,16 +60,50 @@ def parse_manifest_month(manifest_path: Path) -> tuple[str | None, int]:
     return default_obs, default_month
 
 
+def parse_observed_date(observed_latest_at: str | None) -> date | None:
+    """
+    observedLatestAt の ISO 文字列から JST の日付を返す。
+    """
+    if not observed_latest_at:
+        return None
+
+    try:
+        dt = datetime.fromisoformat(str(observed_latest_at).replace("Z", "+00:00"))
+        dt_jst = dt.astimezone(JST) if dt.tzinfo else dt.replace(tzinfo=JST)
+        return dt_jst.date()
+    except Exception:
+        return None
+
+
+def parse_rank_date(date_str: Any) -> date | None:
+    """
+    '2026年4月4日（令和8年）' のような文字列から date を取り出す。
+    """
+    if not date_str:
+        return None
+
+    text = str(date_str)
+    m = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", text)
+    if not m:
+        return None
+
+    try:
+        y = int(m.group(1))
+        mo = int(m.group(2))
+        d = int(m.group(3))
+        return date(y, mo, d)
+    except Exception:
+        return None
+
+
 def build_element_map(elements_config: dict[str, Any]) -> list[tuple[str, str]]:
     result: list[tuple[str, str]] = []
-
     for group in elements_config.get("groups", []):
         for item in group.get("items", []):
             key = item.get("key")
             label = item.get("label")
             if key and label:
                 result.append((key, label))
-
     return result
 
 
@@ -79,10 +112,14 @@ def extract_ranked_items(
     element_key: str,
     element_label: str,
     *,
+    target_observed_date: date | None,
     month_label: str | None = None,
 ) -> list[dict[str, Any]]:
     """
-    rows[].ranks[] から highlightLive == true のものだけを抜き出す。
+    rows[].ranks[] から
+    - highlightLive == true
+    - かつ rank の日付が observedLatestAt と同じ日
+    のものだけを抜き出す。
     """
     if not json_path.exists():
         return []
@@ -101,6 +138,13 @@ def extract_ranked_items(
         for rank_data in row.get("ranks", []):
             if rank_data.get("highlightLive") is not True:
                 continue
+
+            rank_date = parse_rank_date(rank_data.get("date"))
+
+            # 観測日の解釈ができる場合は、同日のみ採用
+            if target_observed_date is not None:
+                if rank_date != target_observed_date:
+                    continue
 
             item: dict[str, Any] = {
                 "stationName": station_name,
@@ -147,6 +191,7 @@ def build_live_summary_for_pref(
 
     pref_data_dir = repo_root / "data" / pref_key
     month_label = f"{target_month}月"
+    target_observed_date = parse_observed_date(observed_latest_at)
 
     for element_key, element_label in element_pairs:
         annual_path = pref_data_dir / f"{element_key}-all.json"
@@ -157,6 +202,7 @@ def build_live_summary_for_pref(
                 annual_path,
                 element_key,
                 element_label,
+                target_observed_date=target_observed_date,
                 month_label=None,
             )
         )
@@ -166,6 +212,7 @@ def build_live_summary_for_pref(
                 monthly_path,
                 element_key,
                 element_label,
+                target_observed_date=target_observed_date,
                 month_label=month_label,
             )
         )
@@ -177,13 +224,11 @@ def build_live_summary_for_pref(
         "annualItems": sort_items(annual_items),
         "monthlyItems": sort_items(monthly_items),
     }
-
     return summary
 
 
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[1]
-
     prefectures_path = repo_root / "config" / "prefectures.json"
     elements_path = repo_root / "config" / "elements.json"
     manifest_path = repo_root / "data" / "manifest.json"
@@ -193,7 +238,6 @@ def main() -> None:
 
     observed_latest_at, target_month = parse_manifest_month(manifest_path)
     element_pairs = build_element_map(elements_config)
-
     prefectures = prefectures_config.get("prefectures", [])
 
     print(f"[INFO] 対象月: {target_month}月")
@@ -202,7 +246,6 @@ def main() -> None:
     for pref in prefectures:
         pref_key = pref.get("key")
         pref_name = pref.get("name")
-
         if not pref_key or not pref_name:
             continue
 
