@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthMax3hSnow",
   "month": "1",
@@ -13,71 +13,61 @@
           "rank": 1,
           "value": 21,
           "date": "2017年1月14日（平成29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2017/01/14"
         },
         {
           "rank": 2,
           "value": 19,
           "date": "2026年1月22日（令和8年）",
-          "highlightLive": false,
-          "highlightWithinYear": true
+          "_date_raw": "2026/01/22"
         },
         {
           "rank": 3,
           "value": 15,
           "date": "2016年1月25日（平成28年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2016/01/25"
         },
         {
           "rank": 4,
           "value": 14,
           "date": "2018年1月24日（平成30年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2018/01/24"
         },
         {
           "rank": 5,
           "value": 14,
           "date": "2012年1月26日（平成24年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2012/01/26"
         },
         {
           "rank": 6,
           "value": 14,
           "date": "2005年1月21日（平成17年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2005/01/21"
         },
         {
           "rank": 7,
           "value": 14,
           "date": "2003年1月14日（平成15年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2003/01/14"
         },
         {
           "rank": 8,
           "value": 13,
           "date": "2024年1月24日（令和6年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2024/01/24"
         },
         {
           "rank": 9,
           "value": 13,
           "date": "2011年1月16日（平成23年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2011/01/16"
         },
         {
           "rank": 10,
           "value": 12,
           "date": "2013年1月28日（平成25年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2013/01/28"
         }
       ]
     },
@@ -89,71 +79,61 @@
           "rank": 1,
           "value": 25,
           "date": "1990年1月1日（平成2年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1990/01/01"
         },
         {
           "rank": 2,
           "value": 24,
           "date": "2001年1月14日（平成13年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2001/01/14"
         },
         {
           "rank": 3,
           "value": 22,
           "date": "2017年1月23日（平成29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2017/01/23"
         },
         {
           "rank": 4,
           "value": 22,
           "date": "1995年1月15日（平成7年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1995/01/15"
         },
         {
           "rank": 5,
           "value": 20,
           "date": "1994年1月20日（平成6年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1994/01/20"
         },
         {
           "rank": 6,
           "value": 20,
           "date": "1993年1月21日（平成5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1993/01/21"
         },
         {
           "rank": 7,
           "value": 19,
           "date": "1984年1月31日（昭和59年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1984/01/31"
         },
         {
           "rank": 8,
           "value": 18,
           "date": "2009年1月15日（平成21年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2009/01/15"
         },
         {
           "rank": 9,
           "value": 17,
           "date": "1991年1月6日（平成3年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1991/01/06"
         },
         {
           "rank": 10,
           "value": 16,
           "date": "2011年1月16日（平成23年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2011/01/16"
         }
       ]
     }

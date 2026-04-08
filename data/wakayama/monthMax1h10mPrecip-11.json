@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthMax1h10mPrecip",
   "month": "11",
@@ -13,71 +13,61 @@
           "rank": 1,
           "value": 83,
           "date": "2009年11月11日（平成21年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2009/11/11"
         },
         {
           "rank": 2,
           "value": 40,
           "date": "2005年11月6日（平成17年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2005/11/06"
         },
         {
           "rank": 3,
           "value": 40,
           "date": "2000年11月1日（平成12年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2000/11/01"
         },
         {
           "rank": 4,
           "value": 34,
           "date": "2006年11月19日（平成18年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2006/11/19"
         },
         {
           "rank": 5,
           "value": 34,
           "date": "2004年11月11日（平成16年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2004/11/11"
         },
         {
           "rank": 6,
           "value": 31.5,
           "date": "2021年11月30日（令和3年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2021/11/30"
         },
         {
           "rank": 7,
           "value": 27,
           "date": "2006年11月11日（平成18年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2006/11/11"
         },
         {
           "rank": 8,
           "value": 26,
           "date": "2009年11月1日（平成21年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2009/11/01"
         },
         {
           "rank": 9,
           "value": 22,
           "date": "2023年11月7日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2023/11/07"
         },
         {
           "rank": 10,
           "value": 20.5,
           "date": "2024年11月26日（令和6年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2024/11/26"
         }
       ]
     }

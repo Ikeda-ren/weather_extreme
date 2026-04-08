@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "滋賀県",
   "element": "monthDeepSnowLow",
   "month": "3",
@@ -10,11 +10,10 @@
       "startDate": "2026年3月（令和8年）",
       "ranks": [
         {
-          "rank": 1,
           "value": 1916,
           "date": "2010年3月（平成22年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2010/03/01",
+          "rank": 1
         }
       ]
     },
@@ -26,71 +25,61 @@
           "rank": 1,
           "value": 0,
           "date": "2026年3月31日（令和8年）",
-          "highlightLive": false,
-          "highlightWithinYear": true
+          "_date_raw": "2026/03/31"
         },
         {
           "rank": 2,
           "value": 0,
           "date": "2023年3月31日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2023/03/31"
         },
         {
           "rank": 3,
           "value": 0,
           "date": "2021年3月31日（令和3年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2021/03/31"
         },
         {
           "rank": 4,
           "value": 0,
           "date": "2020年3月31日（令和2年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2020/03/31"
         },
         {
           "rank": 5,
           "value": 0,
           "date": "2019年3月31日（平成31年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2019/03/31"
         },
         {
           "rank": 6,
           "value": 0,
           "date": "2018年3月31日（平成30年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2018/03/31"
         },
         {
           "rank": 7,
           "value": 0,
           "date": "2017年3月31日（平成29年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2017/03/31"
         },
         {
           "rank": 8,
           "value": 0,
           "date": "2010年3月31日（平成22年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2010/03/31"
         },
         {
           "rank": 9,
           "value": 0,
           "date": "2009年3月31日（平成21年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2009/03/31"
         },
         {
           "rank": 10,
           "value": 0,
           "date": "1999年3月31日（平成11年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1999/03/31"
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "滋賀県",
   "element": "yearSunshineHigh",
   "month": "all",
@@ -13,71 +13,61 @@
           "rank": 1,
           "value": 2025,
           "date": "2091年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2091/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "2030年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2030/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "2101年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2101/01/01"
         },
         {
           "rank": 4,
           "value": 2018,
           "date": "2060年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2060/01/01"
         },
         {
           "rank": 5,
           "value": 2016,
           "date": "2013年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2013/01/01"
         },
         {
           "rank": 6,
           "value": 2013,
           "date": "2073年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2073/01/01"
         },
         {
           "rank": 7,
           "value": 1994,
           "date": "2085年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2085/01/01"
         },
         {
           "rank": 8,
           "value": 1978,
           "date": "2092年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2092/01/01"
         },
         {
           "rank": 9,
           "value": 1947,
           "date": "2024年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2024/01/01"
         },
         {
           "rank": 10,
           "value": 1924,
           "date": "2029年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2029/01/01"
         }
       ]
     },
@@ -89,36 +79,31 @@
           "rank": 1,
           "value": 2025,
           "date": "2082年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2082/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "1959年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1959/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "2069年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2069/01/01"
         },
         {
           "rank": 4,
           "value": 2022,
           "date": "2049年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2049/01/01"
         },
         {
           "rank": 5,
           "value": 2021,
           "date": "1611年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1611/01/01"
         }
       ]
     },
@@ -130,36 +115,31 @@
           "rank": 1,
           "value": 2025,
           "date": "1978年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1978/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "1837年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1837/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "1930年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1930/01/01"
         },
         {
           "rank": 4,
           "value": 2022,
           "date": "1834年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1834/01/01"
         },
         {
           "rank": 5,
           "value": 2021,
           "date": "1613年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1613/01/01"
         }
       ]
     },
@@ -171,36 +151,31 @@
           "rank": 1,
           "value": 2025,
           "date": "2000年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2000/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "1858年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1858/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "2029年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2029/01/01"
         },
         {
           "rank": 4,
           "value": 2022,
           "date": "1872年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1872/01/01"
         },
         {
           "rank": 5,
           "value": 2021,
           "date": "1549年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1549/01/01"
         }
       ]
     },
@@ -212,36 +187,31 @@
           "rank": 1,
           "value": 2025,
           "date": "2070年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2070/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "1935年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1935/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "2092年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2092/01/01"
         },
         {
           "rank": 4,
           "value": 2022,
           "date": "1938年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1938/01/01"
         },
         {
           "rank": 5,
           "value": 2021,
           "date": "1623年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1623/01/01"
         }
       ]
     },
@@ -253,36 +223,31 @@
           "rank": 1,
           "value": 2025,
           "date": "2112年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2112/01/01"
         },
         {
           "rank": 2,
           "value": 2024,
           "date": "2023年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2023/01/01"
         },
         {
           "rank": 3,
           "value": 2023,
           "date": "2087年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2087/01/01"
         },
         {
           "rank": 4,
           "value": 2022,
           "date": "1924年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1924/01/01"
         },
         {
           "rank": 5,
           "value": 2021,
           "date": "1704年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1704/01/01"
         }
       ]
     }

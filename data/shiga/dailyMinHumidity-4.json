@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "滋賀県",
   "element": "dailyMinHumidity",
   "month": "4",
@@ -13,71 +13,61 @@
           "rank": 1,
           "value": 6,
           "date": "2001年4月23日（平成13年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2001/04/23"
         },
         {
           "rank": 2,
           "value": 8,
           "date": "1977年4月11日（昭和52年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1977/04/11"
         },
         {
           "rank": 3,
           "value": 11,
           "date": "2012年4月28日（平成24年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2012/04/28"
         },
         {
           "rank": 4,
           "value": 11,
           "date": "2005年4月27日（平成17年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2005/04/27"
         },
         {
           "rank": 5,
           "value": 12,
           "date": "2013年4月1日（平成25年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2013/04/01"
         },
         {
           "rank": 6,
           "value": 12,
           "date": "2007年4月27日（平成19年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2007/04/27"
         },
         {
           "rank": 7,
           "value": 12,
           "date": "1960年4月9日（昭和35年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1960/04/09"
         },
         {
           "rank": 8,
           "value": 13,
           "date": "2014年4月27日（平成26年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2014/04/27"
         },
         {
           "rank": 9,
           "value": 13,
           "date": "2001年4月27日（平成13年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2001/04/27"
         },
         {
           "rank": 10,
           "value": 13,
           "date": "1999年4月30日（平成11年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1999/04/30"
         }
       ]
     }

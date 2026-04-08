@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
-  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "updatedAt": "2026-04-08T19:08:30.802012+09:00",
+  "observedLatestAt": "2026-04-08T19:00:00+09:00",
   "prefecture": "兵庫県",
   "element": "yearPrecipHigh",
   "month": "all",
@@ -13,71 +13,61 @@
           "rank": 1,
           "value": 2018,
           "date": "2037年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "2037/01/01"
         },
         {
           "rank": 2,
           "value": 1993,
           "date": "1724年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1724/01/01"
         },
         {
           "rank": 3,
           "value": 1972,
           "date": "1719年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1719/01/01"
         },
         {
           "rank": 4,
           "value": 1965,
           "date": "1726年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1726/01/01"
         },
         {
           "rank": 5,
           "value": 1954,
           "date": "1729年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1729/01/01"
         },
         {
           "rank": 6,
           "value": 1952,
           "date": "1680年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1680/01/01"
         },
         {
           "rank": 7,
           "value": 1938,
           "date": "1719年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1719/01/01"
         },
         {
           "rank": 8,
           "value": 1935,
           "date": "1759年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1759/01/01"
         },
         {
           "rank": 9,
           "value": 1903,
           "date": "1743年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1743/01/01"
         },
         {
           "rank": 10,
           "value": 1897,
           "date": "1737年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1737/01/01"
         }
       ]
     },
@@ -89,71 +79,61 @@
           "rank": 1,
           "value": 2024,
           "date": "1343年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1343/01/01"
         },
         {
           "rank": 2,
           "value": 2021,
           "date": "1417年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1417/01/01"
         },
         {
           "rank": 3,
           "value": 2018,
           "date": "1613年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1613/01/01"
         },
         {
           "rank": 4,
           "value": 2015,
           "date": "1427年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1427/01/01"
         },
         {
           "rank": 5,
           "value": 2013,
           "date": "1372年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1372/01/01"
         },
         {
           "rank": 6,
           "value": 2011,
           "date": "1687年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1687/01/01"
         },
         {
           "rank": 7,
           "value": 2004,
           "date": "1420年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1420/01/01"
         },
         {
           "rank": 8,
           "value": 2003,
           "date": "1337年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1337/01/01"
         },
         {
           "rank": 9,
           "value": 1998,
           "date": "1378年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1378/01/01"
         },
         {
           "rank": 10,
           "value": 1993,
           "date": "1398年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1398/01/01"
         }
       ]
     },
@@ -165,71 +145,61 @@
           "rank": 1,
           "value": 2018,
           "date": "1844年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1844/01/01"
         },
         {
           "rank": 2,
           "value": 2016,
           "date": "1763年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1763/01/01"
         },
         {
           "rank": 3,
           "value": 2015,
           "date": "1858年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1858/01/01"
         },
         {
           "rank": 4,
           "value": 2013,
           "date": "1658年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1658/01/01"
         },
         {
           "rank": 5,
           "value": 2011,
           "date": "1763年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1763/01/01"
         },
         {
           "rank": 6,
           "value": 2010,
           "date": "1700年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1700/01/01"
         },
         {
           "rank": 7,
           "value": 2006,
           "date": "1662年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1662/01/01"
         },
         {
           "rank": 8,
           "value": 2004,
           "date": "1850年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1850/01/01"
         },
         {
           "rank": 9,
           "value": 1998,
           "date": "1657年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1657/01/01"
         },
         {
           "rank": 10,
           "value": 1990,
           "date": "1693年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1693/01/01"
         }
       ]
     },
@@ -241,71 +211,61 @@
           "rank": 1,
           "value": 2018,
           "date": "1675年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1675/01/01"
         },
         {
           "rank": 2,
           "value": 2016,
           "date": "1777年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1777/01/01"
         },
         {
           "rank": 3,
           "value": 2015,
           "date": "1808年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1808/01/01"
         },
         {
           "rank": 4,
           "value": 2013,
           "date": "1710年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1710/01/01"
         },
         {
           "rank": 5,
           "value": 2011,
           "date": "1741年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1741/01/01"
         },
         {
           "rank": 6,
           "value": 2010,
           "date": "1719年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1719/01/01"
         },
         {
           "rank": 7,
           "value": 2004,
           "date": "1674年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1674/01/01"
         },
         {
           "rank": 8,
           "value": 1998,
           "date": "1725年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1725/01/01"
         },
         {
           "rank": 9,
           "value": 1993,
           "date": "1874年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1874/01/01"
         },
         {
           "rank": 10,
           "value": 1990,
           "date": "1864年",
-          "highlightLive": false,
-          "highlightWithinYear": false
+          "_date_raw": "1864/01/01"
         }
       ]
     }
