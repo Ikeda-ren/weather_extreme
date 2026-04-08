@@ -8,6 +8,7 @@ const observedLatestAtEl = document.getElementById("observedLatestAt");
 
 const liveSummaryBody = document.getElementById("liveSummaryBody");
 const elementPanel = document.getElementById("elementPanel");
+const elementPanelToggle = document.getElementById("elementPanelToggle");
 
 const statusBox = document.getElementById("statusBox");
 const rankTableHead = document.getElementById("rankTableHead");
@@ -18,6 +19,8 @@ let prefecturesConfig = null;
 let elementsConfig = null;
 let manifestCache = null;
 let refreshTimer = null;
+let restoreScrollPending = false;
+let restoredInitialScroll = false;
 
 const FALLBACK_DEFAULTS = {
   region: "近畿",
@@ -26,6 +29,8 @@ const FALLBACK_DEFAULTS = {
   annualElement: "dailyPrecip",
   monthlyElement: "dailyPrecip"
 };
+
+const UI_STATE_STORAGE_KEY = "weatherExtremeUIState_v1";
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -116,6 +121,136 @@ async function fetchJson(path) {
   return await res.json();
 }
 
+/* -----------------------------
+ * UI state persistence
+ * ----------------------------- */
+
+function loadUIState() {
+  try {
+    const raw = localStorage.getItem(UI_STATE_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    return parsed;
+  } catch (err) {
+    console.error("UI状態の読込に失敗しました", err);
+    return null;
+  }
+}
+
+function saveUIState() {
+  try {
+    const state = {
+      region: regionSelect?.value || "",
+      pref: prefSelect?.value || "",
+      month: monthSelect?.value || "all",
+      annualElement: getSavedAnnualElementKey(),
+      monthlyElement: getSavedMonthlyElementKey(),
+      elementPanelOpen: isElementPanelOpen(),
+      scrollY: window.scrollY || 0
+    };
+    localStorage.setItem(UI_STATE_STORAGE_KEY, JSON.stringify(state));
+  } catch (err) {
+    console.error("UI状態の保存に失敗しました", err);
+  }
+}
+
+function isElementPanelOpen() {
+  if (!elementPanel) return true;
+  return !elementPanel.classList.contains("collapsed");
+}
+
+function setElementPanelOpen(open) {
+  if (!elementPanel) return;
+
+  if (open) {
+    elementPanel.classList.remove("collapsed");
+  } else {
+    elementPanel.classList.add("collapsed");
+  }
+
+  if (elementPanelToggle) {
+    elementPanelToggle.setAttribute("aria-expanded", String(open));
+  }
+}
+
+function restoreScrollPosition(force = false) {
+  const saved = loadUIState();
+  if (!saved || typeof saved.scrollY !== "number") return;
+  if (!force && !restoreScrollPending) return;
+
+  requestAnimationFrame(() => {
+    window.scrollTo(0, saved.scrollY);
+    restoreScrollPending = false;
+  });
+}
+
+function markScrollRestorePending() {
+  restoreScrollPending = true;
+}
+
+function getSavedAnnualElementKey() {
+  const saved = loadUIState();
+  if (saved?.annualElement) return saved.annualElement;
+  return elementsConfig?.annualDefaultElement || FALLBACK_DEFAULTS.annualElement;
+}
+
+function getSavedMonthlyElementKey() {
+  const saved = loadUIState();
+  if (saved?.monthlyElement) return saved.monthlyElement;
+  return elementsConfig?.monthlyDefaultElement || FALLBACK_DEFAULTS.monthlyElement;
+}
+
+function pickValidElementKey(list, candidateKey, fallbackKey) {
+  const keys = Array.isArray(list) ? list.map((item) => item.key) : [];
+  if (candidateKey && keys.includes(candidateKey)) return candidateKey;
+  if (fallbackKey && keys.includes(fallbackKey)) return fallbackKey;
+  return list?.[0]?.key || "";
+}
+
+function getPreferredElementKeyForCurrentMonth() {
+  const list = getActiveElementList();
+  const saved = loadUIState();
+
+  if (monthSelect.value === "all") {
+    return pickValidElementKey(
+      list,
+      saved?.annualElement,
+      elementsConfig?.annualDefaultElement || FALLBACK_DEFAULTS.annualElement
+    );
+  }
+
+  return pickValidElementKey(
+    list,
+    saved?.monthlyElement,
+    elementsConfig?.monthlyDefaultElement || FALLBACK_DEFAULTS.monthlyElement
+  );
+}
+
+function updateSavedElementKeyForCurrentMonth(selectedKey) {
+  const saved = loadUIState() || {};
+  if (monthSelect.value === "all") {
+    saved.annualElement = selectedKey;
+  } else {
+    saved.monthlyElement = selectedKey;
+  }
+  saved.region = regionSelect?.value || saved.region || "";
+  saved.pref = prefSelect?.value || saved.pref || "";
+  saved.month = monthSelect?.value || saved.month || "all";
+  saved.elementPanelOpen = isElementPanelOpen();
+  saved.scrollY = window.scrollY || 0;
+
+  try {
+    localStorage.setItem(UI_STATE_STORAGE_KEY, JSON.stringify(saved));
+  } catch (err) {
+    console.error("要素選択状態の保存に失敗しました", err);
+  }
+}
+
+/* -----------------------------
+ * config / manifest
+ * ----------------------------- */
+
 async function loadConfigs() {
   const [prefData, elemData] = await Promise.all([
     fetchJson("./config/prefectures.json"),
@@ -146,13 +281,18 @@ function getPrefecturesInRegion(region) {
   return getPrefectures().filter((p) => p.region === region);
 }
 
-function populateRegions() {
+function populateRegions(preferredRegion = null) {
   const regions = getRegions();
   regionSelect.innerHTML = regions
     .map((region) => `<option value="${escapeHtml(region)}">${escapeHtml(region)}</option>`)
     .join("");
 
-  const defaultRegion = elementsConfig?.defaultRegion || FALLBACK_DEFAULTS.region;
+  const defaultRegion =
+    preferredRegion ||
+    loadUIState()?.region ||
+    elementsConfig?.defaultRegion ||
+    FALLBACK_DEFAULTS.region;
+
   if (regions.includes(defaultRegion)) {
     regionSelect.value = defaultRegion;
   } else if (regions.length > 0) {
@@ -168,7 +308,12 @@ function populatePrefectures(preferredPrefKey = null) {
     .map((pref) => `<option value="${escapeHtml(pref.key)}">${escapeHtml(pref.name)}</option>`)
     .join("");
 
-  const defaultPref = preferredPrefKey || elementsConfig?.defaultPref || FALLBACK_DEFAULTS.pref;
+  const defaultPref =
+    preferredPrefKey ||
+    loadUIState()?.pref ||
+    elementsConfig?.defaultPref ||
+    FALLBACK_DEFAULTS.pref;
+
   const availableKeys = list.map((p) => p.key);
 
   if (availableKeys.includes(defaultPref)) {
@@ -198,7 +343,7 @@ function getDefaultElementKey() {
 
 function getSelectedElementKey() {
   const checked = document.querySelector('input[name="element"]:checked');
-  return checked ? checked.value : getDefaultElementKey();
+  return checked ? checked.value : getPreferredElementKeyForCurrentMonth();
 }
 
 function getSelectedElementMeta() {
@@ -221,7 +366,7 @@ function groupElements(list) {
 function renderElementPanel(preferredKey = null) {
   const list = getActiveElementList();
   const defaultKey = getDefaultElementKey();
-  let selectedKey = preferredKey || getSelectedElementKey();
+  let selectedKey = preferredKey || getPreferredElementKeyForCurrentMonth();
 
   if (!list.some((item) => item.key === selectedKey)) {
     selectedKey = list.some((item) => item.key === defaultKey)
@@ -259,6 +404,9 @@ function renderElementPanel(preferredKey = null) {
 
   document.querySelectorAll('input[name="element"]').forEach((input) => {
     input.addEventListener("change", () => {
+      updateSavedElementKeyForCurrentMonth(input.value);
+      markScrollRestorePending();
+      saveUIState();
       loadTable();
     });
   });
@@ -492,38 +640,74 @@ async function loadTable() {
       { label: "JSON", value: jsonPath },
       { label: "エラー", value: String(err.message || err) }
     ]);
+  } finally {
+    if (restoreScrollPending) {
+      restoreScrollPosition();
+    }
+    saveUIState();
   }
 }
 
 function handleMonthChange() {
-  const previous = getSelectedElementKey();
-  renderElementPanel(previous);
+  const preferred = getPreferredElementKeyForCurrentMonth();
+  renderElementPanel(preferred);
+  markScrollRestorePending();
+  saveUIState();
   loadTable();
 }
 
 function startAutoRefresh() {
   if (refreshTimer) clearInterval(refreshTimer);
   refreshTimer = setInterval(() => {
+    markScrollRestorePending();
+    saveUIState();
     loadTable();
   }, 10 * 60 * 1000);
+}
+
+function bindElementPanelToggle() {
+  if (!elementPanelToggle) return;
+
+  elementPanelToggle.addEventListener("click", () => {
+    const open = !isElementPanelOpen();
+    setElementPanelOpen(open);
+    saveUIState();
+  });
 }
 
 async function init() {
   makeTableHeader();
   await loadConfigs();
 
-  populateRegions();
-  populatePrefectures();
+  const saved = loadUIState();
 
-  monthSelect.value = elementsConfig?.defaultMonth || FALLBACK_DEFAULTS.month;
-  renderElementPanel(getDefaultElementKey());
+  populateRegions(saved?.region || elementsConfig?.defaultRegion || FALLBACK_DEFAULTS.region);
+  populatePrefectures(saved?.pref || elementsConfig?.defaultPref || FALLBACK_DEFAULTS.pref);
+
+  const monthCandidates = ["all", ...Array.from({ length: 12 }, (_, i) => String(i + 1))];
+  const preferredMonth = saved?.month || elementsConfig?.defaultMonth || FALLBACK_DEFAULTS.month;
+  monthSelect.value = monthCandidates.includes(preferredMonth) ? preferredMonth : FALLBACK_DEFAULTS.month;
+
+  renderElementPanel(getPreferredElementKeyForCurrentMonth());
+
+  const panelOpen =
+    typeof saved?.elementPanelOpen === "boolean" ? saved.elementPanelOpen : true;
+  setElementPanelOpen(panelOpen);
+
+  bindElementPanelToggle();
 
   regionSelect.addEventListener("change", () => {
-    populatePrefectures();
+    const savedNow = loadUIState();
+    const preferredPref = savedNow?.pref || elementsConfig?.defaultPref || FALLBACK_DEFAULTS.pref;
+    populatePrefectures(preferredPref);
+    markScrollRestorePending();
+    saveUIState();
     loadTable();
   });
 
   prefSelect.addEventListener("change", () => {
+    markScrollRestorePending();
+    saveUIState();
     loadTable();
   });
 
@@ -531,7 +715,21 @@ async function init() {
     handleMonthChange();
   });
 
+  window.addEventListener("scroll", () => {
+    saveUIState();
+  }, { passive: true });
+
+  window.addEventListener("beforeunload", () => {
+    saveUIState();
+  });
+
+  if (!restoredInitialScroll) {
+    restoredInitialScroll = true;
+    markScrollRestorePending();
+  }
+
   await loadTable();
+  restoreScrollPosition(true);
   startAutoRefresh();
 }
 
