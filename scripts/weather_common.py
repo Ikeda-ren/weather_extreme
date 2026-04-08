@@ -668,7 +668,10 @@ def normalize_label_text(s: str) -> str:
 
 def find_target_row(html, labels):
     rows = get_row_blocks(html)
-    normalized_labels = [normalize_label_text(label) for label in labels]
+    normalized_labels = [normalize_label_text(label) for label in labels if label]
+
+    exact_match = None
+    partial_match = None
 
     for row_html in rows:
         cells = get_cells_from_row(row_html)
@@ -678,10 +681,14 @@ def find_target_row(html, labels):
         first = normalize_label_text(cells[0])
 
         for label in normalized_labels:
-            if label and label in first:
+            if first == label:
                 return cells
 
-    return None
+        for label in normalized_labels:
+            if label in first:
+                partial_match = partial_match or cells
+
+    return partial_match
 
 
 def extract_value_and_date(cell: str):
