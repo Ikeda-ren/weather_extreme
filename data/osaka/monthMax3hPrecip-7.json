@@ -1,13 +1,79 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "大阪府",
   "element": "monthMax3hPrecip",
   "month": "7",
   "rows": [
     {
+      "stationName": "大阪",
+      "startDate": "2006年7月19日（平成18年）",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 81,
+          "date": "1995年7月4日（平成7年）",
+          "_date_raw": "1995/07/04"
+        },
+        {
+          "rank": 2,
+          "value": 65,
+          "date": "1978年7月10日（昭和53年）",
+          "_date_raw": "1978/07/10"
+        },
+        {
+          "rank": 3,
+          "value": 62,
+          "date": "1990年7月12日（平成2年）",
+          "_date_raw": "1990/07/12"
+        },
+        {
+          "rank": 4,
+          "value": 59,
+          "date": "1993年7月5日（平成5年）",
+          "_date_raw": "1993/07/05"
+        },
+        {
+          "rank": 5,
+          "value": 55,
+          "date": "1997年7月13日（平成9年）",
+          "_date_raw": "1997/07/13"
+        },
+        {
+          "rank": 6,
+          "value": 51.5,
+          "date": "2021年7月14日（令和3年）",
+          "_date_raw": "2021/07/14"
+        },
+        {
+          "rank": 7,
+          "value": 51,
+          "date": "2024年7月16日（令和6年）",
+          "_date_raw": "2024/07/16"
+        },
+        {
+          "rank": 8,
+          "value": 51,
+          "date": "2012年7月7日（平成24年）",
+          "_date_raw": "2012/07/07"
+        },
+        {
+          "rank": 9,
+          "value": 51,
+          "date": "2008年7月28日（平成20年）",
+          "_date_raw": "2008/07/28"
+        },
+        {
+          "rank": 10,
+          "value": 51,
+          "date": "2006年7月19日（平成18年）",
+          "_date_raw": "2006/07/19"
+        }
+      ]
+    },
+    {
       "stationName": "能勢",
-      "startDate": "1995年7月（平成7年）",
+      "startDate": "1995年7月21日（平成7年）",
       "ranks": [
         {
           "rank": 1,
@@ -73,7 +139,7 @@
     },
     {
       "stationName": "豊中",
-      "startDate": "1980年7月（昭和55年）",
+      "startDate": "1980年7月24日（昭和55年）",
       "ranks": [
         {
           "rank": 1,
@@ -139,7 +205,7 @@
     },
     {
       "stationName": "生駒山",
-      "startDate": "1980年7月（昭和55年）",
+      "startDate": "1980年7月9日（昭和55年）",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +271,7 @@
     },
     {
       "stationName": "河内長野",
-      "startDate": "2006年7月（平成18年）",
+      "startDate": "2006年7月19日（平成18年）",
       "ranks": [
         {
           "rank": 1,
@@ -271,7 +337,7 @@
     },
     {
       "stationName": "熊取",
-      "startDate": "2010年7月（平成22年）",
+      "startDate": "2010年7月14日（平成22年）",
       "ranks": [
         {
           "rank": 1,
@@ -337,7 +403,7 @@
     },
     {
       "stationName": "茨木",
-      "startDate": "2012年7月（平成24年）",
+      "startDate": "2012年7月3日（平成24年）",
       "ranks": [
         {
           "rank": 1,
@@ -403,7 +469,7 @@
     },
     {
       "stationName": "枚方",
-      "startDate": "1984年7月（昭和59年）",
+      "startDate": "1984年7月25日（昭和59年）",
       "ranks": [
         {
           "rank": 1,
@@ -469,7 +535,7 @@
     },
     {
       "stationName": "堺",
-      "startDate": "1983年7月（昭和58年）",
+      "startDate": "1983年7月5日（昭和58年）",
       "ranks": [
         {
           "rank": 1,
@@ -535,7 +601,7 @@
     },
     {
       "stationName": "八尾",
-      "startDate": "2016年7月（平成28年）",
+      "startDate": "2016年7月9日（平成28年）",
       "ranks": [
         {
           "rank": 1,
@@ -601,7 +667,7 @@
     },
     {
       "stationName": "関空島",
-      "startDate": "2025年7月（令和7年）",
+      "startDate": "2025年7月17日（令和7年）",
       "ranks": [
         {
           "rank": 1,

@@ -1,8 +1,75 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "京都府",
   "element": "yearCumulativeSnowDepth",
   "month": "all",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "舞鶴",
+      "startDate": "1953寒候年",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 435,
+          "date": "1977年",
+          "_date_raw": "1977/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 411,
+          "date": "1984年",
+          "_date_raw": "1984/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 361,
+          "date": "2006年",
+          "_date_raw": "2006/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 346,
+          "date": "1953年",
+          "_date_raw": "1953/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 326,
+          "date": "1996年",
+          "_date_raw": "1996/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 315,
+          "date": "2000年",
+          "_date_raw": "2000/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 311,
+          "date": "1970年",
+          "_date_raw": "1970/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 297,
+          "date": "2012年",
+          "_date_raw": "2012/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 280,
+          "date": "1986年",
+          "_date_raw": "1986/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 279,
+          "date": "1975年",
+          "_date_raw": "1975/01/01"
+        }
+      ]
+    }
+  ]
 }

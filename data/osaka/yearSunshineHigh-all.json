@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "大阪府",
   "element": "yearSunshineHigh",
   "month": "all",
   "rows": [
     {
       "stationName": "大阪",
-      "startDate": "",
+      "startDate": "1890年",
       "ranks": [
         {
           "rank": 1,
@@ -73,7 +73,7 @@
     },
     {
       "stationName": "能勢",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -109,7 +109,7 @@
     },
     {
       "stationName": "豊中",
-      "startDate": "",
+      "startDate": "1986年",
       "ranks": [
         {
           "rank": 1,
@@ -169,7 +169,7 @@
     },
     {
       "stationName": "熊取",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +205,7 @@
     },
     {
       "stationName": "枚方",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -241,7 +241,7 @@
     },
     {
       "stationName": "堺",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,

@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthMax72hPrecip",
   "month": "5",
   "rows": [
     {
       "stationName": "神戸",
-      "startDate": "1999年5月（平成11年）",
+      "startDate": "1999年5月27日（平成11年）",
       "ranks": [
         {
           "rank": 1,
@@ -73,7 +73,7 @@
     },
     {
       "stationName": "西脇",
-      "startDate": "1990年5月（平成2年）",
+      "startDate": "1990年5月6日（平成2年）",
       "ranks": [
         {
           "rank": 1,

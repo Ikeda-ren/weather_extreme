@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "兵庫県",
   "element": "annualDaysMinTempBelow0",
   "month": "all",
   "rows": [
     {
       "stationName": "神戸",
-      "startDate": "",
+      "startDate": "1897寒候年",
       "ranks": [
         {
           "rank": 1,

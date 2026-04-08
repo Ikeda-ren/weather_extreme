@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "兵庫県",
   "element": "yearAvgTempHigh",
   "month": "all",
   "rows": [
     {
       "stationName": "神戸",
-      "startDate": "",
+      "startDate": "1896年",
       "ranks": [
         {
           "rank": 1,
@@ -73,7 +73,7 @@
     },
     {
       "stationName": "明石",
-      "startDate": "",
+      "startDate": "1992年",
       "ranks": [
         {
           "rank": 1,
@@ -139,7 +139,7 @@
     },
     {
       "stationName": "西脇",
-      "startDate": "",
+      "startDate": "1978年",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +205,7 @@
     },
     {
       "stationName": "福崎",
-      "startDate": "",
+      "startDate": "1977年",
       "ranks": [
         {
           "rank": 1,

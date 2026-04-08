@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "奈良県",
   "element": "monthMax48hSnow",
   "month": "1",
   "rows": [
     {
       "stationName": "奈良",
-      "startDate": "2022年1月（令和4年）",
+      "startDate": "2022年1月31日（令和4年）",
       "ranks": [
         {
           "rank": 1,

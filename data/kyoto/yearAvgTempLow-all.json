@@ -1,79 +1,79 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "京都府",
   "element": "yearAvgTempLow",
   "month": "all",
   "rows": [
     {
-      "stationName": "京都",
-      "startDate": "",
+      "stationName": "間人",
+      "startDate": "1977年",
       "ranks": [
         {
           "rank": 1,
-          "value": 13,
-          "date": "1884年",
-          "_date_raw": "1884/01/01"
+          "value": 14,
+          "date": "1984年",
+          "_date_raw": "1984/01/01"
         },
         {
           "rank": 2,
-          "value": 13.2,
-          "date": "1913年",
-          "_date_raw": "1913/01/01"
+          "value": 14.2,
+          "date": "1988年",
+          "_date_raw": "1988/01/01"
         },
         {
           "rank": 3,
-          "value": 13.2,
-          "date": "1908年",
-          "_date_raw": "1908/01/01"
+          "value": 14.2,
+          "date": "1986年",
+          "_date_raw": "1986/01/01"
         },
         {
           "rank": 4,
-          "value": 13.2,
-          "date": "1906年",
-          "_date_raw": "1906/01/01"
+          "value": 14.2,
+          "date": "1981年",
+          "_date_raw": "1981/01/01"
         },
         {
           "rank": 5,
-          "value": 13.2,
-          "date": "1893年",
-          "_date_raw": "1893/01/01"
+          "value": 14.5,
+          "date": "1993年",
+          "_date_raw": "1993/01/01"
         },
         {
           "rank": 6,
-          "value": 13.3,
-          "date": "1907年",
-          "_date_raw": "1907/01/01"
+          "value": 14.6,
+          "date": "1985年",
+          "_date_raw": "1985/01/01"
         },
         {
           "rank": 7,
-          "value": 13.3,
-          "date": "1897年",
-          "_date_raw": "1897/01/01"
+          "value": 14.6,
+          "date": "1982年",
+          "_date_raw": "1982/01/01"
         },
         {
           "rank": 8,
-          "value": 13.4,
-          "date": "1926年",
-          "_date_raw": "1926/01/01"
+          "value": 14.7,
+          "date": "1995年",
+          "_date_raw": "1995/01/01"
         },
         {
           "rank": 9,
-          "value": 13.4,
-          "date": "1917年",
-          "_date_raw": "1917/01/01"
+          "value": 14.8,
+          "date": "1996年",
+          "_date_raw": "1996/01/01"
         },
         {
           "rank": 10,
-          "value": 13.4,
-          "date": "1910年",
-          "_date_raw": "1910/01/01"
+          "value": 15,
+          "date": "2014年",
+          "_date_raw": "2014/01/01"
         }
       ]
     },
     {
       "stationName": "宮津",
-      "startDate": "",
+      "startDate": "1978年",
       "ranks": [
         {
           "rank": 1,
@@ -138,8 +138,74 @@
       ]
     },
     {
+      "stationName": "舞鶴",
+      "startDate": "1947年",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 13.2,
+          "date": "1965年",
+          "_date_raw": "1965/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 13.5,
+          "date": "1988年",
+          "_date_raw": "1988/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 13.5,
+          "date": "1981年",
+          "_date_raw": "1981/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 13.6,
+          "date": "1986年",
+          "_date_raw": "1986/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 13.6,
+          "date": "1984年",
+          "_date_raw": "1984/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 13.6,
+          "date": "1980年",
+          "_date_raw": "1980/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 13.6,
+          "date": "1976年",
+          "_date_raw": "1976/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 13.6,
+          "date": "1970年",
+          "_date_raw": "1970/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 13.6,
+          "date": "1952年",
+          "_date_raw": "1952/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 13.6,
+          "date": "1949年",
+          "_date_raw": "1949/01/01"
+        }
+      ]
+    },
+    {
       "stationName": "福知山",
-      "startDate": "",
+      "startDate": "1976年",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +271,7 @@
     },
     {
       "stationName": "園部",
-      "startDate": "",
+      "startDate": "2002年",
       "ranks": [
         {
           "rank": 1,
@@ -270,8 +336,74 @@
       ]
     },
     {
+      "stationName": "京都",
+      "startDate": "1880年",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 13,
+          "date": "1884年",
+          "_date_raw": "1884/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 13.2,
+          "date": "1913年",
+          "_date_raw": "1913/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 13.2,
+          "date": "1908年",
+          "_date_raw": "1908/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 13.2,
+          "date": "1906年",
+          "_date_raw": "1906/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 13.2,
+          "date": "1893年",
+          "_date_raw": "1893/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 13.3,
+          "date": "1907年",
+          "_date_raw": "1907/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 13.3,
+          "date": "1897年",
+          "_date_raw": "1897/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 13.4,
+          "date": "1926年",
+          "_date_raw": "1926/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 13.4,
+          "date": "1917年",
+          "_date_raw": "1917/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 13.4,
+          "date": "1910年",
+          "_date_raw": "1910/01/01"
+        }
+      ]
+    },
+    {
       "stationName": "京田辺",
-      "startDate": "",
+      "startDate": "1978年",
       "ranks": [
         {
           "rank": 1,

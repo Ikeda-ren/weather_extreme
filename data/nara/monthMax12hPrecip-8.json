@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "奈良県",
   "element": "monthMax12hPrecip",
   "month": "8",
   "rows": [
     {
       "stationName": "奈良",
-      "startDate": "2013年8月（平成25年）",
+      "startDate": "2013年8月25日（平成25年）",
       "ranks": [
         {
           "rank": 1,
@@ -73,7 +73,7 @@
     },
     {
       "stationName": "針",
-      "startDate": "2013年8月（平成25年）",
+      "startDate": "2013年8月25日（平成25年）",
       "ranks": [
         {
           "rank": 1,
@@ -139,7 +139,7 @@
     },
     {
       "stationName": "田原本",
-      "startDate": "2022年8月（令和4年）",
+      "startDate": "2022年8月17日（令和4年）",
       "ranks": [
         {
           "rank": 1,
@@ -205,7 +205,7 @@
     },
     {
       "stationName": "曽爾",
-      "startDate": "1992年8月（平成4年）",
+      "startDate": "1992年8月18日（平成4年）",
       "ranks": [
         {
           "rank": 1,
@@ -271,7 +271,7 @@
     },
     {
       "stationName": "葛城",
-      "startDate": "2009年8月（平成21年）",
+      "startDate": "2009年8月11日（平成21年）",
       "ranks": [
         {
           "rank": 1,
@@ -337,7 +337,7 @@
     },
     {
       "stationName": "大宇陀",
-      "startDate": "1983年8月（昭和58年）",
+      "startDate": "1983年8月17日（昭和58年）",
       "ranks": [
         {
           "rank": 1,
@@ -403,7 +403,7 @@
     },
     {
       "stationName": "五條",
-      "startDate": "2012年8月（平成24年）",
+      "startDate": "2012年8月14日（平成24年）",
       "ranks": [
         {
           "rank": 1,
@@ -469,7 +469,7 @@
     },
     {
       "stationName": "吉野",
-      "startDate": "2017年8月（平成29年）",
+      "startDate": "2017年8月7日（平成29年）",
       "ranks": [
         {
           "rank": 1,
@@ -535,7 +535,7 @@
     },
     {
       "stationName": "天川",
-      "startDate": "2013年8月（平成25年）",
+      "startDate": "2013年8月24日（平成25年）",
       "ranks": [
         {
           "rank": 1,
@@ -601,7 +601,7 @@
     },
     {
       "stationName": "上北山",
-      "startDate": "2014年8月（平成26年）",
+      "startDate": "2014年8月10日（平成26年）",
       "ranks": [
         {
           "rank": 1,
@@ -667,7 +667,7 @@
     },
     {
       "stationName": "風屋",
-      "startDate": "1999年8月（平成11年）",
+      "startDate": "1999年8月11日（平成11年）",
       "ranks": [
         {
           "rank": 1,
@@ -733,7 +733,7 @@
     },
     {
       "stationName": "下北山",
-      "startDate": "2022年8月（令和4年）",
+      "startDate": "2022年8月17日（令和4年）",
       "ranks": [
         {
           "rank": 1,
@@ -799,7 +799,7 @@
     },
     {
       "stationName": "葛川",
-      "startDate": "2025年8月（令和7年）",
+      "startDate": "2025年8月11日（令和7年）",
       "ranks": [
         {
           "rank": 1,

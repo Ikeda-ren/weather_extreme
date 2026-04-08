@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "和歌山県",
   "element": "monthMax3hSnow",
   "month": "2",
   "rows": [
     {
       "stationName": "和歌山",
-      "startDate": "2019年2月（平成31年）",
+      "startDate": "2019年2月28日（平成31年）",
       "ranks": [
         {
           "rank": 1,

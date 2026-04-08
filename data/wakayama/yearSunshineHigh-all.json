@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-04-08T23:23:56.339871+09:00",
-  "observedLatestAt": "2026-04-08T23:10:00+09:00",
+  "updatedAt": "2026-04-09T00:36:41.059030+09:00",
+  "observedLatestAt": "2026-04-09T00:30:00+09:00",
   "prefecture": "和歌山県",
   "element": "yearSunshineHigh",
   "month": "all",
   "rows": [
     {
       "stationName": "かつらぎ",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -43,7 +43,7 @@
     },
     {
       "stationName": "友ケ島",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -79,7 +79,7 @@
     },
     {
       "stationName": "和歌山",
-      "startDate": "",
+      "startDate": "1889年",
       "ranks": [
         {
           "rank": 1,
@@ -145,7 +145,7 @@
     },
     {
       "stationName": "高野山",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -181,7 +181,7 @@
     },
     {
       "stationName": "清水",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -217,7 +217,7 @@
     },
     {
       "stationName": "龍神",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -253,7 +253,7 @@
     },
     {
       "stationName": "川辺",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -289,7 +289,7 @@
     },
     {
       "stationName": "栗栖川",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -325,7 +325,7 @@
     },
     {
       "stationName": "新宮",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -361,7 +361,7 @@
     },
     {
       "stationName": "西川",
-      "startDate": "",
+      "startDate": "2021年",
       "ranks": [
         {
           "rank": 1,
@@ -397,7 +397,7 @@
     },
     {
       "stationName": "潮岬",
-      "startDate": "",
+      "startDate": "1913年",
       "ranks": [
         {
           "rank": 1,
