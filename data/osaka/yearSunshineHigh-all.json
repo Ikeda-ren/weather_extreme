@@ -1,0 +1,318 @@
+{
+  "updatedAt": "2026-04-08T17:33:02.563422+09:00",
+  "observedLatestAt": "2026-04-08T17:20:00+09:00",
+  "prefecture": "大阪府",
+  "element": "yearSunshineHigh",
+  "month": "all",
+  "rows": [
+    {
+      "stationName": "大阪",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2025,
+          "date": "2402年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2023,
+          "date": "2324年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 2022,
+          "date": "2319年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 2018,
+          "date": "2265年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 2013,
+          "date": "2299年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 2004,
+          "date": "2243年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 1994,
+          "date": "2225年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 1926,
+          "date": "2237年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 1922,
+          "date": "2289年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 10,
+          "value": 1900,
+          "date": "2280年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "能勢",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2025,
+          "date": "2073年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2024,
+          "date": "1898年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 2023,
+          "date": "2017年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 2022,
+          "date": "1985年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 2021,
+          "date": "1569年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "豊中",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 1993,
+          "date": "1516年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 1992,
+          "date": "1643年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 1991,
+          "date": "1464年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 1990,
+          "date": "1655年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 1989,
+          "date": "1480年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 6,
+          "value": 1988,
+          "date": "1338年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 7,
+          "value": 1987,
+          "date": "1564年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 8,
+          "value": 279.8,
+          "date": "1994年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 9,
+          "value": 273.6,
+          "date": "1986年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "熊取",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2025,
+          "date": "2244年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2024,
+          "date": "2063年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 2023,
+          "date": "2157年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 2022,
+          "date": "2173年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 2021,
+          "date": "1708年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "枚方",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2025,
+          "date": "2204年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2024,
+          "date": "2029年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 2023,
+          "date": "2163年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 2022,
+          "date": "2110年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 2021,
+          "date": "1661年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    },
+    {
+      "stationName": "堺",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 2025,
+          "date": "2330年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 2,
+          "value": 2024,
+          "date": "2074年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 3,
+          "value": 2023,
+          "date": "2247年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 4,
+          "value": 2022,
+          "date": "2236年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        },
+        {
+          "rank": 5,
+          "value": 2021,
+          "date": "1725年",
+          "highlightLive": false,
+          "highlightWithinYear": false
+        }
+      ]
+    }
+  ]
+}
