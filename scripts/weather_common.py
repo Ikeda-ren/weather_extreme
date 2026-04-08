@@ -687,7 +687,6 @@ def find_target_row(html, labels):
     rows = get_row_blocks(html)
     normalized_labels = [normalize_label_text(label) for label in labels if label]
 
-    exact_match = None
     partial_match = None
 
     for row_html in rows:
