@@ -15,7 +15,7 @@
       "snow": true,
       "rank_candidates": [
         { "rank_type": "s", "blockNo": "47780", "view": "h0" },
-        { "rank_type": "s", "blockNo": "47780", "view": "s0" },
+        { "rank_type": "s", "blockNo": "47780", "view": "np0" },
         { "rank_type": "s", "blockNo": "47780", "view": "ns0" }
       ]
     },
@@ -30,8 +30,8 @@
       "sunshine": true,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "0630", "view": "a2" },
         { "rank_type": "a", "blockNo": "0630", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0630", "view": "np0" },
         { "rank_type": "a", "blockNo": "0630", "view": "" }
       ]
     },
@@ -46,8 +46,8 @@
       "sunshine": false,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "0631", "view": "ns0" },
         { "rank_type": "a", "blockNo": "0631", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0631", "view": "np0" },
         { "rank_type": "a", "blockNo": "0631", "view": "" }
       ]
     },
@@ -63,6 +63,7 @@
       "snow": false,
       "rank_candidates": [
         { "rank_type": "a", "blockNo": "0632", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0632", "view": "np0" },
         { "rank_type": "a", "blockNo": "0632", "view": "" }
       ]
     },
@@ -78,6 +79,7 @@
       "snow": false,
       "rank_candidates": [
         { "rank_type": "a", "blockNo": "1376", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1376", "view": "np0" },
         { "rank_type": "a", "blockNo": "1376", "view": "" }
       ]
     },
@@ -93,6 +95,7 @@
       "snow": false,
       "rank_candidates": [
         { "rank_type": "a", "blockNo": "0633", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0633", "view": "np0" },
         { "rank_type": "a", "blockNo": "0633", "view": "" }
       ]
     },
@@ -107,8 +110,9 @@
       "sunshine": true,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "0635", "view": "" },
-        { "rank_type": "a", "blockNo": "0635", "view": "h0" }
+        { "rank_type": "a", "blockNo": "0635", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0635", "view": "np0" },
+        { "rank_type": "a", "blockNo": "0635", "view": "" }
       ]
     },
     {
@@ -122,8 +126,9 @@
       "sunshine": false,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "1439", "view": "" },
-        { "rank_type": "a", "blockNo": "1439", "view": "h0" }
+        { "rank_type": "a", "blockNo": "1439", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1439", "view": "np0" },
+        { "rank_type": "a", "blockNo": "1439", "view": "" }
       ]
     },
     {
@@ -137,8 +142,9 @@
       "sunshine": false,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "1619", "view": "" },
-        { "rank_type": "a", "blockNo": "1619", "view": "h0" }
+        { "rank_type": "a", "blockNo": "1619", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1619", "view": "np0" },
+        { "rank_type": "a", "blockNo": "1619", "view": "" }
       ]
     },
     {
@@ -152,8 +158,9 @@
       "sunshine": true,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "0957", "view": "" },
-        { "rank_type": "a", "blockNo": "0957", "view": "h0" }
+        { "rank_type": "a", "blockNo": "0957", "view": "h0" },
+        { "rank_type": "a", "blockNo": "0957", "view": "np0" },
+        { "rank_type": "a", "blockNo": "0957", "view": "" }
       ]
     },
     {
@@ -167,8 +174,9 @@
       "sunshine": true,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "1228", "view": "" },
-        { "rank_type": "a", "blockNo": "1228", "view": "h0" }
+        { "rank_type": "a", "blockNo": "1228", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1228", "view": "np0" },
+        { "rank_type": "a", "blockNo": "1228", "view": "" }
       ]
     },
     {
@@ -182,8 +190,9 @@
       "sunshine": false,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "1649", "view": "" },
-        { "rank_type": "a", "blockNo": "1649", "view": "h0" }
+        { "rank_type": "a", "blockNo": "1649", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1649", "view": "np0" },
+        { "rank_type": "a", "blockNo": "1649", "view": "" }
       ]
     },
     {
@@ -197,8 +206,9 @@
       "sunshine": false,
       "snow": false,
       "rank_candidates": [
-        { "rank_type": "a", "blockNo": "1669", "view": "" },
-        { "rank_type": "a", "blockNo": "1669", "view": "h0" }
+        { "rank_type": "a", "blockNo": "1669", "view": "h0" },
+        { "rank_type": "a", "blockNo": "1669", "view": "np0" },
+        { "rank_type": "a", "blockNo": "1669", "view": "" }
       ]
     }
   ]
