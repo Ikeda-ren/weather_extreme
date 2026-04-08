@@ -497,7 +497,9 @@ def extract_value_and_date(cell: str):
 
     full_date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", cell)
     ym_match = re.search(r"(\d{4}/\d{1,2})(?!/\d)", cell)
-    y_match = re.search(r"(?<!\d)(\d{4})(?!\d)", cell)
+
+    paren_year_match = re.search(r"[（(]\s*(\d{4})\s*[)）]", cell)
+    year_kanji_match = re.search(r"(?<!\d)(\d{4})年(?!\d)", cell)
 
     raw_date = None
     date_label = None
@@ -512,11 +514,16 @@ def extract_value_and_date(cell: str):
         raw_date = f"{int(y):04d}/{int(m):02d}/01"
         date_label = format_dual_ym(f"{int(y):04d}/{int(m):02d}")
         cell_without_date = cell.replace(ym_match.group(1), " ")
-    elif y_match:
-        y = y_match.group(1)
+    elif paren_year_match:
+        y = paren_year_match.group(1)
         raw_date = f"{y}/01/01"
         date_label = f"{y}年"
-        cell_without_date = re.sub(rf"(?<!\d){re.escape(y)}(?!\d)", " ", cell, count=1)
+        cell_without_date = re.sub(rf"[（(]\s*{re.escape(y)}\s*[)）]", " ", cell, count=1)
+    elif year_kanji_match:
+        y = year_kanji_match.group(1)
+        raw_date = f"{y}/01/01"
+        date_label = f"{y}年"
+        cell_without_date = re.sub(rf"(?<!\d){re.escape(y)}年(?!\d)", " ", cell, count=1)
 
     if raw_date is None or date_label is None:
         return None
@@ -530,7 +537,7 @@ def extract_value_and_date(cell: str):
     if not value_candidates:
         return None
 
-    value = trim_number(value_candidates[-1])
+    value = trim_number(value_candidates[0])
 
     return {
         "value": value,
