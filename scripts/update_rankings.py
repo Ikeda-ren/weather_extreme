@@ -13,12 +13,11 @@ from weather_common import (
     build_dir_manifest,
 )
 
-BASE_DIR = "data_base"
+BASE_DIR = "data"
 
 
 def main():
     ensure_dir(BASE_DIR)
-
     prefectures = load_prefecture_configs()
 
     # 観測時刻（内部計算や確認用）
@@ -45,16 +44,14 @@ def main():
 
                     try:
                         parsed = try_fetch_station_rows(station, element_def, month)
-
                         if not parsed:
                             continue
 
                         rows.append({
                             "stationName": station["stationName"],
                             "startDate": parsed["startDate"],
-                            "records": parsed["records"],
+                            "ranks": parsed["records"],
                         })
-
                     except Exception:
                         continue
 
@@ -73,7 +70,6 @@ def main():
 
     manifest = build_dir_manifest(BASE_DIR, generated_iso, prefectures)
     manifest["observedLatestAt"] = latest_obs_iso
-
     write_json(os.path.join(BASE_DIR, "manifest.json"), manifest)
     print(f"wrote: {BASE_DIR}/manifest.json")
     print("done rankings")
