@@ -1,8 +1,75 @@
 {
-  "updatedAt": "2026-04-08T19:30:05.986970+09:00",
-  "observedLatestAt": "2026-04-08T19:20:00+09:00",
+  "updatedAt": "2026-04-08T21:53:53.756194+09:00",
+  "observedLatestAt": "2026-04-08T21:40:00+09:00",
   "prefecture": "和歌山県",
   "element": "annualDaysMinTempBelow0",
   "month": "all",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "和歌山",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 59,
+          "date": "1885年",
+          "_date_raw": "1885/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 54,
+          "date": "1893年",
+          "_date_raw": "1893/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 52,
+          "date": "1881年",
+          "_date_raw": "1881/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 51,
+          "date": "1945年",
+          "_date_raw": "1945/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 50,
+          "date": "1943年",
+          "_date_raw": "1943/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 50,
+          "date": "1902年",
+          "_date_raw": "1902/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 47,
+          "date": "1936年",
+          "_date_raw": "1936/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 47,
+          "date": "1929年",
+          "_date_raw": "1929/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 45,
+          "date": "1918年",
+          "_date_raw": "1918/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 44,
+          "date": "1884年",
+          "_date_raw": "1884/01/01"
+        }
+      ]
+    }
+  ]
 }

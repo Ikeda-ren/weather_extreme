@@ -1,8 +1,75 @@
 {
-  "updatedAt": "2026-04-08T19:30:05.986970+09:00",
-  "observedLatestAt": "2026-04-08T19:20:00+09:00",
+  "updatedAt": "2026-04-08T21:53:53.756194+09:00",
+  "observedLatestAt": "2026-04-08T21:40:00+09:00",
   "prefecture": "京都府",
   "element": "annualDaysMinTempBelow0",
   "month": "all",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "京都",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 114,
+          "date": "1885年",
+          "_date_raw": "1885/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 112,
+          "date": "1881年",
+          "_date_raw": "1881/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 111,
+          "date": "1907年",
+          "_date_raw": "1907/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 111,
+          "date": "1900年",
+          "_date_raw": "1900/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 109,
+          "date": "1901年",
+          "_date_raw": "1901/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 108,
+          "date": "1902年",
+          "_date_raw": "1902/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 107,
+          "date": "1893年",
+          "_date_raw": "1893/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 105,
+          "date": "1909年",
+          "_date_raw": "1909/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 104,
+          "date": "1904年",
+          "_date_raw": "1904/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 102,
+          "date": "1910年",
+          "_date_raw": "1910/01/01"
+        }
+      ]
+    }
+  ]
 }

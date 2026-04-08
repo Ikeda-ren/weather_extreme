@@ -1,8 +1,75 @@
 {
-  "updatedAt": "2026-04-08T19:30:05.986970+09:00",
-  "observedLatestAt": "2026-04-08T19:20:00+09:00",
+  "updatedAt": "2026-04-08T21:53:53.756194+09:00",
+  "observedLatestAt": "2026-04-08T21:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "annualDaysMinTempBelow0",
   "month": "all",
-  "rows": []
+  "rows": [
+    {
+      "stationName": "神戸",
+      "startDate": "",
+      "ranks": [
+        {
+          "rank": 1,
+          "value": 69,
+          "date": "1936年",
+          "_date_raw": "1936/01/01"
+        },
+        {
+          "rank": 2,
+          "value": 55,
+          "date": "1929年",
+          "_date_raw": "1929/01/01"
+        },
+        {
+          "rank": 3,
+          "value": 54,
+          "date": "1945年",
+          "_date_raw": "1945/01/01"
+        },
+        {
+          "rank": 4,
+          "value": 50,
+          "date": "1918年",
+          "_date_raw": "1918/01/01"
+        },
+        {
+          "rank": 5,
+          "value": 48,
+          "date": "1934年",
+          "_date_raw": "1934/01/01"
+        },
+        {
+          "rank": 6,
+          "value": 48,
+          "date": "1907年",
+          "_date_raw": "1907/01/01"
+        },
+        {
+          "rank": 7,
+          "value": 47,
+          "date": "1910年",
+          "_date_raw": "1910/01/01"
+        },
+        {
+          "rank": 8,
+          "value": 47,
+          "date": "1902年",
+          "_date_raw": "1902/01/01"
+        },
+        {
+          "rank": 9,
+          "value": 46,
+          "date": "1917年",
+          "_date_raw": "1917/01/01"
+        },
+        {
+          "rank": 10,
+          "value": 45,
+          "date": "1984年",
+          "_date_raw": "1984/01/01"
+        }
+      ]
+    }
+  ]
 }
