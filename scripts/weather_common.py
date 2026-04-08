@@ -38,7 +38,7 @@ ELEMENTS = {
         "live_mode": None,
     },
     "monthMax1h10mPrecip": {
-        "labels": ["日最大1時間降水量(10分間隔)の多い方から","日最大1時間降水量（10分間隔）の多い方から"],
+        "labels": ["日最大1時間降水量(10分間隔)の多い方から", "日最大1時間降水量（10分間隔）の多い方から"],
         "direction": "desc",
         "category": "precip",
         "live_mode": None,
@@ -431,6 +431,69 @@ def format_dual_ym(s: str) -> str:
     return f"{y}年{mo}月（{wareki_year_only_from_ym(s)}）"
 
 
+def format_year_label(s: str) -> str:
+    m = re.match(r"^(\d{4})$", s)
+    if not m:
+        return s
+    return f"{m.group(1)}年"
+
+
+def format_start_date_label(raw: str) -> str:
+    if not raw:
+        return ""
+
+    raw = str(raw).strip()
+
+    if re.match(r"^\d{4}/\d{1,2}/\d{1,2}$", raw):
+        return format_dual_ymd(normalize_ymd(raw))
+
+    if re.match(r"^\d{4}/\d{1,2}$", raw):
+        y, m = raw.split("/")
+        return format_dual_ym(f"{int(y):04d}/{int(m):02d}")
+
+    if re.match(r"^\d{4}$", raw):
+        return format_year_label(raw)
+
+    if re.match(r"^\d{4}年$", raw):
+        return raw
+
+    if re.match(r"^\d{4}寒候年$", raw):
+        return raw
+
+    if re.match(r"^\d{4}/\d{1,2}寒候年$", raw):
+        return raw
+
+    return raw
+
+
+def extract_start_date_from_cells(cells):
+    for cell in reversed(cells):
+        text = html_lib.unescape(str(cell)).strip()
+
+        m_full = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", text)
+        if m_full:
+            return normalize_ymd(m_full.group(1))
+
+        m_ym = re.search(r"(\d{4}/\d{1,2})(?!/\d)", text)
+        if m_ym:
+            y, mo = m_ym.group(1).split("/")
+            return f"{int(y):04d}/{int(mo):02d}"
+
+        m_koukan = re.search(r"(\d{4}寒候年)", text)
+        if m_koukan:
+            return m_koukan.group(1)
+
+        m_year = re.search(r"(?<!\d)(\d{4})年(?!\d)", text)
+        if m_year:
+            return f"{m_year.group(1)}年"
+
+        m_plain_year = re.fullmatch(r"\s*(\d{4})\s*", text)
+        if m_plain_year:
+            return m_plain_year.group(1)
+
+    return ""
+
+
 def build_rank_url(prec_no: str, rank_type: str, block_no: str, month: str, view: str) -> str:
     month_value = "" if month == "all" else month
     rank_page = "rank_s.php" if rank_type == "s" else "rank_a.php"
@@ -497,7 +560,6 @@ def extract_value_and_date(cell: str):
 
     full_date_match = re.search(r"(\d{4}/\d{1,2}/\d{1,2})", cell)
     ym_match = re.search(r"(\d{4}/\d{1,2})(?!/\d)", cell)
-
     paren_year_match = re.search(r"[（(]\s*(\d{4})\s*[)）]", cell)
     year_kanji_match = re.search(r"(?<!\d)(\d{4})年(?!\d)", cell)
 
@@ -531,11 +593,23 @@ def extract_value_and_date(cell: str):
     cleaned = cell_without_date
     cleaned = re.sub(r"\b(cm|mm|h)\b", " ", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"[年月日時分]", " ", cleaned)
+    cleaned = re.sub(r"[（()）]", " ", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
+    if cleaned in {"", "-", "--", "―", "－", "欠測", "なし"}:
+        return {
+            "value": 0,
+            "date": date_label,
+            "_date_raw": raw_date,
+        }
 
     value_candidates = re.findall(r"-?\d+(?:\.\d+)?", cleaned)
     if not value_candidates:
-        return None
+        return {
+            "value": 0,
+            "date": date_label,
+            "_date_raw": raw_date,
+        }
 
     value = trim_number(value_candidates[0])
 
@@ -576,6 +650,16 @@ def parse_snow_records_from_html_text(html: str, labels, direction: str):
             start_date = f"{int(y):04d}/{int(m):02d}"
             continue
 
+        year_only = re.fullmatch(r"(\d{4})", line)
+        if year_only and not start_date:
+            start_date = year_only.group(1)
+            continue
+
+        koukan_year = re.fullmatch(r"(\d{4})寒候年", line)
+        if koukan_year and not start_date:
+            start_date = koukan_year.group(1) + "寒候年"
+            continue
+
         m = re.search(r"\((\d{4}/\d{1,2}/\d{1,2})\)\s*(-?\d+(?:\.\d+)?)", line)
         if m:
             raw_date = normalize_ymd(m.group(1))
@@ -595,6 +679,17 @@ def parse_snow_records_from_html_text(html: str, labels, direction: str):
             records.append({
                 "value": value,
                 "date": format_dual_ym(f"{int(y):04d}/{int(mo):02d}"),
+                "_date_raw": raw_date,
+            })
+            continue
+
+        m3 = re.search(r"\((\d{4})\)\s*(-?\d+(?:\.\d+)?)", line)
+        if m3:
+            raw_date = f"{m3.group(1)}/01/01"
+            value = trim_number(m3.group(2))
+            records.append({
+                "value": value,
+                "date": f"{m3.group(1)}年",
                 "_date_raw": raw_date,
             })
             continue
@@ -627,7 +722,7 @@ def parse_snow_records_from_html_text(html: str, labels, direction: str):
         rec["rank"] = i
 
     return {
-        "startDate": format_dual_ym(start_date) if start_date else "",
+        "startDate": format_start_date_label(start_date) if start_date else "",
         "records": records,
     }
 
@@ -637,13 +732,7 @@ def parse_rank_cells(cells, direction: str):
         return None
 
     rank_cells = cells[1:11]
-
-    start_date = ""
-    for cell in reversed(cells):
-        m = re.search(r"(\d{4}/\d{1,2})", cell)
-        if m:
-            start_date = m.group(1)
-            break
+    start_date = extract_start_date_from_cells(cells)
 
     records = []
     for idx, cell in enumerate(rank_cells, start=1):
@@ -675,7 +764,7 @@ def parse_rank_cells(cells, direction: str):
         rec["rank"] = i
 
     return {
-        "startDate": format_dual_ym(start_date) if start_date else "",
+        "startDate": format_start_date_label(start_date) if start_date else "",
         "records": records[:10],
     }
 
