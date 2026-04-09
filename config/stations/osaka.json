@@ -11,7 +11,7 @@
       "humidity": true,
       "wind": true,
       "sunshine": true,
-      "snow": false,
+      "snow": true,
       "rank_candidates": [
         { "rank_type": "s", "blockNo": "47772", "view": "h0" },
         { "rank_type": "s", "blockNo": "47772", "view": "np0" },
