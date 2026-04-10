@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-10T03:38:47.531049+09:00",
-  "observedLatestAt": "2026-04-10T03:30:00+09:00",
+  "updatedAt": "2026-04-11T03:03:17.062038+09:00",
+  "observedLatestAt": "2026-04-11T02:50:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthMax3hPrecip",
   "month": "4",
@@ -667,7 +667,7 @@
     },
     {
       "stationName": "一宮",
-      "startDate": "2024年4月3日（令和6年）",
+      "startDate": "2026年4月10日（令和8年）",
       "ranks": [
         {
           "rank": 1,
@@ -725,9 +725,9 @@
         },
         {
           "rank": 10,
-          "value": 27,
-          "date": "2024年4月3日（令和6年）",
-          "_date_raw": "2024/04/03"
+          "value": 27.5,
+          "date": "2026年4月10日（令和8年）",
+          "_date_raw": "2026/04/10"
         }
       ]
     },
