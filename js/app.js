@@ -29,7 +29,7 @@ const FALLBACK_DEFAULTS = {
 
 const UI_STATE_STORAGE_KEY = "weatherExtremeUIState_v1";
 
-// 現時点では基礎ランキングを data_base から表示
+// 現在は基礎ランキングを data_base から表示
 const BASE_RANKING_DIR = "./data_base";
 
 // 実況一覧は data 側
@@ -51,6 +51,12 @@ function formatDateTime(isoText) {
   return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${String(
     d.getHours()
   ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+}
+
+function formatValue(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return value ?? "-";
+  return num.toFixed(1);
 }
 
 function toWarekiYearText(year) {
@@ -489,7 +495,7 @@ function renderTableRows(rows) {
 
         td.className = classes.join(" ");
         td.innerHTML = `
-          <div class="rank-value">${escapeHtml(rank.value ?? "-")}</div>
+          <div class="rank-value">${escapeHtml(formatValue(rank.value))}</div>
           ${renderRankDateTwoLines(rank.date || "-")}
         `;
       }
@@ -546,7 +552,7 @@ function renderLiveSummaryColumn(title, items) {
               item.elementLabel || item.elementKey || ""
             )}</div>
             <div class="live-summary-station">${escapeHtml(item.stationName || "")}</div>
-            <div class="live-summary-value">${escapeHtml(item.value ?? "")}</div>
+            <div class="live-summary-value">${escapeHtml(formatValue(item.value))}</div>
           </div>
         `
           )
