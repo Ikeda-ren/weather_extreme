@@ -58,6 +58,7 @@
         <span class="summary-title">実況で10位以内に入った項目</span>
         <span id="rankInBadge" class="rank-in-badge" hidden aria-hidden="true">ランクインあり</span>
       </summary>
+
       <div id="liveSummaryBody" class="live-summary-body">
         <div class="live-summary-empty">読み込み待ち</div>
       </div>
@@ -75,7 +76,7 @@
     <section class="status-row">
       <section class="status-box" id="statusBox">
         <span id="statusText">読み込み待ち</span>
-    
+
         <span class="observed-inline">
           <strong class="observed-box-label">実況観測時刻</strong>
           <span id="observedLatestAt">読み込み待ち</span>
@@ -83,11 +84,13 @@
       </section>
     </section>
 
-    <section class="table-wrap">
-      <table id="rankTable">
-        <thead id="rankTableHead"></thead>
-        <tbody id="rankTableBody"></tbody>
-      </table>
+    <section class="table-panel">
+      <div class="table-wrap">
+        <table id="rankTable" class="rank-table">
+          <thead id="rankTableHead"></thead>
+          <tbody id="rankTableBody"></tbody>
+        </table>
+      </div>
     </section>
 
     <div class="note-bottom">
