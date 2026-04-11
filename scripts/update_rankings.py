@@ -11,10 +11,28 @@ from weather_common import (
     try_fetch_station_rows,
     write_json,
     build_dir_manifest,
+    within_one_year,
 )
 
-# 基礎ランキングの出力先は data_base にする
+# 基礎ランキングの出力先
 BASE_DIR = "data_base"
+
+
+def normalize_base_records(records, latest_dt: datetime):
+    out = []
+
+    for idx, r in enumerate(records[:10], start=1):
+        raw_date = r.get("_date_raw", "")
+        item = {
+            "rank": idx,
+            "value": r.get("value"),
+            "date": r.get("date", ""),
+            "highlightLive": False,
+            "highlightWithinYear": within_one_year(raw_date, latest_dt),
+        }
+        out.append(item)
+
+    return out
 
 
 def main() -> None:
@@ -22,10 +40,11 @@ def main() -> None:
 
     prefectures = load_prefecture_configs()
 
-    # 観測時刻（内部計算や確認用）
     latest_obs_iso = fetch_latest_time()
+    latest_dt = datetime.fromisoformat(
+        latest_obs_iso.replace("Z", "+00:00")
+    ).astimezone(JST)
 
-    # 表示用の更新時刻は「実際の生成時刻」
     generated_iso = datetime.now(JST).isoformat()
 
     for pref in prefectures:
@@ -53,11 +72,14 @@ def main() -> None:
                             {
                                 "stationName": station["stationName"],
                                 "startDate": parsed["startDate"],
-                                "ranks": parsed["records"],
+                                "ranks": normalize_base_records(
+                                    parsed["records"],
+                                    latest_dt,
+                                ),
                             }
                         )
                     except Exception:
-                        # 個別地点で失敗しても他地点は続行
+                        # 1地点失敗しても全体は止めない
                         continue
 
                 output = {
