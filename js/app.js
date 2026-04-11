@@ -8,6 +8,7 @@ const liveSummaryBody = document.getElementById("liveSummaryBody");
 const elementPanel = document.getElementById("elementPanel");
 const elementPanelToggle = document.getElementById("elementPanelToggle");
 const statusBox = document.getElementById("statusBox");
+const statusTextEl = document.getElementById("statusText");
 const rankTableHead = document.getElementById("rankTableHead");
 const rankTableBody = document.getElementById("rankTableBody");
 const debugGrid = document.getElementById("debugGrid");
@@ -647,13 +648,13 @@ async function loadTable() {
   await loadManifest();
 
   if (!pref) {
-    statusBox.textContent = "都道府県情報が見つかりません。";
+    statusTextEl.textContent = "都道府県情報が見つかりません。";
     return;
   }
 
   await loadLiveSummary(pref.key);
 
-  statusBox.textContent = `${pref.name} / ${
+  statusTextEl.textContent = `${pref.name} / ${
     month === "all" ? "通年" : `${month}月`
   } / ${elementMeta?.shortLabel || elementMeta?.label || elementKey}`;
 
@@ -686,7 +687,7 @@ async function loadTable() {
     console.error(err);
     makeTableHeader();
     renderTableRows([]);
-    statusBox.textContent = `${pref.name} / ${
+    statusTextEl.textContent = `${pref.name} / ${
       month === "all" ? "通年" : `${month}月`
     } / ${elementMeta?.shortLabel || elementMeta?.label || elementKey} / 読み込み失敗`;
 
@@ -796,5 +797,5 @@ async function init() {
 
 init().catch((err) => {
   console.error(err);
-  statusBox.textContent = `初期化に失敗しました: ${err.message || err}`;
+  statusTextEl.textContent = `初期化に失敗しました: ${err.message || err}`;
 });
