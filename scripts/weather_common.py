@@ -248,19 +248,19 @@ ELEMENTS = {
         "live_mode": None,
     },
     "dailySnowDepth": {
-        "labels": ["降雪の深さ日合計"],
+        "labels": ["降雪の深さ日合計","積雪差日合計"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "monthSnowDepth": {
-        "labels": ["降雪の深さ月合計"],
+        "labels": ["降雪の深さ月合計","積雪差月合計"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
     },
     "yearCumulativeSnowDepth": {
-        "labels": ["降雪の深さ寒候年合計"],
+        "labels": ["降雪の深さ寒候年合計","積雪差寒候年合計"],
         "direction": "desc",
         "category": "snow",
         "live_mode": None,
