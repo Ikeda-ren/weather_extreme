@@ -417,6 +417,17 @@ input {
 .table-panel .rank-table th,
 .table-panel .rank-table td {
   border: 1px solid #6b889f !important;
+  box-sizing: border-box;
+}
+
+.table-panel .rank-table thead th {
+  padding: 8px 4px;
+}
+
+.table-panel .rank-table tbody td {
+  padding: 5px 3px 6px;
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 .table-panel .rank-table tbody tr:nth-child(even) {
