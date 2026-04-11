@@ -900,12 +900,96 @@ def fetch_today_live_extreme(amedas_code: str, latest_dt: datetime, mode: str, m
     }
 
 
+def get_recent_highlight_start(now_dt: datetime):
+    """
+    「1年以内ハイライト」の開始日を返す。
+
+    仕様:
+    - 2026-04-11 -> 2025-05-01 以降をハイライト
+    - 2026-05-01 -> 2025-06-01 以降をハイライト
+    - 2026-12-10 -> 2026-01-01 以降をハイライト
+    """
+    current_year = now_dt.year
+    current_month = now_dt.month
+
+    if current_month == 12:
+        start_year = current_year
+        start_month = 1
+    else:
+        start_year = current_year - 1
+        start_month = current_month + 1
+
+    return datetime(start_year, start_month, 1, tzinfo=JST)
+
+
 def within_one_year(raw_date_str: str, now_dt: datetime) -> bool:
     try:
         d = parse_date_ymd(raw_date_str)
     except Exception:
         return False
-    return timedelta(0) <= (now_dt - d) <= timedelta(days=365)
+
+    start_dt = get_recent_highlight_start(now_dt)
+
+    if d.tzinfo is None:
+        d = d.replace(tzinfo=JST)
+    else:
+        d = d.astimezone(JST)
+
+    return d >= start_dt
+
+
+def merge_live(records, live_info, direction, latest_dt: datetime):
+    merged = []
+
+    for r in records:
+        merged.append({
+            "value": float(r["value"]),
+            "date": r["date"],
+            "_date_raw": r["_date_raw"],
+            "isLive": False,
+        })
+
+    if live_info is not None:
+        merged.append({
+            "value": float(live_info["value"]),
+            "date": live_info["date"],
+            "_date_raw": live_info["_date_raw"],
+            "isLive": True,
+        })
+
+    if direction == "desc":
+        merged.sort(
+            key=lambda x: (float(x["value"]), parse_date_ymd(x["_date_raw"])),
+            reverse=True
+        )
+    else:
+        merged.sort(
+            key=lambda x: (float(x["value"]), -parse_date_ymd(x["_date_raw"]).timestamp())
+        )
+
+    merged = merged[:10]
+
+    out = []
+    live_summary_item = None
+
+    for i, r in enumerate(merged, start=1):
+        item = {
+            "rank": i,
+            "value": trim_number(r["value"]),
+            "date": r["date"],
+            "highlightLive": bool(r["isLive"]),
+            "highlightWithinYear": within_one_year(r["_date_raw"], latest_dt),
+        }
+        out.append(item)
+
+        if r["isLive"]:
+            live_summary_item = {
+                "rank": i,
+                "value": trim_number(r["value"]),
+                "date": r["date"],
+            }
+
+    return out, live_summary_item
 
 
 def merge_live(records, live_info, direction, latest_dt: datetime):
