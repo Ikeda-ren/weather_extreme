@@ -1,15 +1,12 @@
 const regionSelect = document.getElementById("regionSelect");
 const prefSelect = document.getElementById("prefSelect");
 const monthSelect = document.getElementById("monthSelect");
-
 const topRankAlert = document.getElementById("topRankAlert");
 const rankInBadge = document.getElementById("rankInBadge");
 const observedLatestAtEl = document.getElementById("observedLatestAt");
-
 const liveSummaryBody = document.getElementById("liveSummaryBody");
 const elementPanel = document.getElementById("elementPanel");
 const elementPanelToggle = document.getElementById("elementPanelToggle");
-
 const statusBox = document.getElementById("statusBox");
 const rankTableHead = document.getElementById("rankTableHead");
 const rankTableBody = document.getElementById("rankTableBody");
@@ -27,10 +24,15 @@ const FALLBACK_DEFAULTS = {
   pref: "osaka",
   month: "all",
   annualElement: "dailyPrecip",
-  monthlyElement: "dailyPrecip"
+  monthlyElement: "dailyPrecip",
 };
 
 const UI_STATE_STORAGE_KEY = "weatherExtremeUIState_v1";
+
+// 基礎ランキングの読み込み元
+const BASE_RANKING_DIR = "./data_base";
+// 実況系は今後使う想定。現時点では data 側を読む
+const LIVE_DATA_DIR = "./data";
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -45,25 +47,18 @@ function formatDateTime(isoText) {
   if (!isoText) return "-";
   const d = new Date(isoText);
   if (Number.isNaN(d.getTime())) return String(isoText);
-  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
+  return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${String(
+    d.getHours()
+  ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`;
 }
 
 function toWarekiYearText(year) {
   const y = Number(year);
   if (!Number.isFinite(y)) return "";
-
-  if (y >= 2019) {
-    return `令和${y - 2018 === 1 ? "元" : y - 2018}年`;
-  }
-  if (y >= 1989) {
-    return `平成${y - 1988 === 1 ? "元" : y - 1988}年`;
-  }
-  if (y >= 1926) {
-    return `昭和${y - 1925 === 1 ? "元" : y - 1925}年`;
-  }
-  if (y >= 1912) {
-    return `大正${y - 1911 === 1 ? "元" : y - 1911}年`;
-  }
+  if (y >= 2019) return `令和${y - 2018 === 1 ? "元" : y - 2018}年`;
+  if (y >= 1989) return `平成${y - 1988 === 1 ? "元" : y - 1988}年`;
+  if (y >= 1926) return `昭和${y - 1925 === 1 ? "元" : y - 1925}年`;
+  if (y >= 1912) return `大正${y - 1911 === 1 ? "元" : y - 1911}年`;
   return `明治${y - 1867 === 1 ? "元" : y - 1867}年`;
 }
 
@@ -76,25 +71,19 @@ function splitJapaneseDateLines(text) {
 
   const m1 = raw.match(/^(\d{4}年\d{1,2}月\d{1,2}日)（(.+)）$/);
   if (m1) {
-    return {
-      first: m1[1],
-      second: `（${m1[2]}）`
-    };
+    return { first: m1[1], second: `（${m1[2]}）` };
   }
 
   const m2 = raw.match(/^(\d{4}年\d{1,2}月)（(.+)）$/);
   if (m2) {
-    return {
-      first: m2[1],
-      second: `（${m2[2]}）`
-    };
+    return { first: m2[1], second: `（${m2[2]}）` };
   }
 
   const m3 = raw.match(/^(\d{4})年$/);
   if (m3) {
     return {
       first: `${m3[1]}年`,
-      second: `（${toWarekiYearText(m3[1])}）`
+      second: `（${toWarekiYearText(m3[1])}）`,
     };
   }
 
@@ -102,7 +91,7 @@ function splitJapaneseDateLines(text) {
   if (m4) {
     return {
       first: `${m4[1]}寒候年`,
-      second: `（${toWarekiYearText(m4[1])}）`
+      second: `（${toWarekiYearText(m4[1])}）`,
     };
   }
 
@@ -110,29 +99,38 @@ function splitJapaneseDateLines(text) {
   if (m5) {
     return {
       first: `${m5[1]}寒候年`,
-      second: `（${toWarekiYearText(m5[1])}）`
+      second: `（${toWarekiYearText(m5[1])}）`,
     };
   }
 
-  return {
-    first: raw,
-    second: ""
-  };
+  return { first: raw, second: "" };
 }
 
 function renderStartDateTwoLines(text) {
   const lines = splitJapaneseDateLines(text);
   if (!lines.second) {
-    return `<div>${escapeHtml(lines.first)}</div>`;
+    return `
+      <div class="station-start-date">
+        <div>${escapeHtml(lines.first)}</div>
+      </div>
+    `;
   }
-  return `<div>${escapeHtml(lines.first)}</div><div>${escapeHtml(lines.second)}</div>`;
+
+  return `
+    <div class="station-start-date">
+      <div>${escapeHtml(lines.first)}</div>
+      <div>${escapeHtml(lines.second)}</div>
+    </div>
+  `;
 }
 
 function renderRankDateTwoLines(text) {
   const lines = splitJapaneseDateLines(text);
   return `
-    <div class="rank-date-line rank-date-western">${escapeHtml(lines.first || "-")}</div>
-    <div class="rank-date-line rank-date-wareki">${escapeHtml(lines.second || "")}</div>
+    <div class="rank-date-wrap">
+      <div>${escapeHtml(lines.first || "-")}</div>
+      <div>${escapeHtml(lines.second || "")}</div>
+    </div>
   `;
 }
 
@@ -140,17 +138,22 @@ function parseObservedDate(isoText) {
   if (!isoText) return null;
   const d = new Date(isoText);
   if (Number.isNaN(d.getTime())) return null;
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
+    d.getDate()
+  ).padStart(2, "0")}`;
 }
 
 function parseRankDateLabelToYmd(label) {
   if (!label) return null;
   const m = String(label).match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
   if (!m) return null;
-  return `${m[1]}-${String(Number(m[2])).padStart(2, "0")}-${String(Number(m[3])).padStart(2, "0")}`;
+  return `${m[1]}-${String(Number(m[2])).padStart(2, "0")}-${String(
+    Number(m[3])
+  ).padStart(2, "0")}`;
 }
 
 function setBadgeVisible(el, visible) {
+  if (!el) return;
   el.hidden = !visible;
   el.setAttribute("aria-hidden", String(!visible));
   el.style.display = visible ? "" : "none";
@@ -167,7 +170,6 @@ async function fetchJson(path) {
 /* -----------------------------
  * UI state persistence
  * ----------------------------- */
-
 function loadUIState() {
   try {
     const raw = localStorage.getItem(UI_STATE_STORAGE_KEY);
@@ -190,7 +192,7 @@ function saveUIState() {
       annualElement: getSavedAnnualElementKey(),
       monthlyElement: getSavedMonthlyElementKey(),
       elementPanelOpen: isElementPanelOpen(),
-      scrollY: window.scrollY || 0
+      scrollY: window.scrollY || 0,
     };
     localStorage.setItem(UI_STATE_STORAGE_KEY, JSON.stringify(state));
   } catch (err) {
@@ -205,13 +207,11 @@ function isElementPanelOpen() {
 
 function setElementPanelOpen(open) {
   if (!elementPanel) return;
-
   if (open) {
     elementPanel.classList.remove("collapsed");
   } else {
     elementPanel.classList.add("collapsed");
   }
-
   if (elementPanelToggle) {
     elementPanelToggle.setAttribute("aria-expanded", String(open));
   }
@@ -272,11 +272,13 @@ function getPreferredElementKeyForCurrentMonth() {
 
 function updateSavedElementKeyForCurrentMonth(selectedKey) {
   const saved = loadUIState() || {};
+
   if (monthSelect.value === "all") {
     saved.annualElement = selectedKey;
   } else {
     saved.monthlyElement = selectedKey;
   }
+
   saved.region = regionSelect?.value || saved.region || "";
   saved.pref = prefSelect?.value || saved.pref || "";
   saved.month = monthSelect?.value || saved.month || "all";
@@ -293,11 +295,10 @@ function updateSavedElementKeyForCurrentMonth(selectedKey) {
 /* -----------------------------
  * config / manifest
  * ----------------------------- */
-
 async function loadConfigs() {
   const [prefData, elemData] = await Promise.all([
     fetchJson("./config/prefectures.json"),
-    fetchJson("./config/elements.json")
+    fetchJson("./config/elements.json"),
   ]);
   prefecturesConfig = prefData;
   elementsConfig = elemData;
@@ -305,7 +306,7 @@ async function loadConfigs() {
 
 async function loadManifest() {
   try {
-    manifestCache = await fetchJson("./data/manifest.json");
+    manifestCache = await fetchJson(`${BASE_RANKING_DIR}/manifest.json`);
   } catch (err) {
     console.error(err);
     manifestCache = null;
@@ -348,7 +349,10 @@ function populatePrefectures(preferredPrefKey = null) {
   const list = getPrefecturesInRegion(region);
 
   prefSelect.innerHTML = list
-    .map((pref) => `<option value="${escapeHtml(pref.key)}">${escapeHtml(pref.name)}</option>`)
+    .map(
+      (pref) =>
+        `<option value="${escapeHtml(pref.key)}">${escapeHtml(pref.name)}</option>`
+    )
     .join("");
 
   const defaultPref =
@@ -369,8 +373,8 @@ function populatePrefectures(preferredPrefKey = null) {
 function getActiveElementList() {
   if (!elementsConfig) return [];
   return monthSelect.value === "all"
-    ? (elementsConfig.annualElements || [])
-    : (elementsConfig.monthlyElements || []);
+    ? elementsConfig.annualElements || []
+    : elementsConfig.monthlyElements || [];
 }
 
 function getDefaultElementKey() {
@@ -380,8 +384,8 @@ function getDefaultElementKey() {
       : FALLBACK_DEFAULTS.monthlyElement;
   }
   return monthSelect.value === "all"
-    ? (elementsConfig.annualDefaultElement || FALLBACK_DEFAULTS.annualElement)
-    : (elementsConfig.monthlyDefaultElement || FALLBACK_DEFAULTS.monthlyElement);
+    ? elementsConfig.annualDefaultElement || FALLBACK_DEFAULTS.annualElement
+    : elementsConfig.monthlyDefaultElement || FALLBACK_DEFAULTS.monthlyElement;
 }
 
 function getSelectedElementKey() {
@@ -398,9 +402,7 @@ function groupElements(list) {
   const grouped = new Map();
   for (const item of list) {
     const groupName = item.group || "その他";
-    if (!grouped.has(groupName)) {
-      grouped.set(groupName, []);
-    }
+    if (!grouped.has(groupName)) grouped.set(groupName, []);
     grouped.get(groupName).push(item);
   }
   return grouped;
@@ -414,11 +416,11 @@ function renderElementPanel(preferredKey = null) {
   if (!list.some((item) => item.key === selectedKey)) {
     selectedKey = list.some((item) => item.key === defaultKey)
       ? defaultKey
-      : (list[0]?.key || "");
+      : list[0]?.key || "";
   }
 
   if (list.length === 0) {
-    elementPanel.innerHTML = `<div class="live-summary-empty">要素定義がありません</div>`;
+    elementPanel.innerHTML = `<div class="element-empty">要素定義がありません</div>`;
     return;
   }
 
@@ -427,14 +429,15 @@ function renderElementPanel(preferredKey = null) {
 
   for (const [groupName, items] of grouped.entries()) {
     html.push(`<section class="element-group">`);
-    html.push(`<div class="element-group-title">${escapeHtml(groupName)}</div>`);
-    html.push(`<div class="element-group-grid">`);
+    html.push(`<h3 class="element-group-title">${escapeHtml(groupName)}</h3>`);
+    html.push(`<div class="element-group-items">`);
 
     for (const item of items) {
+      const checked = item.key === selectedKey ? "checked" : "";
       html.push(`
         <label class="element-option">
-          <input type="radio" name="element" value="${escapeHtml(item.key)}" ${item.key === selectedKey ? "checked" : ""}>
-          <span class="element-option-text">${escapeHtml(item.shortLabel || item.label)}</span>
+          <input type="radio" name="element" value="${escapeHtml(item.key)}" ${checked}>
+          <span>${escapeHtml(item.shortLabel || item.label)}</span>
         </label>
       `);
     }
@@ -458,23 +461,16 @@ function renderElementPanel(preferredKey = null) {
 function makeTableHeader() {
   const cols = ["地点名 / 観測開始"];
   for (let i = 1; i <= 10; i++) cols.push(`${i}位`);
-
-  rankTableHead.innerHTML = `
-    <tr>
-      ${cols.map((col) => `<th>${escapeHtml(col)}</th>`).join("")}
-    </tr>
-  `;
+  rankTableHead.innerHTML = `<tr>${cols
+    .map((col) => `<th>${escapeHtml(col)}</th>`)
+    .join("")}</tr>`;
 }
 
 function renderTableRows(rows) {
   rankTableBody.innerHTML = "";
 
   if (!Array.isArray(rows) || rows.length === 0) {
-    rankTableBody.innerHTML = `
-      <tr>
-        <td colspan="11">該当データがありません。</td>
-      </tr>
-    `;
+    rankTableBody.innerHTML = `<tr><td colspan="11">該当データがありません。</td></tr>`;
     return;
   }
 
@@ -485,7 +481,7 @@ function renderTableRows(rows) {
     stationTd.className = "station-col";
     stationTd.innerHTML = `
       <div class="station-name">${escapeHtml(row.stationName || "-")}</div>
-      <div class="station-start-date">${renderStartDateTwoLines(row.startDate || "-")}</div>
+      ${renderStartDateTwoLines(row.startDate || "-")}
     `;
     tr.appendChild(stationTd);
 
@@ -497,10 +493,7 @@ function renderTableRows(rows) {
         td.className = "rank-cell";
         td.innerHTML = `
           <div class="rank-value">-</div>
-          <div class="rank-date-block">
-            <div class="rank-date-line">-</div>
-            <div class="rank-date-line"></div>
-          </div>
+          <div class="rank-date-wrap">-</div>
         `;
       } else {
         const classes = ["rank-cell"];
@@ -509,9 +502,7 @@ function renderTableRows(rows) {
         td.className = classes.join(" ");
         td.innerHTML = `
           <div class="rank-value">${escapeHtml(rank.value ?? "-")}</div>
-          <div class="rank-date-block">
-            ${renderRankDateTwoLines(rank.date || "-")}
-          </div>
+          ${renderRankDateTwoLines(rank.date || "-")}
         `;
       }
 
@@ -525,15 +516,12 @@ function renderTableRows(rows) {
 function buildElementOrderMap() {
   const merged = [
     ...(elementsConfig?.annualElements || []),
-    ...(elementsConfig?.monthlyElements || [])
+    ...(elementsConfig?.monthlyElements || []),
   ];
-
   const orderMap = new Map();
   let idx = 0;
   for (const item of merged) {
-    if (!orderMap.has(item.key)) {
-      orderMap.set(item.key, idx++);
-    }
+    if (!orderMap.has(item.key)) orderMap.set(item.key, idx++);
   }
   return orderMap;
 }
@@ -541,7 +529,6 @@ function buildElementOrderMap() {
 function normalizeLiveItemsByObservedDate(items, observedLatestAt) {
   const observedYmd = parseObservedDate(observedLatestAt);
   if (!observedYmd) return [];
-
   return (Array.isArray(items) ? items : []).filter((item) => {
     const itemYmd = parseRankDateLabelToYmd(item.date);
     return itemYmd === observedYmd;
@@ -552,7 +539,7 @@ function renderLiveSummaryColumn(title, items) {
   if (!items.length) {
     return `
       <div class="live-summary-col">
-        <div class="live-summary-col-title">${escapeHtml(title)}</div>
+        <div class="live-summary-title">${escapeHtml(title)}</div>
         <div class="live-summary-empty">該当なし</div>
       </div>
     `;
@@ -560,17 +547,21 @@ function renderLiveSummaryColumn(title, items) {
 
   return `
     <div class="live-summary-col">
-      <div class="live-summary-col-title">${escapeHtml(title)}</div>
-      <div class="live-summary-list">
-        ${items.map((item) => `
-          <div class="live-summary-item">
-            <div class="live-summary-rank">${escapeHtml(item.rank)}位</div>
-            <div class="live-summary-element">${escapeHtml(item.elementLabel || item.elementKey || "")}</div>
-            <div class="live-summary-station">${escapeHtml(item.stationName || "")}</div>
-            <div class="live-summary-value">${escapeHtml(item.value ?? "")}</div>
-          </div>
-        `).join("")}
-      </div>
+      <div class="live-summary-title">${escapeHtml(title)}</div>
+      ${items
+        .map(
+          (item) => `
+        <div class="live-summary-item">
+          <div class="live-summary-rank">${escapeHtml(item.rank)}位</div>
+          <div class="live-summary-element">${escapeHtml(
+            item.elementLabel || item.elementKey || ""
+          )}</div>
+          <div class="live-summary-station">${escapeHtml(item.stationName || "")}</div>
+          <div class="live-summary-value">${escapeHtml(item.value ?? "")}</div>
+        </div>
+      `
+        )
+        .join("")}
     </div>
   `;
 }
@@ -579,8 +570,14 @@ function renderLiveSummary(summary) {
   const rawAnnualItems = Array.isArray(summary?.annualItems) ? summary.annualItems : [];
   const rawMonthlyItems = Array.isArray(summary?.monthlyItems) ? summary.monthlyItems : [];
 
-  const annualItems = normalizeLiveItemsByObservedDate(rawAnnualItems, summary?.observedLatestAt);
-  const monthlyItems = normalizeLiveItemsByObservedDate(rawMonthlyItems, summary?.observedLatestAt);
+  const annualItems = normalizeLiveItemsByObservedDate(
+    rawAnnualItems,
+    summary?.observedLatestAt
+  );
+  const monthlyItems = normalizeLiveItemsByObservedDate(
+    rawMonthlyItems,
+    summary?.observedLatestAt
+  );
 
   const orderMap = buildElementOrderMap();
   const sorter = (a, b) => {
@@ -595,10 +592,8 @@ function renderLiveSummary(summary) {
   const monthlySorted = [...monthlyItems].sort(sorter);
 
   liveSummaryBody.innerHTML = `
-    <div class="live-summary-grid">
-      ${renderLiveSummaryColumn("通年", annualSorted)}
-      ${renderLiveSummaryColumn("当月", monthlySorted)}
-    </div>
+    ${renderLiveSummaryColumn("通年", annualSorted)}
+    ${renderLiveSummaryColumn("当月", monthlySorted)}
   `;
 
   const hasAny = annualSorted.length > 0 || monthlySorted.length > 0;
@@ -608,17 +603,25 @@ function renderLiveSummary(summary) {
 
   setBadgeVisible(rankInBadge, hasAny);
   setBadgeVisible(topRankAlert, hasTop1);
-
   observedLatestAtEl.textContent = formatDateTime(summary?.observedLatestAt || "");
 }
 
 async function loadLiveSummary(prefKey) {
   try {
-    const summary = await fetchJson(`./data/${prefKey}/live-summary.json`);
+    const summary = await fetchJson(`${LIVE_DATA_DIR}/${prefKey}/live-summary.json`);
     renderLiveSummary(summary);
   } catch (err) {
-    console.error(err);
-    liveSummaryBody.innerHTML = `<div class="live-summary-empty">実況一覧の読み込みに失敗しました</div>`;
+    console.warn("live-summary.json がまだ無いため、実況一覧は空表示にします。", err);
+    liveSummaryBody.innerHTML = `
+      <div class="live-summary-col">
+        <div class="live-summary-title">通年</div>
+        <div class="live-summary-empty">該当なし</div>
+      </div>
+      <div class="live-summary-col">
+        <div class="live-summary-title">当月</div>
+        <div class="live-summary-empty">該当なし</div>
+      </div>
+    `;
     setBadgeVisible(rankInBadge, false);
     setBadgeVisible(topRankAlert, false);
     observedLatestAtEl.textContent = "-";
@@ -630,10 +633,16 @@ function getSelectedPrefMeta() {
 }
 
 function renderDebug(items) {
-  debugGrid.innerHTML = items.map((item) => `
-    <div><strong>${escapeHtml(item.label)}</strong></div>
-    <div>${escapeHtml(item.value)}</div>
-  `).join("");
+  debugGrid.innerHTML = items
+    .map(
+      (item) => `
+      <div class="debug-item">
+        <div class="debug-label">${escapeHtml(item.label)}</div>
+        <div class="debug-value">${escapeHtml(item.value)}</div>
+      </div>
+    `
+    )
+    .join("");
 }
 
 async function loadTable() {
@@ -641,7 +650,8 @@ async function loadTable() {
   const elementMeta = getSelectedElementMeta();
   const elementKey = elementMeta?.key || getSelectedElementKey();
   const month = monthSelect.value;
-  const jsonPath = `./data/${prefSelect.value}/${elementKey}-${month}.json`;
+
+  const jsonPath = `${BASE_RANKING_DIR}/${prefSelect.value}/${elementKey}-${month}.json`;
 
   await loadManifest();
 
@@ -652,10 +662,13 @@ async function loadTable() {
 
   await loadLiveSummary(pref.key);
 
-  statusBox.textContent = `${pref.name} / ${month === "all" ? "通年" : `${month}月`} / ${elementMeta?.shortLabel || elementMeta?.label || elementKey}`;
+  statusBox.textContent = `${pref.name} / ${
+    month === "all" ? "通年" : `${month}月`
+  } / ${elementMeta?.shortLabel || elementMeta?.label || elementKey}`;
 
   try {
     const data = await fetchJson(jsonPath);
+
     makeTableHeader();
     renderTableRows(data.rows || []);
 
@@ -667,21 +680,31 @@ async function loadTable() {
       { label: "要素名", value: elementMeta?.label || "-" },
       { label: "JSON", value: jsonPath },
       { label: "地点数", value: String(Array.isArray(data.rows) ? data.rows.length : 0) },
-      { label: "manifest更新時刻", value: manifestCache?.updatedAt ? formatDateTime(manifestCache.updatedAt) : "-" },
-      { label: "manifest観測時刻", value: manifestCache?.observedLatestAt ? formatDateTime(manifestCache.observedLatestAt) : "-" }
+      {
+        label: "manifest更新時刻",
+        value: manifestCache?.updatedAt ? formatDateTime(manifestCache.updatedAt) : "-",
+      },
+      {
+        label: "manifest観測時刻",
+        value: manifestCache?.observedLatestAt
+          ? formatDateTime(manifestCache.observedLatestAt)
+          : "-",
+      },
     ]);
   } catch (err) {
     console.error(err);
     makeTableHeader();
     renderTableRows([]);
-    statusBox.textContent = `${pref.name} / ${month === "all" ? "通年" : `${month}月`} / ${elementMeta?.shortLabel || elementMeta?.label || elementKey} / 読み込み失敗`;
+    statusBox.textContent = `${pref.name} / ${
+      month === "all" ? "通年" : `${month}月`
+    } / ${elementMeta?.shortLabel || elementMeta?.label || elementKey} / 読み込み失敗`;
 
     renderDebug([
       { label: "都道府県", value: pref.name },
       { label: "月", value: month === "all" ? "通年" : `${month}月` },
       { label: "要素キー", value: elementKey },
       { label: "JSON", value: jsonPath },
-      { label: "エラー", value: String(err.message || err) }
+      { label: "エラー", value: String(err.message || err) },
     ]);
   } finally {
     if (restoreScrollPending) {
@@ -710,7 +733,6 @@ function startAutoRefresh() {
 
 function bindElementPanelToggle() {
   if (!elementPanelToggle) return;
-
   elementPanelToggle.addEventListener("click", () => {
     const open = !isElementPanelOpen();
     setElementPanelOpen(open);
@@ -729,12 +751,13 @@ async function init() {
 
   const monthCandidates = ["all", ...Array.from({ length: 12 }, (_, i) => String(i + 1))];
   const preferredMonth = saved?.month || elementsConfig?.defaultMonth || FALLBACK_DEFAULTS.month;
-  monthSelect.value = monthCandidates.includes(preferredMonth) ? preferredMonth : FALLBACK_DEFAULTS.month;
+  monthSelect.value = monthCandidates.includes(preferredMonth)
+    ? preferredMonth
+    : FALLBACK_DEFAULTS.month;
 
   renderElementPanel(getPreferredElementKeyForCurrentMonth());
 
-  const panelOpen =
-    typeof saved?.elementPanelOpen === "boolean" ? saved.elementPanelOpen : true;
+  const panelOpen = typeof saved?.elementPanelOpen === "boolean" ? saved.elementPanelOpen : true;
   setElementPanelOpen(panelOpen);
 
   bindElementPanelToggle();
@@ -758,9 +781,13 @@ async function init() {
     handleMonthChange();
   });
 
-  window.addEventListener("scroll", () => {
-    saveUIState();
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      saveUIState();
+    },
+    { passive: true }
+  );
 
   window.addEventListener("beforeunload", () => {
     saveUIState();
