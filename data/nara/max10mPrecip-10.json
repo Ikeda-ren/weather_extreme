@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-11T13:34:58.735602+09:00",
-  "observedLatestAt": "2026-04-11T13:20:00+09:00",
+  "updatedAt": "2026-04-11T14:19:44.004710+09:00",
+  "observedLatestAt": "2026-04-11T14:10:00+09:00",
   "prefecture": "奈良県",
   "element": "max10mPrecip",
   "month": "10",
@@ -79,7 +79,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "針",
@@ -155,7 +156,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "田原本",
@@ -231,7 +233,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "曽爾",
@@ -307,7 +310,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "葛城",
@@ -383,7 +387,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "大宇陀",
@@ -459,7 +464,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "五條",
@@ -535,7 +541,8 @@
           "highlightLive": false,
           "highlightWithinYear": true
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "吉野",
@@ -611,7 +618,8 @@
           "highlightLive": false,
           "highlightWithinYear": true
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "天川",
@@ -687,7 +695,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "上北山",
@@ -763,7 +772,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "風屋",
@@ -839,7 +849,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "下北山",
@@ -915,7 +926,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "葛川",
@@ -991,7 +1003,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     }
   ]
 }

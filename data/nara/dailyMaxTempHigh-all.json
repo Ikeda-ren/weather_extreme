@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-11T13:34:58.735602+09:00",
-  "observedLatestAt": "2026-04-11T13:20:00+09:00",
+  "updatedAt": "2026-04-11T14:19:44.004710+09:00",
+  "observedLatestAt": "2026-04-11T14:10:00+09:00",
   "prefecture": "奈良県",
   "element": "dailyMaxTempHigh",
   "month": "all",
@@ -79,7 +79,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "針",
@@ -155,7 +156,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "大宇陀",
@@ -231,7 +233,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "五條",
@@ -307,7 +310,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "上北山",
@@ -383,7 +387,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     },
     {
       "stationName": "風屋",
@@ -459,7 +464,8 @@
           "highlightLive": false,
           "highlightWithinYear": false
         }
-      ]
+      ],
+      "liveError": "'_date_raw'"
     }
   ]
 }
