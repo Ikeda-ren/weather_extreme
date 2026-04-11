@@ -29,10 +29,9 @@ const FALLBACK_DEFAULTS = {
 
 const UI_STATE_STORAGE_KEY = "weatherExtremeUIState_v1";
 
-// 現在は基礎ランキングを data_base から表示
-const BASE_RANKING_DIR = "./data";
-
-// 実況一覧は data 側
+// いまは基礎ランキングを表示
+const BASE_RANKING_DIR = "./data_base";
+// 上部の実況ランクイン一覧
 const LIVE_DATA_DIR = "./data";
 
 function escapeHtml(value) {
@@ -109,18 +108,10 @@ function splitJapaneseDateLines(text) {
 
 function renderStartDateTwoLines(text) {
   const lines = splitJapaneseDateLines(text);
-  if (!lines.second) {
-    return `
-      <div class="station-start-date">
-        <div>${escapeHtml(lines.first)}</div>
-      </div>
-    `;
-  }
-
   return `
     <div class="station-start-date">
-      <div>${escapeHtml(lines.first)}</div>
-      <div>${escapeHtml(lines.second)}</div>
+      <div>${escapeHtml(lines.first || "-")}</div>
+      ${lines.second ? `<div>${escapeHtml(lines.second)}</div>` : ""}
     </div>
   `;
 }
@@ -130,7 +121,7 @@ function renderRankDateTwoLines(text) {
   return `
     <div class="rank-date-wrap">
       <div>${escapeHtml(lines.first || "-")}</div>
-      <div>${escapeHtml(lines.second || "")}</div>
+      ${lines.second ? `<div>${escapeHtml(lines.second)}</div>` : ""}
     </div>
   `;
 }
