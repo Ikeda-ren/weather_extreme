@@ -1,242 +1,177 @@
-import json
-from datetime import datetime
-from pathlib import Path
+import os
+from typing import Any, Dict, List
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = REPO_ROOT / "data"
+from weather_common import ensure_dir, read_json_file, write_json
 
-
-def read_json(path: Path):
-    with path.open("r", encoding="utf-8") as f:
-        return json.load(f)
+PUBLIC_DIR = "data"
+TARGET_PREF_KEYS = {"nara"}
 
 
-def write_json(path: Path, data):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+def load_manifest() -> Dict[str, Any]:
+    path = os.path.join(PUBLIC_DIR, "manifest.json")
+    if not os.path.exists(path):
+        return {}
+    return read_json_file(path)
 
 
-def normalize_rank_item(item):
-    if not isinstance(item, dict):
-        return None
-    return {
-        "rank": item.get("rank"),
-        "value": item.get("value"),
-        "date": item.get("date"),
-        "highlightLive": bool(item.get("highlightLive")),
-        "highlightWithinYear": bool(item.get("highlightWithinYear")),
-    }
-
-
-def extract_live_items_from_file(pref_key: str, element_key: str, month: str, file_path: Path):
-    data = read_json(file_path)
-    observed_latest_at = data.get("observedLatestAt")
-    items = []
-
-    for row in data.get("rows", []):
-        station_name = row.get("stationName", "")
-        for rank_item in row.get("ranks", []):
-            rank_item = normalize_rank_item(rank_item)
-            if not rank_item:
-                continue
-            if not rank_item["highlightLive"]:
-                continue
-
-            items.append(
-                {
-                    "stationName": station_name,
-                    "elementKey": element_key,
-                    "elementLabel": element_key,
-                    "rank": rank_item["rank"],
-                    "value": rank_item["value"],
-                    "date": rank_item["date"],
-                    "month": month,
-                    "observedLatestAt": observed_latest_at,
-                }
-            )
-
-    return observed_latest_at, items
-
-
-def load_elements_config():
-    path = REPO_ROOT / "config" / "elements.json"
-    if not path.exists():
+def load_elements_config() -> Dict[str, str]:
+    path = os.path.join("config", "elements.json")
+    if not os.path.exists(path):
         return {}
 
-    data = read_json(path)
-    label_map = {}
+    data = read_json_file(path)
 
-    for key in ("annualElements", "monthlyElements"):
-        for item in data.get(key, []):
-            if "key" in item:
-                label_map[item["key"]] = item.get("label") or item.get("shortLabel") or item["key"]
+    label_map: Dict[str, str] = {}
+
+    for item in data.get("annualElements", []):
+        key = item.get("key")
+        label = item.get("shortLabel") or item.get("label") or key
+        if key:
+            label_map[key] = label
+
+    for item in data.get("monthlyElements", []):
+        key = item.get("key")
+        label = item.get("shortLabel") or item.get("label") or key
+        if key and key not in label_map:
+            label_map[key] = label
 
     return label_map
 
 
-def dedupe_items(items):
-    best = {}
+def normalize_pref_keys(prefectures_value: Any) -> List[str]:
+    result: List[str] = []
 
-    for item in items:
-        key = (
-            item.get("stationName"),
-            item.get("elementKey"),
-            item.get("rank"),
-            item.get("month"),
-            item.get("date"),
-            str(item.get("value")),
-        )
+    if not isinstance(prefectures_value, list):
+        return result
 
-        current = best.get(key)
-        if current is None:
-            best[key] = item
+    for pref in prefectures_value:
+        if isinstance(pref, str):
+            result.append(pref)
+        elif isinstance(pref, dict):
+            key = pref.get("key")
+            if key:
+                result.append(key)
+
+    return result
+
+
+def collect_live_items_from_pref(pref_key: str, element_label_map: Dict[str, str]) -> Dict[str, List[Dict[str, Any]]]:
+    pref_dir = os.path.join(PUBLIC_DIR, pref_key)
+    if not os.path.isdir(pref_dir):
+        return {"annualItems": [], "monthlyItems": []}
+
+    annual_items: List[Dict[str, Any]] = []
+    monthly_items: List[Dict[str, Any]] = []
+
+    for file_name in os.listdir(pref_dir):
+        if not file_name.endswith(".json"):
+            continue
+        if file_name == "live-summary.json":
             continue
 
-        # 同一キーなら observedLatestAt が新しい方を採用
-        old_obs = current.get("observedLatestAt") or ""
-        new_obs = item.get("observedLatestAt") or ""
-        if new_obs > old_obs:
-            best[key] = item
-
-    return list(best.values())
-
-
-def sort_items(items, label_order):
-    def key_func(item):
-        ek = item.get("elementKey", "")
-        return (
-            label_order.get(ek, 9999),
-            item.get("rank", 9999) if item.get("rank") is not None else 9999,
-            item.get("stationName", ""),
-        )
-
-    return sorted(items, key=key_func)
-
-
-def build_pref_summary(pref_dir: Path, label_map: dict):
-    annual_items = []
-    monthly_items = []
-    observed_candidates = []
-    updated_candidates = []
-
-    for path in pref_dir.glob("*.json"):
-        if path.name == "live-summary.json":
+        # 例: dailyPrecip-all.json / dailyPrecip-4.json
+        if "-" not in file_name:
             continue
 
-        name = path.stem
-        if "-" not in name:
-            continue
-
-        element_key, month = name.rsplit("-", 1)
-        if month not in {"all", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}:
-            continue
-
-        observed_latest_at, items = extract_live_items_from_file(
-            pref_dir.name,
-            element_key,
-            month,
-            path,
-        )
+        element_key, month_part = file_name[:-5].rsplit("-", 1)
+        json_path = os.path.join(pref_dir, file_name)
 
         try:
-            raw = read_json(path)
-            if raw.get("updatedAt"):
-                updated_candidates.append(raw["updatedAt"])
+            data = read_json_file(json_path)
         except Exception:
-            pass
+            continue
 
-        if observed_latest_at:
-            observed_candidates.append(observed_latest_at)
+        rows = data.get("rows", [])
+        observed_latest_at = data.get("observedLatestAt")
 
-        for item in items:
-            item["elementLabel"] = label_map.get(item["elementKey"], item["elementKey"])
-            if month == "all":
+        for row in rows:
+            live_rank = row.get("liveEnteredRank")
+            if live_rank is None:
+                continue
+
+            ranks = row.get("ranks", [])
+            rank_index = int(live_rank) - 1
+
+            if rank_index < 0 or rank_index >= len(ranks):
+                continue
+
+            rank_data = ranks[rank_index]
+            item = {
+                "rank": live_rank,
+                "elementKey": element_key,
+                "elementLabel": element_label_map.get(element_key, element_key),
+                "stationName": row.get("stationName", ""),
+                "value": rank_data.get("value", ""),
+                "date": rank_data.get("date", ""),
+                "observedLatestAt": observed_latest_at,
+            }
+
+            if month_part == "all":
                 annual_items.append(item)
             else:
                 monthly_items.append(item)
 
-    annual_items = dedupe_items(annual_items)
-    monthly_items = dedupe_items(monthly_items)
-
-    label_order = {k: i for i, k in enumerate(label_map.keys())}
-    annual_items = sort_items(annual_items, label_order)[:5]
-    monthly_items = sort_items(monthly_items, label_order)[:5]
-
     return {
-        "updatedAt": max(updated_candidates) if updated_candidates else None,
-        "observedLatestAt": max(observed_candidates) if observed_candidates else None,
-        "annualItems": [
-            {
-                "stationName": item["stationName"],
-                "elementKey": item["elementKey"],
-                "elementLabel": item["elementLabel"],
-                "rank": item["rank"],
-                "value": item["value"],
-                "date": item["date"],
-            }
-            for item in annual_items
-        ],
-        "monthlyItems": [
-            {
-                "stationName": item["stationName"],
-                "elementKey": item["elementKey"],
-                "elementLabel": item["elementLabel"],
-                "rank": item["rank"],
-                "value": item["value"],
-                "date": item["date"],
-            }
-            for item in monthly_items
-        ],
+        "annualItems": sorted_items(annual_items),
+        "monthlyItems": sorted_items(monthly_items),
     }
 
 
-def update_manifest_observed_latest_at():
-    manifest_path = DATA_DIR / "manifest.json"
-    if not manifest_path.exists():
-        return
-
-    manifest = read_json(manifest_path)
-    observed_list = []
-
-    for pref in manifest.get("prefectures", []):
-        if isinstance(pref, str):
-            pref_key = pref
-        else:
-            pref_key = pref.get("key")
-    
-        if pref_key != "nara":
-            continue
-        if not pref_key:
-            continue
-        summary_path = DATA_DIR / pref_key / "live-summary.json"
-        if not summary_path.exists():
-            continue
-        summary = read_json(summary_path)
-        if summary.get("observedLatestAt"):
-            observed_list.append(summary["observedLatestAt"])
-
-    if observed_list:
-        manifest["observedLatestAt"] = max(observed_list)
-        write_json(manifest_path, manifest)
+def sorted_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return sorted(
+        items,
+        key=lambda x: (
+            str(x.get("elementLabel", "")),
+            int(x.get("rank", 999)),
+            str(x.get("stationName", "")),
+        ),
+    )
 
 
-def main():
-    if not DATA_DIR.exists():
-        raise FileNotFoundError(f"{DATA_DIR} がありません")
+def build_summary(pref_key: str, observed_latest_at: str, element_label_map: Dict[str, str]) -> Dict[str, Any]:
+    collected = collect_live_items_from_pref(pref_key, element_label_map)
 
-    label_map = load_elements_config()
+    return {
+        "prefecture": pref_key,
+        "observedLatestAt": observed_latest_at,
+        "annualItems": collected["annualItems"][:5],
+        "monthlyItems": collected["monthlyItems"][:5],
+    }
 
-    for pref_dir in DATA_DIR.iterdir():
-        if not pref_dir.is_dir():
-            continue
 
-        summary = build_pref_summary(pref_dir, label_map)
-        write_json(pref_dir / "live-summary.json", summary)
-        print(f"wrote: {pref_dir / 'live-summary.json'}")
+def update_manifest_observed_latest_at(observed_latest_at: str) -> None:
+    manifest_path = os.path.join(PUBLIC_DIR, "manifest.json")
+    manifest = load_manifest()
+    manifest["observedLatestAt"] = observed_latest_at
+    write_json(manifest_path, manifest)
 
-    update_manifest_observed_latest_at()
-    print("done build_live_summary")
+
+def main() -> None:
+    ensure_dir(PUBLIC_DIR)
+
+    manifest = load_manifest()
+    element_label_map = load_elements_config()
+
+    pref_keys = normalize_pref_keys(manifest.get("prefectures", []))
+    pref_keys = [k for k in pref_keys if k in TARGET_PREF_KEYS]
+
+    if not pref_keys:
+        pref_keys = ["nara"]
+
+    observed_latest_at = manifest.get("observedLatestAt", "")
+
+    for pref_key in pref_keys:
+        pref_dir = os.path.join(PUBLIC_DIR, pref_key)
+        ensure_dir(pref_dir)
+
+        summary = build_summary(pref_key, observed_latest_at, element_label_map)
+
+        output_path = os.path.join(pref_dir, "live-summary.json")
+        write_json(output_path, summary)
+        print(f"wrote: {output_path}")
+
+    update_manifest_observed_latest_at(observed_latest_at)
+    print("done build live summary")
 
 
 if __name__ == "__main__":
