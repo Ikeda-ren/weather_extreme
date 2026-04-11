@@ -13,17 +13,19 @@ from weather_common import (
     build_dir_manifest,
 )
 
-BASE_DIR = "data"
+# 基礎ランキングの出力先は data_base にする
+BASE_DIR = "data_base"
 
 
-def main():
+def main() -> None:
     ensure_dir(BASE_DIR)
+
     prefectures = load_prefecture_configs()
 
     # 観測時刻（内部計算や確認用）
     latest_obs_iso = fetch_latest_time()
 
-    # 表示用の更新時刻は「実際の生成時刻」にする
+    # 表示用の更新時刻は「実際の生成時刻」
     generated_iso = datetime.now(JST).isoformat()
 
     for pref in prefectures:
@@ -47,12 +49,15 @@ def main():
                         if not parsed:
                             continue
 
-                        rows.append({
-                            "stationName": station["stationName"],
-                            "startDate": parsed["startDate"],
-                            "ranks": parsed["records"],
-                        })
+                        rows.append(
+                            {
+                                "stationName": station["stationName"],
+                                "startDate": parsed["startDate"],
+                                "ranks": parsed["records"],
+                            }
+                        )
                     except Exception:
+                        # 個別地点で失敗しても他地点は続行
                         continue
 
                 output = {
@@ -65,13 +70,17 @@ def main():
                 }
 
                 file_name = f"{element_key}-{month}.json"
-                write_json(os.path.join(pref_dir, file_name), output)
-                print(f"wrote: {BASE_DIR}/{pref_key}/{file_name}")
+                output_path = os.path.join(pref_dir, file_name)
+                write_json(output_path, output)
+                print(f"wrote: {output_path}")
 
     manifest = build_dir_manifest(BASE_DIR, generated_iso, prefectures)
     manifest["observedLatestAt"] = latest_obs_iso
-    write_json(os.path.join(BASE_DIR, "manifest.json"), manifest)
-    print(f"wrote: {BASE_DIR}/manifest.json")
+
+    manifest_path = os.path.join(BASE_DIR, "manifest.json")
+    write_json(manifest_path, manifest)
+    print(f"wrote: {manifest_path}")
+
     print("done rankings")
 
 
