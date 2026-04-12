@@ -24,7 +24,7 @@
 html {
   font-size: 16px;
   scroll-padding-top: 110px;
-}
+}f
 
 body {
   margin: 0;
@@ -141,8 +141,8 @@ h1 {
 .summary-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 8px;
   padding: 10px 14px;
   background: #f4f9fd;
   border-bottom: 1px solid var(--line-soft);
@@ -153,14 +153,16 @@ h1 {
 .summary-title {
   font-size: 1rem;
   min-width: 0;
+  flex: 0 1 auto;
 }
 
 .summary-badges {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-left: 4px;
 }
 
 .rank-in-badge {
@@ -699,7 +701,8 @@ h1 {
   }
 
   .live-summary-item {
-    grid-template-columns: 28px auto minmax(0, 1fr) auto;
+    grid-template-columns: 18px auto minmax(0, 1fr) auto;
+    column-gap: 6px;
     row-gap: 6px;
   }
 
@@ -715,6 +718,16 @@ h1 {
   .table-wrap {
     overflow-x: auto;
     justify-content: flex-start;
+  }
+
+  .rank-icon {
+    width: 16px;
+    min-height: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .live-summary-rank {
+    padding: 0 6px;
   }
 
   .rank-table {
