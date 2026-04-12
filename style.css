@@ -255,6 +255,15 @@ h1 {
 }
 
 .rank-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  font-size: 1.15rem;
+  width: 24px;
+}
+
+.rank-icon.empty {
   display: none;
 }
 
@@ -525,10 +534,6 @@ h1 {
   background: var(--live);
 }
 
-.rank-cell.live-in-rank.within-year {
-  background: linear-gradient(180deg, #ff9898 0%, #ffe067 100%);
-}
-
 .rank-value {
   font-size: 1.7rem;
   font-weight: 900;
@@ -632,6 +637,30 @@ h1 {
 @media (max-width: 900px) {
   .live-summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .live-summary-col {
+    overflow: hidden;
+  }
+
+  .live-summary-col > .live-summary-title {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .live-summary-col > .live-summary-title::after {
+    content: "▼";
+    float: right;
+    font-size: 0.82rem;
+    color: var(--text-soft);
+  }
+
+  .live-summary-col.is-collapsed > .live-summary-title::after {
+    content: "▶";
+  }
+
+  .live-summary-col.is-collapsed .live-summary-list {
+    display: none;
   }
 
   .live-summary-item {
