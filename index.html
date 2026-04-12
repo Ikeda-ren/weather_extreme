@@ -16,7 +16,7 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="topbar-inner">
+    <div class="topbar-sticky">
       <h1>県内極値一覧</h1>
 
       <div class="controls">
@@ -49,28 +49,28 @@
           </select>
         </label>
       </div>
-
-      <details id="liveSummarySection" class="live-summary-details" open>
-        <summary class="summary-row">
-          <span class="summary-title">実況で10位以内に入った項目</span>
-          <span class="summary-badges">
-            <span id="rankInBadge" class="rank-in-badge" hidden aria-hidden="true">ランクイン有り</span>
-            <span id="topRankAlert" class="top-rank-alert" hidden aria-hidden="true">極値1位更新有り</span>
-          </span>
-        </summary>
-
-        <div id="liveSummaryBody" class="live-summary-body">
-          <div class="live-summary-empty">読み込み待ち</div>
-        </div>
-      </details>
-
-      <details class="element-details">
-        <summary id="elementPanelToggle">要素選択を開く / 閉じる</summary>
-        <div id="elementPanel" class="element-panel">
-          <div class="live-summary-empty">読み込み待ち</div>
-        </div>
-      </details>
     </div>
+
+    <details id="liveSummarySection" class="live-summary-details" open>
+      <summary class="summary-row">
+        <span class="summary-title">実況で10位以内に入った項目</span>
+        <span class="summary-badges">
+          <span id="rankInBadge" class="rank-in-badge" hidden aria-hidden="true">ランクイン有り</span>
+          <span id="topRankAlert" class="top-rank-alert" hidden aria-hidden="true">極値1位更新有り</span>
+        </span>
+      </summary>
+
+      <div id="liveSummaryBody" class="live-summary-body">
+        <div class="live-summary-empty">読み込み待ち</div>
+      </div>
+    </details>
+
+    <details class="element-details">
+      <summary id="elementPanelToggle">要素選択を開く / 閉じる</summary>
+      <div id="elementPanel" class="element-panel">
+        <div class="live-summary-empty">読み込み待ち</div>
+      </div>
+    </details>
   </header>
 
   <main class="main">
