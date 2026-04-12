@@ -1,33 +1,15 @@
 {
   "prefecture": "osaka",
-  "observedLatestAt": "2026-04-12T23:20:00+09:00",
+  "observedLatestAt": "2026-04-13T00:50:00+09:00",
   "annualItems": [
-    {
-      "rank": 1,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "能勢",
-      "value": 12,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
     {
       "rank": 2,
       "elementKey": "dailyMinHumidity",
       "elementLabel": "最小湿度",
       "stationName": "生駒山",
       "value": 17,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 3,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "枚方",
-      "value": 11,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
+      "date": "2026年4月13日（令和8年）",
+      "observedLatestAt": "2026-04-13T00:50:00+09:00"
     }
   ],
   "monthlyItems": [
@@ -35,37 +17,10 @@
       "rank": 1,
       "elementKey": "dailyMinHumidity",
       "elementLabel": "最小湿度",
-      "stationName": "枚方",
-      "value": 11,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 1,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
       "stationName": "生駒山",
       "value": 17,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 1,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "能勢",
-      "value": 12,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 6,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "堺",
-      "value": 16,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
+      "date": "2026年4月13日（令和8年）",
+      "observedLatestAt": "2026-04-13T00:50:00+09:00"
     }
   ],
   "badgeMode": "top1",

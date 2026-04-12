@@ -1,93 +1,20 @@
 {
   "prefecture": "kyoto",
-  "observedLatestAt": "2026-04-12T23:20:00+09:00",
-  "annualItems": [
-    {
-      "rank": 2,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "福知山",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 3,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "園部",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 6,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "京田辺",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 9,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "美山",
-      "value": 17,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    }
-  ],
+  "observedLatestAt": "2026-04-13T00:50:00+09:00",
+  "annualItems": [],
   "monthlyItems": [
     {
-      "rank": 1,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
+      "rank": 5,
+      "elementKey": "dailyMaxTempLow",
+      "elementLabel": "最高気温(低)",
       "stationName": "園部",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 1,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "福知山",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 2,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "京田辺",
-      "value": 14,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 2,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "美山",
-      "value": 17,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
-    },
-    {
-      "rank": 7,
-      "elementKey": "dailyMinHumidity",
-      "elementLabel": "最小湿度",
-      "stationName": "間人",
-      "value": 29,
-      "date": "2026年4月12日（令和8年）",
-      "observedLatestAt": "2026-04-12T23:20:00+09:00"
+      "value": 8.8,
+      "date": "2026年4月13日（令和8年）",
+      "observedLatestAt": "2026-04-13T00:50:00+09:00"
     }
   ],
-  "badgeMode": "top1",
-  "badgeText": "極値１位更新有り",
-  "hasTop1": true,
+  "badgeMode": "rankin",
+  "badgeText": "ランクイン有り",
+  "hasTop1": false,
   "hasAny": true
 }
