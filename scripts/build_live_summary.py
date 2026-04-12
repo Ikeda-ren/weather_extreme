@@ -5,6 +5,8 @@ from weather_common import ensure_dir, read_json_file, write_json
 
 PUBLIC_DIR = "data"
 
+SUMMARY_LIMIT = 5
+
 
 def load_manifest() -> Dict[str, Any]:
     path = os.path.join(PUBLIC_DIR, "manifest.json")
@@ -37,11 +39,9 @@ def load_elements_config() -> Dict[str, str]:
 
 
 def normalize_pref_keys(prefectures_value: Any) -> List[str]:
-    # manifest["prefectures"] が dict の場合
     if isinstance(prefectures_value, dict):
         return list(prefectures_value.keys())
 
-    # 旧形式の list の場合
     result: List[str] = []
     if not isinstance(prefectures_value, list):
         return result
@@ -109,8 +109,12 @@ def collect_live_items_from_pref(
                 continue
 
             rank_data = ranks[rank_index]
+
+            if not rank_data.get("highlightLive"):
+                continue
+
             item = {
-                "rank": live_rank,
+                "rank": int(live_rank),
                 "elementKey": element_key,
                 "elementLabel": element_label_map.get(element_key, element_key),
                 "stationName": row.get("stationName", ""),
@@ -118,9 +122,6 @@ def collect_live_items_from_pref(
                 "date": rank_data.get("date", ""),
                 "observedLatestAt": observed_latest_at,
             }
-
-            if "windDirection" in rank_data:
-                item["windDirection"] = rank_data.get("windDirection", "")
 
             if month_part == "all":
                 annual_items.append(item)
@@ -139,11 +140,32 @@ def build_summary(
     element_label_map: Dict[str, str],
 ) -> Dict[str, Any]:
     collected = collect_live_items_from_pref(pref_key, element_label_map)
+
+    annual_items = collected["annualItems"][:SUMMARY_LIMIT]
+    monthly_items = collected["monthlyItems"][:SUMMARY_LIMIT]
+
+    has_top1 = any(int(item.get("rank", 999)) == 1 for item in annual_items + monthly_items)
+    has_any = bool(annual_items or monthly_items)
+
+    if has_top1:
+        badge_mode = "top1"
+        badge_text = "極値１位更新有り"
+    elif has_any:
+        badge_mode = "rankin"
+        badge_text = "ランクイン有り"
+    else:
+        badge_mode = "none"
+        badge_text = ""
+
     return {
         "prefecture": pref_key,
         "observedLatestAt": observed_latest_at,
-        "annualItems": collected["annualItems"][:5],
-        "monthlyItems": collected["monthlyItems"][:5],
+        "annualItems": annual_items,
+        "monthlyItems": monthly_items,
+        "badgeMode": badge_mode,
+        "badgeText": badge_text,
+        "hasTop1": has_top1,
+        "hasAny": has_any,
     }
 
 
