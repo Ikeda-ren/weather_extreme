@@ -235,7 +235,7 @@ h1 {
 
 .live-summary-item {
   display: grid;
-  grid-template-columns: 30px 48px minmax(0, 1fr) auto minmax(72px, auto);
+  grid-template-columns: 28px auto minmax(0, 1fr) auto minmax(72px, auto);
   align-items: center;
   gap: 8px 12px;
   width: 100%;
@@ -302,6 +302,8 @@ h1 {
   color: var(--accent-dark);
   font-weight: 900;
   white-space: nowrap;
+  width: fit-content;
+  min-width: 0;
 }
 
 .live-summary-main {
@@ -697,7 +699,7 @@ h1 {
   }
 
   .live-summary-item {
-    grid-template-columns: 30px 40px minmax(0, 1fr) auto;
+    grid-template-columns: 28px auto minmax(0, 1fr) auto;
     row-gap: 6px;
   }
 
