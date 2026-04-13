@@ -2,36 +2,36 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>県内極値一覧</title>
-
-  <meta name="theme-color" content="#0077b6" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="県内極値一覧" />
-
+  <meta name="description" content="気象庁公開データをもとにした県内極値一覧と実況ランクイン判定" />
   <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-sticky">
+  <header class="app-header">
+    <div class="title-row">
       <h1>県内極値一覧</h1>
+      <div class="header-meta">
+        <span class="meta-label">実況観測時刻</span>
+        <span id="observedLatestAt" class="meta-value">読み込み待ち</span>
+      </div>
+    </div>
 
-      <div class="controls">
-        <label>
-          <span>地域</span>
+    <section class="control-panel">
+      <div class="control-grid">
+        <label class="control-item">
+          <span class="control-label">地域</span>
           <select id="regionSelect"></select>
         </label>
 
-        <label>
-          <span>都道府県</span>
+        <label class="control-item">
+          <span class="control-label">都道府県</span>
           <select id="prefSelect"></select>
         </label>
 
-        <label>
-          <span>月</span>
+        <label class="control-item">
+          <span class="control-label">月</span>
           <select id="monthSelect">
             <option value="all">通年</option>
             <option value="1">1月</option>
@@ -49,61 +49,70 @@
           </select>
         </label>
       </div>
-    </div>
 
-    <details id="liveSummarySection" class="live-summary-details" open>
-      <summary class="summary-row">
-        <span class="summary-title">実況で10位以内に入った項目</span>
-        <span class="summary-badges">
-          <span id="rankInBadge" class="rank-in-badge" hidden aria-hidden="true">ランクイン有り</span>
-          <span id="topRankAlert" class="top-rank-alert" hidden aria-hidden="true">極値1位更新有り</span>
-        </span>
-      </summary>
-
-      <div id="liveSummaryBody" class="live-summary-body">
-        <div class="live-summary-empty">読み込み待ち</div>
+      <div class="badge-row">
+        <div id="rankInBadge" class="status-badge status-badge-rankin" hidden>ランクイン有り</div>
+        <div id="topRankAlert" class="status-badge status-badge-top1" hidden>極値1位更新有り</div>
+        <div id="liveSupportBadge" class="status-badge status-badge-note">実況判定: 読み込み待ち</div>
       </div>
-    </details>
-
-    <details class="element-details">
-      <summary id="elementPanelToggle">要素選択を開く / 閉じる</summary>
-      <div id="elementPanel" class="element-panel">
-        <div class="live-summary-empty">読み込み待ち</div>
-      </div>
-    </details>
-  </header>
-
-  <main class="main">
-    <section class="status-row">
-      <section class="status-box" id="statusBox">
-        <span id="statusText">読み込み待ち</span>
-
-        <span class="observed-inline">
-          <strong class="observed-box-label">実況観測時刻</strong>
-          <span id="observedLatestAt">読み込み待ち</span>
-        </span>
-      </section>
     </section>
 
-    <section class="table-panel">
-      <div class="table-wrap">
-        <table id="rankTable" class="rank-table">
+    <section class="element-panel-wrap">
+      <button id="elementPanelToggle" class="toggle-button" type="button" aria-expanded="true">
+        要素選択を開く / 閉じる
+      </button>
+      <div id="elementPanel" class="element-panel"></div>
+    </section>
+  </header>
+
+  <main class="app-main">
+    <section class="summary-section">
+      <div class="section-title-row">
+        <h2>実況で10位以内に入った項目</h2>
+      </div>
+      <div id="liveSummaryBody" class="live-summary-grid">
+        <div class="live-summary-column">
+          <h3>通年</h3>
+          <div class="empty-message">読み込み待ち</div>
+        </div>
+        <div class="live-summary-column">
+          <h3>当月</h3>
+          <div class="empty-message">読み込み待ち</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="table-heading-row">
+        <div>
+          <h2 id="tableTitle">読み込み待ち</h2>
+          <p id="statusText" class="status-text">読み込み待ち</p>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span class="legend-chip live-chip">赤系：実況で順位相当あり</span>
+        <span class="legend-chip within-chip">黄系：1年以内の記録</span>
+      </div>
+
+      <div class="table-scroll">
+        <table class="rank-table">
           <thead id="rankTableHead"></thead>
-          <tbody id="rankTableBody"></tbody>
+          <tbody id="rankTableBody">
+            <tr>
+              <td class="message-cell" colspan="11">読み込み待ち</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </section>
 
-    <div class="note-bottom">
-      赤系：実況での記録 / 黄系：1年以内の記録
-    </div>
-
-    <details class="debug-details">
+    <details class="debug-section" id="debugDetails">
       <summary>診断情報</summary>
-      <div class="debug-grid" id="debugGrid"></div>
+      <div id="debugGrid" class="debug-grid"></div>
     </details>
   </main>
 
-  <script src="./js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>
