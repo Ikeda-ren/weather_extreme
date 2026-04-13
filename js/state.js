@@ -1,40 +1,35 @@
 export const state = {
-  refreshTimer: null,
-  manifestCache: null,
-  prefecturesData: [],
-  debugState: {
+  prefectures: [],
+  elements: null,
+  manifest: null,
+  selectedElementKey: "",
+  stationConfigCache: new Map(),
+  tableCache: new Map(),
+  pointChunkCache: new Map(),
+  pointDailyCache: new Map(),
+  latestTimeCache: {
+    iso: "",
+    fetchedAt: 0,
+  },
+  latestMapCache: {
+    iso: "",
+    data: null,
+    fetchedAt: 0,
+  },
+  debug: {
     selectedRegion: "",
-    selectedPref: "",
+    selectedPrefKey: "",
     selectedPrefName: "",
     selectedMonth: "",
-    selectedElement: "",
+    selectedElementKey: "",
     selectedElementLabel: "",
-    manifest: {
-      path: "./data/manifest.json",
-      ok: false,
-      observationTime: "",
-      generatedAt: "",
-      error: ""
-    },
-    liveSummary: {
-      path: "",
-      ok: false,
-      itemCount: 0,
-      observationTime: "",
-      generatedAt: "",
-      status: "",
-      message: "",
-      error: ""
-    },
-    table: {
-      path: "",
-      ok: false,
-      rowCount: 0,
-      observationTime: "",
-      generatedAt: "",
-      status: "",
-      message: "",
-      error: ""
-    }
-  }
+    stationsPath: "",
+    tablePath: "",
+    latestObservationTime: "",
+    pointFetchCount: 0,
+    tableRowCount: 0,
+    summaryItemCount: 0,
+    liveSupported: "",
+    liveError: "",
+  },
 };
