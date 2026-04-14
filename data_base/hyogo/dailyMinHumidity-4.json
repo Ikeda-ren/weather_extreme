@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-14T04:51:03.351031+09:00",
-  "observedLatestAt": "2026-04-14T04:40:00+09:00",
+  "updatedAt": "2026-04-15T04:50:45.769075+09:00",
+  "observedLatestAt": "2026-04-15T04:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "dailyMinHumidity",
   "month": "4",
@@ -220,14 +220,14 @@
         {
           "rank": 9,
           "value": 19,
-          "date": "2025年4月27日（令和7年）",
+          "date": "2026年4月14日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
           "value": 19,
-          "date": "2025年4月17日（令和7年）",
+          "date": "2025年4月27日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
