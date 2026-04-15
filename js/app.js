@@ -438,12 +438,27 @@ async function refresh() {
     });
 
     const totalSummaryCount = annualSummary.length + monthlySummary.length;
+    
     const hasTop1Summary =
       annualSummary.some((item) => item.rank === 1) ||
       monthlySummary.some((item) => item.rank === 1);
-
-    rankInBadge.hidden = totalSummaryCount === 0;
-    topRankAlert.hidden = !hasTop1Summary;
+    
+    // ▼ 完全に排他的にする
+    if (totalSummaryCount === 0) {
+      // 何もランクインしていない
+      rankInBadge.hidden = true;
+      topRankAlert.hidden = true;
+    
+    } else if (hasTop1Summary) {
+      // 1位がある → 最優先
+      rankInBadge.hidden = true;
+      topRankAlert.hidden = false;
+    
+    } else {
+      // ランクインのみ（1位なし）
+      rankInBadge.hidden = false;
+      topRankAlert.hidden = true;
+    }
 
     renderDebug(debugGrid, state.debug);
   } catch (error) {
