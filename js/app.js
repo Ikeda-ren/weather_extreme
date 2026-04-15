@@ -54,6 +54,9 @@ const rankTableBody = document.getElementById("rankTableBody");
 const liveSummaryBody = document.getElementById("liveSummaryBody");
 const debugGrid = document.getElementById("debugGrid");
 
+const summaryToggle = document.getElementById("summaryToggle");
+const liveSummaryBody = document.getElementById("liveSummaryBody");
+
 let currentMonth = DEFAULT_MONTH;
 let currentElementKey = "";
 
