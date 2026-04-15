@@ -43,6 +43,8 @@ const STORAGE_KEYS = {
   prefOrder: "weather_extreme:pref_order",
 };
 
+const AUTO_REFRESH_INTERVAL = 10 * 60 * 1000;
+
 const STANDARD_REGIONS = [
   "北海道",
   "東北",
@@ -101,6 +103,7 @@ const customCancelButton = document.getElementById("customCancelButton");
 const customSaveButton = document.getElementById("customSaveButton");
 const customRegionTabs = document.getElementById("customRegionTabs");
 const customPrefChecklist = document.getElementById("customPrefChecklist");
+const customPrefSortList = document.getElementById("customPrefSortList");
 const selectAllPrefsButton = document.getElementById("selectAllPrefsButton");
 const clearAllPrefsButton = document.getElementById("clearAllPrefsButton");
 
@@ -113,6 +116,7 @@ let enabledPrefKeys = new Set();
 let prefOrderKeys = [];
 let customEditingRegion = "";
 let dragSourceKey = null;
+let touchSourceKey = null;
 
 async function main() {
   try {
@@ -129,6 +133,7 @@ async function main() {
     bindEvents();
 
     await refresh();
+    startAutoRefresh();
   } catch (error) {
     console.error(error);
     rankTableBody.innerHTML = `
@@ -391,18 +396,21 @@ function bindEvents() {
     customEditingRegion = button.dataset.customRegion || "";
     renderCustomRegionTabs();
     renderCustomPrefChecklist();
+    renderCustomPrefSortList();
   });
 
   selectAllPrefsButton.addEventListener("click", () => {
     const prefs = getPrefsByRegion(customEditingRegion);
     prefs.forEach((item) => enabledPrefKeys.add(item.key));
     renderCustomPrefChecklist();
+    renderCustomPrefSortList();
   });
 
   clearAllPrefsButton.addEventListener("click", () => {
     const prefs = getPrefsByRegion(customEditingRegion);
     prefs.forEach((item) => enabledPrefKeys.delete(item.key));
     renderCustomPrefChecklist();
+    renderCustomPrefSortList();
   });
 
   customPrefChecklist.addEventListener("change", (event) => {
@@ -417,63 +425,110 @@ function bindEvents() {
     } else {
       enabledPrefKeys.delete(prefKey);
     }
+
+    renderCustomPrefSortList();
   });
 
-  customPrefChecklist.addEventListener("dragstart", (event) => {
-    const item = event.target.closest(".pref-check-item");
+  customPrefSortList.addEventListener("dragstart", (event) => {
+    const item = event.target.closest(".pref-sort-item");
     if (!item) return;
 
     dragSourceKey = item.dataset.prefKey || null;
     item.classList.add("dragging");
+
     if (event.dataTransfer) {
       event.dataTransfer.effectAllowed = "move";
       event.dataTransfer.setData("text/plain", dragSourceKey || "");
     }
   });
 
-  customPrefChecklist.addEventListener("dragend", (event) => {
-    const item = event.target.closest(".pref-check-item");
+  customPrefSortList.addEventListener("dragend", (event) => {
+    const item = event.target.closest(".pref-sort-item");
     if (item) {
       item.classList.remove("dragging");
     }
 
-    customPrefChecklist.querySelectorAll(".pref-check-item").forEach((el) => {
+    customPrefSortList.querySelectorAll(".pref-sort-item").forEach((el) => {
       el.classList.remove("drag-over");
     });
 
     dragSourceKey = null;
   });
 
-  customPrefChecklist.addEventListener("dragover", (event) => {
+  customPrefSortList.addEventListener("dragover", (event) => {
     event.preventDefault();
-    const item = event.target.closest(".pref-check-item");
+    const item = event.target.closest(".pref-sort-item");
     if (!item) return;
 
-    customPrefChecklist.querySelectorAll(".pref-check-item").forEach((el) => {
+    customPrefSortList.querySelectorAll(".pref-sort-item").forEach((el) => {
       el.classList.remove("drag-over");
     });
 
     item.classList.add("drag-over");
   });
 
-  customPrefChecklist.addEventListener("dragleave", (event) => {
-    const item = event.target.closest(".pref-check-item");
+  customPrefSortList.addEventListener("dragleave", (event) => {
+    const item = event.target.closest(".pref-sort-item");
     if (!item) return;
     item.classList.remove("drag-over");
   });
 
-  customPrefChecklist.addEventListener("drop", (event) => {
+  customPrefSortList.addEventListener("drop", (event) => {
     event.preventDefault();
 
-    const target = event.target.closest(".pref-check-item");
+    const target = event.target.closest(".pref-sort-item");
     if (!target || !dragSourceKey) return;
 
     const targetKey = target.dataset.prefKey || "";
     if (!targetKey || targetKey === dragSourceKey) return;
 
     reorderPrefWithinRegion(customEditingRegion, dragSourceKey, targetKey);
-    renderCustomPrefChecklist();
+    renderCustomPrefSortList();
   });
+
+  customPrefSortList.addEventListener("touchstart", (event) => {
+    const item = event.target.closest(".pref-sort-item");
+    if (!item) return;
+
+    touchSourceKey = item.dataset.prefKey || null;
+    item.classList.add("dragging");
+  }, { passive: true });
+
+  customPrefSortList.addEventListener("touchmove", (event) => {
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    const item = target?.closest(".pref-sort-item");
+    if (!item) return;
+
+    customPrefSortList.querySelectorAll(".pref-sort-item").forEach((el) => {
+      el.classList.remove("drag-over");
+    });
+
+    item.classList.add("drag-over");
+  }, { passive: true });
+
+  customPrefSortList.addEventListener("touchend", (event) => {
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      cleanupTouchSort();
+      return;
+    }
+
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    const item = target?.closest(".pref-sort-item");
+
+    if (item && touchSourceKey) {
+      const targetKey = item.dataset.prefKey || "";
+      if (targetKey && targetKey !== touchSourceKey) {
+        reorderPrefWithinRegion(customEditingRegion, touchSourceKey, targetKey);
+        renderCustomPrefSortList();
+      }
+    }
+
+    cleanupTouchSort();
+  }, { passive: true });
 
   customSaveButton.addEventListener("click", async () => {
     ensureAtLeastOneEnabledPref();
@@ -491,6 +546,21 @@ function bindEvents() {
     closeCustomModal();
     await refresh();
   });
+}
+
+function cleanupTouchSort() {
+  customPrefSortList.querySelectorAll(".pref-sort-item").forEach((el) => {
+    el.classList.remove("dragging", "drag-over");
+  });
+  touchSourceKey = null;
+}
+
+function startAutoRefresh() {
+  setInterval(() => {
+    refresh().catch((error) => {
+      console.error("自動更新失敗:", error);
+    });
+  }, AUTO_REFRESH_INTERVAL);
 }
 
 function setSummaryExpanded(expanded) {
@@ -654,6 +724,7 @@ function openCustomModal() {
   customEditingRegion = currentRegion || getRegions()[0] || "";
   renderCustomRegionTabs();
   renderCustomPrefChecklist();
+  renderCustomPrefSortList();
   customModal.hidden = false;
 }
 
@@ -681,21 +752,37 @@ function renderCustomPrefChecklist() {
 
   customPrefChecklist.innerHTML = prefs
     .map((item) => `
-      <div
-        class="pref-check-item"
-        draggable="true"
-        data-pref-key="${item.key}"
-      >
-        <div class="drag-handle" aria-hidden="true">≡</div>
-
-        <label class="pref-check-main">
+      <label class="pref-check-item">
+        <div class="pref-check-main">
           <input
             type="checkbox"
             data-pref-check="${item.key}"
             ${enabledPrefKeys.has(item.key) ? "checked" : ""}
           />
           <span>${item.name}</span>
-        </label>
+        </div>
+      </label>
+    `)
+    .join("");
+}
+
+function renderCustomPrefSortList() {
+  const prefs = getVisiblePrefsByRegion(customEditingRegion);
+
+  if (!prefs.length) {
+    customPrefSortList.innerHTML = `<div class="empty-message">表示ONの都道府県がありません。</div>`;
+    return;
+  }
+
+  customPrefSortList.innerHTML = prefs
+    .map((item) => `
+      <div
+        class="pref-sort-item"
+        draggable="true"
+        data-pref-key="${item.key}"
+      >
+        <div class="drag-handle" aria-hidden="true">≡</div>
+        <div class="pref-sort-main">${item.name}</div>
       </div>
     `)
     .join("");
@@ -710,7 +797,6 @@ function reorderPrefWithinRegion(region, sourceKey, targetKey) {
   if (sourceOrderIndex < 0 || targetOrderIndex < 0) return;
 
   prefOrderKeys.splice(sourceOrderIndex, 1);
-
   const adjustedTargetIndex = prefOrderKeys.indexOf(targetKey);
   prefOrderKeys.splice(adjustedTargetIndex, 0, sourceKey);
 }
