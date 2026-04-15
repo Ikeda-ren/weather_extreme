@@ -39,9 +39,9 @@ const STORAGE_KEYS = {
   pref: "weather_extreme:last_pref",
   month: "weather_extreme:last_month",
   element: "weather_extreme:last_element",
+  enabledPrefs: "weather_extreme:enabled_prefs",
 };
 
-const regionTabs = document.getElementById("regionTabs");
 const prefButtons = document.getElementById("prefButtons");
 const monthSelect = document.getElementById("monthSelect");
 const elementPanel = document.getElementById("elementPanel");
@@ -59,13 +59,25 @@ const tableTitleEl = document.getElementById("tableTitle");
 const statusTextEl = document.getElementById("statusText");
 const rankTableHead = document.getElementById("rankTableHead");
 const rankTableBody = document.getElementById("rankTableBody");
-
 const debugGrid = document.getElementById("debugGrid");
+
+const customizeButton = document.getElementById("customizeButton");
+const customModal = document.getElementById("customModal");
+const customCloseButton = document.getElementById("customCloseButton");
+const customCancelButton = document.getElementById("customCancelButton");
+const customSaveButton = document.getElementById("customSaveButton");
+const customRegionTabs = document.getElementById("customRegionTabs");
+const customPrefChecklist = document.getElementById("customPrefChecklist");
+const selectAllPrefsButton = document.getElementById("selectAllPrefsButton");
+const clearAllPrefsButton = document.getElementById("clearAllPrefsButton");
 
 let currentRegion = "";
 let currentPrefKey = "";
 let currentElementKey = "";
 let currentMonth = DEFAULT_MONTH;
+
+let enabledPrefKeys = new Set();
+let customEditingRegion = "";
 
 async function main() {
   try {
@@ -109,15 +121,50 @@ function writeStorage(key, value) {
   }
 }
 
+function getAllPrefKeys() {
+  return (state.prefectures || []).map((item) => item.key);
+}
+
+function loadEnabledPrefKeys() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEYS.enabledPrefs);
+    if (!raw) {
+      enabledPrefKeys = new Set(getAllPrefKeys());
+      return;
+    }
+
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      enabledPrefKeys = new Set(getAllPrefKeys());
+      return;
+    }
+
+    const validSet = new Set(getAllPrefKeys());
+    enabledPrefKeys = new Set(parsed.filter((key) => validSet.has(key)));
+
+    if (enabledPrefKeys.size === 0) {
+      enabledPrefKeys = new Set(getAllPrefKeys());
+    }
+  } catch {
+    enabledPrefKeys = new Set(getAllPrefKeys());
+  }
+}
+
+function saveEnabledPrefKeys() {
+  writeStorage(STORAGE_KEYS.enabledPrefs, JSON.stringify([...enabledPrefKeys]));
+}
+
 function initControls() {
+  loadEnabledPrefKeys();
+
   currentRegion = getInitialRegion();
   currentPrefKey = getInitialPrefKey(currentRegion);
   currentMonth = getInitialMonth();
   currentElementKey = getInitialElementKey(currentMonth);
 
-  renderRegionTabs();
-  renderPrefButtons();
   monthSelect.value = currentMonth;
+
+  renderPrefButtons();
   renderElementButtons();
 
   elementPanel.hidden = true;
@@ -132,24 +179,6 @@ function initControls() {
 }
 
 function bindEvents() {
-  regionTabs.addEventListener("click", async (event) => {
-    const button = event.target.closest("[data-region]");
-    if (!button) return;
-
-    const nextRegion = button.dataset.region || "";
-    if (!nextRegion || nextRegion === currentRegion) return;
-
-    currentRegion = nextRegion;
-    writeStorage(STORAGE_KEYS.region, currentRegion);
-
-    currentPrefKey = getInitialPrefKey(currentRegion);
-    writeStorage(STORAGE_KEYS.pref, currentPrefKey);
-
-    renderRegionTabs();
-    renderPrefButtons();
-    await refresh();
-  });
-
   prefButtons.addEventListener("click", async (event) => {
     const button = event.target.closest("[data-pref-key]");
     if (!button) return;
@@ -158,6 +187,11 @@ function bindEvents() {
     if (!nextPrefKey || nextPrefKey === currentPrefKey) return;
 
     currentPrefKey = nextPrefKey;
+    const prefMeta = getPrefMetaByKey(currentPrefKey);
+    if (prefMeta?.region) {
+      currentRegion = prefMeta.region;
+      writeStorage(STORAGE_KEYS.region, currentRegion);
+    }
     writeStorage(STORAGE_KEYS.pref, currentPrefKey);
 
     renderPrefButtons();
@@ -203,6 +237,70 @@ function bindEvents() {
       setSummaryExpanded(liveSummaryBody.hidden);
     }
   });
+
+  customizeButton.addEventListener("click", () => {
+    openCustomModal();
+  });
+
+  customCloseButton.addEventListener("click", closeCustomModal);
+  customCancelButton.addEventListener("click", closeCustomModal);
+
+  customModal.addEventListener("click", (event) => {
+    if (event.target === customModal) {
+      closeCustomModal();
+    }
+  });
+
+  customRegionTabs.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-custom-region]");
+    if (!button) return;
+
+    customEditingRegion = button.dataset.customRegion || "";
+    renderCustomRegionTabs();
+    renderCustomPrefChecklist();
+  });
+
+  selectAllPrefsButton.addEventListener("click", () => {
+    const prefs = getPrefsByRegion(customEditingRegion);
+    prefs.forEach((item) => enabledPrefKeys.add(item.key));
+    renderCustomPrefChecklist();
+  });
+
+  clearAllPrefsButton.addEventListener("click", () => {
+    const prefs = getPrefsByRegion(customEditingRegion);
+    prefs.forEach((item) => enabledPrefKeys.delete(item.key));
+    renderCustomPrefChecklist();
+  });
+
+  customPrefChecklist.addEventListener("change", (event) => {
+    const input = event.target.closest("[data-pref-check]");
+    if (!input) return;
+
+    const prefKey = input.dataset.prefCheck || "";
+    if (!prefKey) return;
+
+    if (input.checked) {
+      enabledPrefKeys.add(prefKey);
+    } else {
+      enabledPrefKeys.delete(prefKey);
+    }
+  });
+
+  customSaveButton.addEventListener("click", async () => {
+    ensureAtLeastOneEnabledPref();
+
+    const best = getBestRegionAndPref();
+    currentRegion = best.region;
+    currentPrefKey = best.prefKey;
+
+    writeStorage(STORAGE_KEYS.region, currentRegion);
+    writeStorage(STORAGE_KEYS.pref, currentPrefKey);
+    saveEnabledPrefKeys();
+
+    renderPrefButtons();
+    closeCustomModal();
+    await refresh();
+  });
 }
 
 function setSummaryExpanded(expanded) {
@@ -219,30 +317,68 @@ function getPrefsByRegion(region) {
   return (state.prefectures || []).filter((item) => item.region === region);
 }
 
+function getVisiblePrefsByRegion(region) {
+  return getPrefsByRegion(region).filter((item) => enabledPrefKeys.has(item.key));
+}
+
+function getPrefMetaByKey(prefKey) {
+  return (state.prefectures || []).find((item) => item.key === prefKey) || null;
+}
+
 function getInitialRegion() {
   const regions = getRegions();
   const savedRegion = readStorage(STORAGE_KEYS.region);
-
-  if (savedRegion && regions.includes(savedRegion)) {
+  if (savedRegion && getVisiblePrefsByRegion(savedRegion).length > 0) {
     return savedRegion;
   }
-  if (regions.includes(DEFAULT_REGION)) {
+
+  if (regions.includes(DEFAULT_REGION) && getVisiblePrefsByRegion(DEFAULT_REGION).length > 0) {
     return DEFAULT_REGION;
   }
-  return regions[0] || "";
+
+  const fallbackRegion = regions.find((region) => getVisiblePrefsByRegion(region).length > 0);
+  return fallbackRegion || regions[0] || "";
 }
 
 function getInitialPrefKey(region) {
-  const prefList = getPrefsByRegion(region);
+  const visiblePrefs = getVisiblePrefsByRegion(region);
   const savedPref = readStorage(STORAGE_KEYS.pref);
 
-  if (savedPref && prefList.some((item) => item.key === savedPref)) {
+  if (savedPref && visiblePrefs.some((item) => item.key === savedPref)) {
     return savedPref;
   }
-  if (prefList.some((item) => item.key === DEFAULT_PREF)) {
+  if (visiblePrefs.some((item) => item.key === DEFAULT_PREF)) {
     return DEFAULT_PREF;
   }
-  return prefList[0]?.key || "";
+  return visiblePrefs[0]?.key || "";
+}
+
+function getBestRegionAndPref() {
+  const regions = getRegions();
+
+  if (currentRegion) {
+    const visiblePrefs = getVisiblePrefsByRegion(currentRegion);
+    if (visiblePrefs.length > 0) {
+      if (visiblePrefs.some((item) => item.key === currentPrefKey)) {
+        return { region: currentRegion, prefKey: currentPrefKey };
+      }
+      return { region: currentRegion, prefKey: visiblePrefs[0].key };
+    }
+  }
+
+  for (const region of regions) {
+    const visiblePrefs = getVisiblePrefsByRegion(region);
+    if (visiblePrefs.length > 0) {
+      return { region, prefKey: visiblePrefs[0].key };
+    }
+  }
+
+  return { region: regions[0] || "", prefKey: getPrefsByRegion(regions[0] || "")[0]?.key || "" };
+}
+
+function ensureAtLeastOneEnabledPref() {
+  if (enabledPrefKeys.size > 0) return;
+  enabledPrefKeys = new Set(getAllPrefKeys());
 }
 
 function getInitialMonth() {
@@ -274,30 +410,21 @@ function getInitialElementKey(month = currentMonth) {
 }
 
 function getCurrentPrefMeta() {
-  return (state.prefectures || []).find((item) => item.key === currentPrefKey) || null;
+  return getPrefMetaByKey(currentPrefKey);
 }
 
 function getCurrentElementMeta() {
   return getCurrentElementList().find((item) => item.key === currentElementKey) || null;
 }
 
-function renderRegionTabs() {
-  const regions = getRegions();
-  regionTabs.innerHTML = regions
-    .map((region) => `
-      <button
-        type="button"
-        class="region-tab ${region === currentRegion ? "active" : ""}"
-        data-region="${region}"
-      >
-        ${region}
-      </button>
-    `)
-    .join("");
-}
-
 function renderPrefButtons() {
-  const prefList = getPrefsByRegion(currentRegion);
+  const prefList = getVisiblePrefsByRegion(currentRegion);
+
+  if (!prefList.length) {
+    prefButtons.innerHTML = `<div class="empty-message">表示対象の都道府県がありません。カスタムから設定してください。</div>`;
+    return;
+  }
+
   prefButtons.innerHTML = prefList
     .map((item) => `
       <button
@@ -313,6 +440,48 @@ function renderPrefButtons() {
 
 function renderElementButtons() {
   renderElementPanel(elementPanel, getCurrentElementList(), currentElementKey);
+}
+
+function openCustomModal() {
+  customEditingRegion = currentRegion || getRegions()[0] || "";
+  renderCustomRegionTabs();
+  renderCustomPrefChecklist();
+  customModal.hidden = false;
+}
+
+function closeCustomModal() {
+  customModal.hidden = true;
+}
+
+function renderCustomRegionTabs() {
+  const regions = getRegions();
+  customRegionTabs.innerHTML = regions
+    .map((region) => `
+      <button
+        type="button"
+        class="region-tab ${region === customEditingRegion ? "active" : ""}"
+        data-custom-region="${region}"
+      >
+        ${region}
+      </button>
+    `)
+    .join("");
+}
+
+function renderCustomPrefChecklist() {
+  const prefs = getPrefsByRegion(customEditingRegion);
+  customPrefChecklist.innerHTML = prefs
+    .map((item) => `
+      <label class="pref-check-item">
+        <input
+          type="checkbox"
+          data-pref-check="${item.key}"
+          ${enabledPrefKeys.has(item.key) ? "checked" : ""}
+        />
+        <span>${item.name}</span>
+      </label>
+    `)
+    .join("");
 }
 
 function pickLatestObservedAt(latestObservationTime, liveValuesByCode) {
@@ -347,7 +516,7 @@ async function refresh() {
   state.debug.selectedPrefName = prefMeta.name;
   state.debug.selectedMonth = currentMonth;
   state.debug.selectedElementKey = elementMeta.key;
-  state.debug.selectedElementLabel = elementMeta.shortLabel || elementMeta.label || elementMeta.key;
+  state.debug.selectedElementLabel = elementMeta.label || elementMeta.shortLabel || elementMeta.key;
   state.debug.pointFetchCount = 0;
   state.debug.liveError = "";
 
@@ -373,7 +542,6 @@ async function refresh() {
     );
 
     let liveSupportMode = "unsupported";
-    let liveSupportMessage = "この要素の実況判定は未対応です。";
     let latestObservationTime = "";
     let liveValuesByCode = {};
 
@@ -388,10 +556,8 @@ async function refresh() {
         latestObservationTime = liveBundle.latestIso || "";
         liveValuesByCode = liveBundle.valuesByCode || {};
         liveSupportMode = liveBundle.support || "supported";
-        liveSupportMessage = liveBundle.message || "";
       } catch (error) {
         liveSupportMode = "error";
-        liveSupportMessage = "実況取得に失敗したため、極値表のみ表示しています。";
         state.debug.liveError = error.message || String(error);
         liveValuesByCode = {};
         latestObservationTime = "";
@@ -411,11 +577,13 @@ async function refresh() {
       liveSupportMode
     );
 
+    const fullLabel = elementMeta.label || elementMeta.shortLabel || elementMeta.key;
+
     const annualSummary = currentMonth === "all"
       ? buildLiveSummaryItems(
           decoratedRows,
           elementMeta.key,
-          elementMeta.shortLabel || elementMeta.label || elementMeta.key,
+          fullLabel,
           "all"
         )
       : [];
@@ -425,7 +593,7 @@ async function refresh() {
       : buildLiveSummaryItems(
           decoratedRows,
           elementMeta.key,
-          elementMeta.shortLabel || elementMeta.label || elementMeta.key,
+          fullLabel,
           currentMonth
         );
 
@@ -439,11 +607,9 @@ async function refresh() {
       observedLatestAtEl,
       prefName: prefMeta.name,
       month: currentMonth,
-      elementKey: elementMeta.key,
-      elementLabel: elementMeta.shortLabel || elementMeta.label || elementMeta.key,
+      elementLabel: fullLabel,
       rowCount: rows.length,
       latestObservationTime,
-      supportMessage: liveSupportMessage,
     });
 
     const totalSummaryCount = annualSummary.length + monthlySummary.length;
