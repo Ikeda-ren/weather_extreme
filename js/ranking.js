@@ -1,8 +1,21 @@
 import { LOW_IS_BETTER_KEYS, LIVE_SUMMARY_ORDER } from "./constants.js";
-import { parseRankValue } from "./utils.js";
 
 export function isLowBetter(elementKey) {
   return LOW_IS_BETTER_KEYS.has(elementKey);
+}
+
+function parseValue(value) {
+  if (value === null || value === undefined) return null;
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+
+  const text = String(value).replaceAll(",", "").trim();
+  if (!text) return null;
+
+  const matched = text.match(/-?\d+(?:\.\d+)?/);
+  if (!matched) return null;
+
+  const num = Number(matched[0]);
+  return Number.isFinite(num) ? num : null;
 }
 
 export function judgeLiveRank(liveValue, row, elementKey) {
@@ -14,12 +27,12 @@ export function judgeLiveRank(liveValue, row, elementKey) {
   const parsed = ranks
     .map((rankItem, index) => ({
       index,
-      value: parseRankValue(rankItem?.value),
+      value: parseValue(rankItem?.value),
     }))
     .filter((item) => Number.isFinite(item.value));
 
   if (parsed.length === 0) {
-    return 1;
+    return null;
   }
 
   if (isLowBetter(elementKey)) {
@@ -32,7 +45,7 @@ export function judgeLiveRank(liveValue, row, elementKey) {
     }
   }
 
-  return parsed.length < 10 ? parsed.length + 1 : null;
+  return null;
 }
 
 export function decorateRowsWithLive(rows, stationIndex, liveValuesByCode, elementKey, supportMode) {
@@ -51,7 +64,7 @@ export function decorateRowsWithLive(rows, stationIndex, liveValuesByCode, eleme
       stationCode: code,
       liveCandidate: {
         supportMode,
-        supported: supportMode !== "unsupported",
+        supported: supportMode !== "unsupported" && supportMode !== "error",
         value: liveValue,
         rank: insertionRank,
         observedAt: live?.observedAt || "",
@@ -66,7 +79,8 @@ export function buildLiveSummaryItems(rows, elementKey, elementLabel, month) {
 
   for (const row of rows || []) {
     const live = row.liveCandidate;
-    if (!live || !Number.isFinite(live.value) || !live.rank || live.rank > 10) continue;
+    if (!live || !Number.isFinite(live.value) || !Number.isFinite(live.rank)) continue;
+    if (live.rank < 1 || live.rank > 10) continue;
 
     items.push({
       elementKey,
