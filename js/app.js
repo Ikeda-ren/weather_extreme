@@ -47,7 +47,8 @@ const monthSelect = document.getElementById("monthSelect");
 const elementPanel = document.getElementById("elementPanel");
 const elementPanelToggle = document.getElementById("elementPanelToggle");
 
-const summaryToggle = document.getElementById("summaryToggle");
+const summaryHeader = document.getElementById("summaryHeader");
+const summaryChevron = document.getElementById("summaryChevron");
 const liveSummaryBody = document.getElementById("liveSummaryBody");
 
 const rankInBadge = document.getElementById("rankInBadge");
@@ -123,9 +124,7 @@ function initControls() {
   elementPanelToggle.textContent = "要素選択を開く";
   elementPanelToggle.setAttribute("aria-expanded", "false");
 
-  liveSummaryBody.hidden = true;
-  summaryToggle.textContent = "開く";
-  summaryToggle.setAttribute("aria-expanded", "false");
+  setSummaryExpanded(false);
 
   rankInBadge.hidden = true;
   topRankAlert.hidden = true;
@@ -194,12 +193,22 @@ function bindEvents() {
     elementPanelToggle.setAttribute("aria-expanded", String(!nextHidden));
   });
 
-  summaryToggle.addEventListener("click", () => {
-    const nextHidden = !liveSummaryBody.hidden;
-    liveSummaryBody.hidden = nextHidden;
-    summaryToggle.textContent = nextHidden ? "開く" : "閉じる";
-    summaryToggle.setAttribute("aria-expanded", String(!nextHidden));
+  summaryHeader.addEventListener("click", () => {
+    setSummaryExpanded(liveSummaryBody.hidden);
   });
+
+  summaryHeader.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setSummaryExpanded(liveSummaryBody.hidden);
+    }
+  });
+}
+
+function setSummaryExpanded(expanded) {
+  liveSummaryBody.hidden = !expanded;
+  summaryHeader.setAttribute("aria-expanded", String(expanded));
+  summaryChevron.classList.toggle("expanded", expanded);
 }
 
 function getRegions() {
@@ -438,24 +447,17 @@ async function refresh() {
     });
 
     const totalSummaryCount = annualSummary.length + monthlySummary.length;
-    
     const hasTop1Summary =
       annualSummary.some((item) => item.rank === 1) ||
       monthlySummary.some((item) => item.rank === 1);
-    
-    // ▼ 完全に排他的にする
+
     if (totalSummaryCount === 0) {
-      // 何もランクインしていない
       rankInBadge.hidden = true;
       topRankAlert.hidden = true;
-    
     } else if (hasTop1Summary) {
-      // 1位がある → 最優先
       rankInBadge.hidden = true;
       topRankAlert.hidden = false;
-    
     } else {
-      // ランクインのみ（1位なし）
       rankInBadge.hidden = false;
       topRankAlert.hidden = true;
     }
