@@ -78,13 +78,28 @@
       </div>
 
       <div id="liveSummaryBody" class="live-summary-grid" hidden>
-        <div class="live-summary-column">
-          <h3>通年</h3>
-          <div class="empty-message">読み込み待ち</div>
+        <div class="summary-panel" data-summary-panel="annual">
+          <div class="summary-panel-header" role="button" tabindex="0" aria-expanded="true" data-summary-toggle="annual">
+            <h3>通年</h3>
+            <div class="summary-panel-chevron" data-summary-chevron="annual">▼</div>
+          </div>
+          <div class="summary-panel-body" data-summary-body="annual">
+            <div class="live-summary-column-body">
+              <div class="empty-message">読み込み待ち</div>
+            </div>
+          </div>
         </div>
-        <div class="live-summary-column">
-          <h3>当月</h3>
-          <div class="empty-message">読み込み待ち</div>
+
+        <div class="summary-panel" data-summary-panel="monthly">
+          <div class="summary-panel-header" role="button" tabindex="0" aria-expanded="true" data-summary-toggle="monthly">
+            <h3>当月</h3>
+            <div class="summary-panel-chevron" data-summary-chevron="monthly">▼</div>
+          </div>
+          <div class="summary-panel-body" data-summary-body="monthly">
+            <div class="live-summary-column-body">
+              <div class="empty-message">読み込み待ち</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -135,7 +150,7 @@
 
         <section class="modal-section">
           <div class="modal-section-title-row">
-            <div class="modal-section-title">表示する都道府県</div>
+            <div class="modal-section-title">表示する都道府県 / 並び順</div>
             <div class="modal-mini-actions">
               <button id="selectAllPrefsButton" class="sub-action-button" type="button">全選択</button>
               <button id="clearAllPrefsButton" class="sub-action-button" type="button">全解除</button>
