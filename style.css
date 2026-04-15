@@ -203,12 +203,6 @@ select {
   background: #d6e0ec;
 }
 
-.toggle-button-small {
-  width: auto;
-  min-width: 84px;
-  padding: 8px 16px;
-}
-
 .element-panel {
   margin-top: 10px;
   display: grid;
@@ -281,6 +275,16 @@ select {
   margin-bottom: 10px;
 }
 
+.section-title-row-clickable {
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 0;
+}
+
+.section-title-row-clickable:hover {
+  opacity: 0.92;
+}
+
 .summary-title-wrap {
   display: flex;
   align-items: center;
@@ -312,6 +316,10 @@ select {
   font-size: 0.9rem;
 }
 
+.status-badge[hidden] {
+  display: none !important;
+}
+
 .status-badge-rankin {
   background: var(--live-bg);
   border-color: var(--live-border);
@@ -320,6 +328,17 @@ select {
 .status-badge-top1 {
   background: var(--top1-bg);
   border-color: var(--top1-border);
+}
+
+.summary-chevron {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--subtext);
+  transition: transform 0.15s ease;
+}
+
+.summary-chevron.expanded {
+  transform: rotate(180deg);
 }
 
 .status-text {
