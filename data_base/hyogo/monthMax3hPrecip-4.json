@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-15T14:51:39.595378+09:00",
-  "observedLatestAt": "2026-04-15T14:40:00+09:00",
+  "updatedAt": "2026-04-16T04:51:01.552589+09:00",
+  "observedLatestAt": "2026-04-16T04:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthMax3hPrecip",
   "month": "4",
@@ -83,7 +83,7 @@
     },
     {
       "stationName": "温泉",
-      "startDate": "2018年4月24日（平成30年）",
+      "startDate": "2026年4月15日（令和8年）",
       "ranks": [
         {
           "rank": 1,
@@ -150,10 +150,10 @@
         },
         {
           "rank": 10,
-          "value": 16.5,
-          "date": "2018年4月24日（平成30年）",
+          "value": 17,
+          "date": "2026年4月15日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         }
       ]
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "stationName": "家島",
-      "startDate": "2008年4月17日（平成20年）",
+      "startDate": "1976年4月29日（昭和51年）",
       "ranks": [
         {
           "rank": 1,
@@ -1511,15 +1511,15 @@
         },
         {
           "rank": 9,
-          "value": 19,
-          "date": "1976年4月29日（昭和51年）",
+          "value": 19.5,
+          "date": "2026年4月15日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
-          "value": 18.5,
-          "date": "2008年4月17日（平成20年）",
+          "value": 19,
+          "date": "1976年4月29日（昭和51年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

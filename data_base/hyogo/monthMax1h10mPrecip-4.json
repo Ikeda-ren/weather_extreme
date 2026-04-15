@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-15T14:51:39.595378+09:00",
-  "observedLatestAt": "2026-04-15T14:40:00+09:00",
+  "updatedAt": "2026-04-16T04:51:01.552589+09:00",
+  "observedLatestAt": "2026-04-16T04:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "monthMax1h10mPrecip",
   "month": "4",
@@ -1755,7 +1755,7 @@
     },
     {
       "stationName": "洲本",
-      "startDate": "2023年4月19日（令和5年）",
+      "startDate": "2023年4月30日（令和5年）",
       "ranks": [
         {
           "rank": 1,
@@ -1808,22 +1808,22 @@
         },
         {
           "rank": 8,
+          "value": 11,
+          "date": "2026年4月15日（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 9,
           "value": 10.5,
           "date": "2025年4月13日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 9,
-          "value": 10.5,
-          "date": "2023年4月30日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
           "rank": 10,
           "value": 10.5,
-          "date": "2023年4月19日（令和5年）",
+          "date": "2023年4月30日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -1831,7 +1831,7 @@
     },
     {
       "stationName": "南淡",
-      "startDate": "2008年4月9日（平成20年）",
+      "startDate": "2022年4月26日（令和4年）",
       "ranks": [
         {
           "rank": 1,
@@ -1891,15 +1891,15 @@
         },
         {
           "rank": 9,
-          "value": 9.5,
-          "date": "2022年4月26日（令和4年）",
+          "value": 10.5,
+          "date": "2026年4月15日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 10,
           "value": 9.5,
-          "date": "2008年4月9日（平成20年）",
+          "date": "2022年4月26日（令和4年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
