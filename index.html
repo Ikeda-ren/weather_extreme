@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>県内極値一覧</title>
-  <meta name="description" content="気象庁公開データをもとにした県内極値一覧と実況ランクイン判定" />
-  <link rel="manifest" href="./manifest.webmanifest" />
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -49,27 +47,38 @@
           </select>
         </label>
       </div>
-
-      <div class="badge-row">
-        <div id="rankInBadge" class="status-badge status-badge-rankin" hidden>ランクイン有り</div>
-        <div id="topRankAlert" class="status-badge status-badge-top1" hidden>極値1位更新有り</div>
-      </div>
     </section>
 
+    <!-- 要素選択（初期は閉じる） -->
     <section class="element-panel-wrap">
-      <button id="elementPanelToggle" class="toggle-button" type="button" aria-expanded="true">
-        要素選択を開く / 閉じる
+      <button id="elementPanelToggle" class="toggle-button" type="button" aria-expanded="false">
+        要素選択を開く
       </button>
-      <div id="elementPanel" class="element-panel"></div>
+      <div id="elementPanel" class="element-panel" hidden></div>
     </section>
   </header>
 
   <main class="app-main">
+
+    <!-- 実況サマリー（折りたたみ化） -->
     <section class="summary-section">
       <div class="section-title-row">
-        <h2>実況で10位以内に入った項目</h2>
+        <div class="summary-title-left">
+          <h2>実況で10位以内に入った項目</h2>
+
+          <!-- ★ここにバッジ移動 -->
+          <div class="summary-badges">
+            <span id="rankInBadge" class="status-badge status-badge-rankin" hidden>ランクイン有り</span>
+            <span id="topRankAlert" class="status-badge status-badge-top1" hidden>極値1位更新有り</span>
+          </div>
+        </div>
+
+        <button id="summaryToggle" class="toggle-button small" type="button" aria-expanded="false">
+          開く
+        </button>
       </div>
-      <div id="liveSummaryBody" class="live-summary-grid">
+
+      <div id="liveSummaryBody" hidden class="live-summary-grid">
         <div class="live-summary-column">
           <h3>通年</h3>
           <div class="empty-message">読み込み待ち</div>
@@ -89,27 +98,14 @@
         </div>
       </div>
 
-      <div class="legend">
-        <span class="legend-chip live-chip">赤系：実況で順位相当あり</span>
-        <span class="legend-chip within-chip">黄系：1年以内の記録</span>
-      </div>
-
       <div class="table-scroll">
         <table class="rank-table">
           <thead id="rankTableHead"></thead>
-          <tbody id="rankTableBody">
-            <tr>
-              <td class="message-cell" colspan="11">読み込み待ち</td>
-            </tr>
-          </tbody>
+          <tbody id="rankTableBody"></tbody>
         </table>
       </div>
     </section>
 
-    <details class="debug-section" id="debugDetails">
-      <summary>診断情報</summary>
-      <div id="debugGrid" class="debug-grid"></div>
-    </details>
   </main>
 
   <script type="module" src="./js/app.js"></script>
