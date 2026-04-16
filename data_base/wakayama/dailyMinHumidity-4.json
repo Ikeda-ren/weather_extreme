@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-16T04:51:01.552589+09:00",
-  "observedLatestAt": "2026-04-16T04:40:00+09:00",
+  "updatedAt": "2026-04-17T04:47:33.877542+09:00",
+  "observedLatestAt": "2026-04-17T04:40:00+09:00",
   "prefecture": "和歌山県",
   "element": "dailyMinHumidity",
   "month": "4",
@@ -378,8 +378,8 @@
         },
         {
           "rank": 10,
-          "value": 27,
-          "date": "2026年4月13日（令和8年）",
+          "value": 26,
+          "date": "2026年4月16日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         }
@@ -565,49 +565,49 @@
         {
           "rank": 4,
           "value": 18,
-          "date": "2023年4月22日（令和5年）",
+          "date": "2026年4月16日（令和8年）",
           "highlightLive": false,
-          "highlightWithinYear": false
+          "highlightWithinYear": true
         },
         {
           "rank": 5,
-          "value": 20,
-          "date": "2025年4月27日（令和7年）",
+          "value": 18,
+          "date": "2023年4月22日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 6,
           "value": 20,
-          "date": "2025年4月9日（令和7年）",
+          "date": "2025年4月27日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 7,
           "value": 20,
-          "date": "2023年4月24日（令和5年）",
+          "date": "2025年4月9日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 8,
           "value": 20,
-          "date": "2023年4月9日（令和5年）",
+          "date": "2023年4月24日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 9,
-          "value": 21,
-          "date": "2023年4月1日（令和5年）",
+          "value": 20,
+          "date": "2023年4月9日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
           "rank": 10,
-          "value": 22,
-          "date": "2024年4月1日（令和6年）",
+          "value": 21,
+          "date": "2023年4月1日（令和5年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -661,29 +661,29 @@
         },
         {
           "rank": 7,
+          "value": 22,
+          "date": "2026年4月16日（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 8,
           "value": 23,
           "date": "2025年4月8日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "value": 23,
           "date": "2024年4月19日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "value": 23,
           "date": "2023年4月22日（令和5年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 10,
-          "value": 24,
-          "date": "2025年4月27日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }
@@ -738,28 +738,28 @@
         {
           "rank": 7,
           "value": 20,
+          "date": "2026年4月16日（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 8,
+          "value": 20,
           "date": "2024年4月19日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "value": 20,
           "date": "2024年4月10日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 9,
-          "value": 21,
-          "date": "2025年4月9日（令和7年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
           "rank": 10,
           "value": 21,
-          "date": "2025年4月7日（令和7年）",
+          "date": "2025年4月9日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-16T04:51:01.552589+09:00",
-  "observedLatestAt": "2026-04-16T04:40:00+09:00",
+  "updatedAt": "2026-04-17T04:47:33.877542+09:00",
+  "observedLatestAt": "2026-04-17T04:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "dailyMinHumidity",
   "month": "4",
@@ -897,23 +897,23 @@
         {
           "rank": 8,
           "value": 25,
+          "date": "2026年4月16日（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 9,
+          "value": 25,
           "date": "2025年4月27日（令和7年）",
           "highlightLive": false,
           "highlightWithinYear": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "value": 26,
           "date": "2026年4月13日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
-        },
-        {
-          "rank": 10,
-          "value": 26,
-          "date": "2025年4月29日（令和7年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
         }
       ]
     },
@@ -1042,28 +1042,28 @@
         {
           "rank": 7,
           "value": 29,
-          "date": "2026年4月13日（令和8年）",
+          "date": "2026年4月16日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 8,
+          "value": 29,
+          "date": "2026年4月13日（令和8年）",
+          "highlightLive": false,
+          "highlightWithinYear": true
+        },
+        {
+          "rank": 9,
           "value": 30,
           "date": "2026年4月7日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
-          "rank": 9,
+          "rank": 10,
           "value": 31,
           "date": "2025年4月5日（令和7年）",
-          "highlightLive": false,
-          "highlightWithinYear": false
-        },
-        {
-          "rank": 10,
-          "value": 32,
-          "date": "2024年4月18日（令和6年）",
           "highlightLive": false,
           "highlightWithinYear": false
         }

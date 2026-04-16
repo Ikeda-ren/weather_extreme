@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-16T04:51:01.552589+09:00",
-  "observedLatestAt": "2026-04-16T04:40:00+09:00",
+  "updatedAt": "2026-04-17T04:47:33.877542+09:00",
+  "observedLatestAt": "2026-04-17T04:40:00+09:00",
   "prefecture": "兵庫県",
   "element": "dailySnowDepth",
   "month": "4",
@@ -33,42 +33,42 @@
         {
           "rank": 4,
           "value": 0,
-          "date": "2026年4月15日（令和8年）",
+          "date": "2026年4月16日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 5,
           "value": 0,
-          "date": "2026年4月14日（令和8年）",
+          "date": "2026年4月15日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 6,
           "value": 0,
-          "date": "2026年4月13日（令和8年）",
+          "date": "2026年4月14日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 7,
           "value": 0,
-          "date": "2026年4月12日（令和8年）",
+          "date": "2026年4月13日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 8,
           "value": 0,
-          "date": "2026年4月11日（令和8年）",
+          "date": "2026年4月12日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 9,
           "value": 0,
-          "date": "2026年4月10日（令和8年）",
+          "date": "2026年4月11日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         }
@@ -268,28 +268,28 @@
         {
           "rank": 6,
           "value": 0,
-          "date": "2026年4月15日（令和8年）",
+          "date": "2026年4月16日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 7,
           "value": 0,
-          "date": "2026年4月14日（令和8年）",
+          "date": "2026年4月15日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 8,
           "value": 0,
-          "date": "2026年4月13日（令和8年）",
+          "date": "2026年4月14日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         },
         {
           "rank": 9,
           "value": 0,
-          "date": "2026年4月12日（令和8年）",
+          "date": "2026年4月13日（令和8年）",
           "highlightLive": false,
           "highlightWithinYear": true
         }
